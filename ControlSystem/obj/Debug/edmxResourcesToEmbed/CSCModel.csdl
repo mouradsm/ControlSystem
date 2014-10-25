@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cscModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="complemento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cep" Type="Int32" />
+    <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="cpf" Type="Int32" />
+    <Property Name="cnpj" Type="Int32" />
+    <Property Name="telefone" Type="Decimal" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataDeNascimento" Type="DateTime" />
+    <Property Name="dataDeCadastramento" Type="DateTime" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="venda" Relationship="Self.fk_Venda_Cliente" FromRole="cliente" ToRole="venda" />
+  </EntityType>
+  <EntityType Name="compra">
+    <Key>
+      <PropertyRef Name="numCompra" />
+      <PropertyRef Name="FORNECEDOR_cnpj" />
+    </Key>
+    <Property Name="numCompra" Type="Int32" Nullable="false" />
+    <Property Name="FORNECEDOR_cnpj" Type="Int32" Nullable="false" />
+    <Property Name="dataDeEntrega" Type="DateTime" Nullable="false" />
+    <Property Name="valorTotalDaCompra" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="devolução">
+    <Key>
+      <PropertyRef Name="idDevolução" />
+      <PropertyRef Name="Item_Venda_notaFiscalVenda" />
+      <PropertyRef Name="Estoque_codProduto" />
+    </Key>
+    <Property Name="idDevolução" Type="Int32" Nullable="false" />
+    <Property Name="Item_Venda_notaFiscalVenda" Type="Int32" Nullable="false" />
+    <Property Name="Estoque_codProduto" Type="Int32" Nullable="false" />
+    <Property Name="lote" Type="Int32" Nullable="false" />
+    <Property Name="quantidade" Type="Int32" Nullable="false" />
+    <Property Name="retornaEstoque" Type="Boolean" Nullable="false" />
+    <Property Name="motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="estoque">
+    <Key>
+      <PropertyRef Name="codProduto" />
+      <PropertyRef Name="codLoja" />
+      <PropertyRef Name="Lote_Lote" />
+      <PropertyRef Name="Lote_codProduto" />
+    </Key>
+    <Property Name="codProduto" Type="Int32" Nullable="false" />
+    <Property Name="codLoja" Type="Int32" Nullable="false" />
+    <Property Name="Lote_Lote" Type="Int32" Nullable="false" />
+    <Property Name="Lote_codProduto" Type="Int32" Nullable="false" />
+    <Property Name="precoUnitVenda" Type="Int32" Nullable="false" />
+    <Property Name="quantidade" Type="Int32" Nullable="false" />
+    <Property Name="tipoProduto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estoqueMaximo" Type="Int32" Nullable="false" />
+    <Property Name="estoqueMinimo" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="lote" Relationship="Self.fk_Estoque_Lote1" FromRole="estoque" ToRole="lote" />
+  </EntityType>
+  <EntityType Name="fornecedor">
+    <Key>
+      <PropertyRef Name="cnpj" />
+      <PropertyRef Name="Compra_numCompra" />
+    </Key>
+    <Property Name="cnpj" Type="Int32" Nullable="false" />
+    <Property Name="Compra_numCompra" Type="Int32" Nullable="false" />
+    <Property Name="razaoSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nomeFantasia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="complemento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cep" Type="Int32" Nullable="false" />
+    <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefone" Type="Decimal" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dataDeCadastramento" Type="DateTime" Nullable="false" />
+    <Property Name="contato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefoneContato" Type="Decimal" Nullable="false" />
+    <Property Name="emailContato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="fornecedor_produto">
+    <Key>
+      <PropertyRef Name="cnpj" />
+      <PropertyRef Name="Estoque_codProduto" />
+    </Key>
+    <Property Name="cnpj" Type="Int32" Nullable="false" />
+    <Property Name="Estoque_codProduto" Type="Int32" Nullable="false" />
+    <Property Name="preco" Type="Int32" Nullable="false" />
+    <Property Name="dataCotacao" Type="DateTime" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="funcionário">
+    <Key>
+      <PropertyRef Name="matriculaFuncionário" />
+    </Key>
+    <Property Name="matriculaFuncionário" Type="Int32" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="complemento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cep" Type="Int32" Nullable="false" />
+    <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="telefone" Type="Decimal" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataDeAdmissao" Type="DateTime" Nullable="false" />
+    <Property Name="dataDeDemissao" Type="DateTime" Nullable="false" />
+    <Property Name="perfilDeAcesso" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="cargo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="venda" Relationship="Self.fk_Venda_Funcionário1" FromRole="funcionário" ToRole="venda" />
+  </EntityType>
+  <EntityType Name="item_compra">
+    <Key>
+      <PropertyRef Name="codProduto" />
+      <PropertyRef Name="numCompra" />
+    </Key>
+    <Property Name="codProduto" Type="Int32" Nullable="false" />
+    <Property Name="numCompra" Type="Int32" Nullable="false" />
+    <Property Name="qtdCadaProduto" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="valorItem" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="item_venda">
+    <Key>
+      <PropertyRef Name="codProduto" />
+      <PropertyRef Name="Venda_notaFiscalVenda" />
+    </Key>
+    <Property Name="codProduto" Type="Int32" Nullable="false" />
+    <Property Name="Venda_notaFiscalVenda" Type="Int32" Nullable="false" />
+    <Property Name="quantidade" Type="Int32" Nullable="false" />
+    <Property Name="valorItem" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="lote">
+    <Key>
+      <PropertyRef Name="Lote1" />
+      <PropertyRef Name="codProduto" />
+    </Key>
+    <Property Name="Lote1" Type="Int32" Nullable="false" />
+    <Property Name="codProduto" Type="Int32" Nullable="false" />
+    <Property Name="dataDeValidade" Type="DateTime" Nullable="false" />
+    <Property Name="dataDeFabricacao" Type="DateTime" Nullable="false" />
+    <Property Name="quantidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="estoque" Relationship="Self.fk_Estoque_Lote1" FromRole="lote" ToRole="estoque" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idFuncionario" Type="Int32" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastlogin" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="venda">
+    <Key>
+      <PropertyRef Name="notaFiscalVenda" />
+      <PropertyRef Name="Cliente_idCliente" />
+      <PropertyRef Name="Funcionário_matriculaFuncionário" />
+    </Key>
+    <Property Name="notaFiscalVenda" Type="Int32" Nullable="false" />
+    <Property Name="Cliente_idCliente" Type="Int32" Nullable="false" />
+    <Property Name="Funcionário_matriculaFuncionário" Type="Int32" Nullable="false" />
+    <Property Name="dataVenda" Type="DateTime" Nullable="false" />
+    <Property Name="valorTotal" Type="Decimal" Nullable="false" />
+    <Property Name="desconto" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="valorTotalComDesconto" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="cliente" Relationship="Self.fk_Venda_Cliente" FromRole="venda" ToRole="cliente" />
+    <NavigationProperty Name="funcionário" Relationship="Self.fk_Venda_Funcionário1" FromRole="venda" ToRole="funcionário" />
+  </EntityType>
+  <Association Name="fk_Venda_Cliente">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+    <End Role="venda" Type="Self.venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="venda">
+        <PropertyRef Name="Cliente_idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Estoque_Lote1">
+    <End Role="lote" Type="Self.lote" Multiplicity="1" />
+    <End Role="estoque" Type="Self.estoque" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lote">
+        <PropertyRef Name="Lote1" />
+        <PropertyRef Name="codProduto" />
+      </Principal>
+      <Dependent Role="estoque">
+        <PropertyRef Name="Lote_Lote" />
+        <PropertyRef Name="Lote_codProduto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Venda_Funcionário1">
+    <End Role="funcionário" Type="Self.funcionário" Multiplicity="1" />
+    <End Role="venda" Type="Self.venda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcionário">
+        <PropertyRef Name="matriculaFuncionário" />
+      </Principal>
+      <Dependent Role="venda">
+        <PropertyRef Name="Funcionário_matriculaFuncionário" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cscEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cliente" EntityType="Self.cliente" />
+    <EntitySet Name="compra" EntityType="Self.compra" />
+    <EntitySet Name="devolução" EntityType="Self.devolução" />
+    <EntitySet Name="estoque" EntityType="Self.estoque" />
+    <EntitySet Name="fornecedor" EntityType="Self.fornecedor" />
+    <EntitySet Name="fornecedor_produto" EntityType="Self.fornecedor_produto" />
+    <EntitySet Name="funcionário" EntityType="Self.funcionário" />
+    <EntitySet Name="item_compra" EntityType="Self.item_compra" />
+    <EntitySet Name="item_venda" EntityType="Self.item_venda" />
+    <EntitySet Name="lote" EntityType="Self.lote" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <EntitySet Name="venda" EntityType="Self.venda" />
+    <AssociationSet Name="fk_Venda_Cliente" Association="Self.fk_Venda_Cliente">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="venda" EntitySet="venda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Estoque_Lote1" Association="Self.fk_Estoque_Lote1">
+      <End Role="lote" EntitySet="lote" />
+      <End Role="estoque" EntitySet="estoque" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Venda_Funcionário1" Association="Self.fk_Venda_Funcionário1">
+      <End Role="funcionário" EntitySet="funcionário" />
+      <End Role="venda" EntitySet="venda" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

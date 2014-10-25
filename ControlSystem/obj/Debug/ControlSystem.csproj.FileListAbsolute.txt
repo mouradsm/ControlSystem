@@ -1,0 +1,16 @@
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\ControlSystem.exe
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\ControlSystem.pdb
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\EntityFramework.dll
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\EntityFramework.xml
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.Properties.Resources.resources
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.csproj.GenerateResource.Cache
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.exe
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.pdb
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\MySql.Data.Entity.EF6.dll
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\MySql.Fabric.Plugin.dll
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\bin\Debug\ControlSystem.exe.config
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.csprojResolveAssemblyReference.cache
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmNewUser.resources
+c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmLogin.resources
