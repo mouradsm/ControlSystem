@@ -28,6 +28,14 @@ namespace ControlSystem
             try
             {
                 User.logar(txtUser.Text, txtPass.Text);
+                this.Hide();
+                
+
+                mainContainer container = new mainContainer();
+                container.Show();
+
+                //this.Dispose();
+
             }
             catch (Exception ex)
             {

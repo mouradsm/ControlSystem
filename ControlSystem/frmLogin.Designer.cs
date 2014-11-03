@@ -35,7 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lblMsg = new System.Windows.Forms.Label();
-            this.lblNovoUsuario = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -92,7 +91,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 5;
-            this.button1.Text = "Entrar";
+            this.button1.Text = "&Entrar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -105,17 +104,6 @@
             this.lblMsg.TabIndex = 6;
             this.lblMsg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblNovoUsuario
-            // 
-            this.lblNovoUsuario.AutoSize = true;
-            this.lblNovoUsuario.Location = new System.Drawing.Point(27, 197);
-            this.lblNovoUsuario.Name = "lblNovoUsuario";
-            this.lblNovoUsuario.Size = new System.Drawing.Size(220, 15);
-            this.lblNovoUsuario.TabIndex = 7;
-            this.lblNovoUsuario.TabStop = true;
-            this.lblNovoUsuario.Text = "Novo usuário ou esqueceu sua senha?";
-            this.lblNovoUsuario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNovoUsuario_LinkClicked);
-            // 
             // frmLogin
             // 
             this.AcceptButton = this.button1;
@@ -123,7 +111,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(284, 233);
-            this.Controls.Add(this.lblNovoUsuario);
             this.Controls.Add(this.lblMsg);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -149,7 +136,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblMsg;
-        private System.Windows.Forms.LinkLabel lblNovoUsuario;
     }
 }
 

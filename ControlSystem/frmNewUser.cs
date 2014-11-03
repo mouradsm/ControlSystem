@@ -46,6 +46,7 @@ namespace ControlSystem
                     usuario novoUsuario = new usuario() { login = txtLogin.Text,
                                                           password = Convert.ToBase64String(Encoding.UTF8.GetBytes(txtSenha.Text)),
                                                           idFuncionario = Convert.ToInt32(txtMatricula.Text)};
+                    
                     db.usuario.Add(novoUsuario);
                     db.SaveChanges();
 

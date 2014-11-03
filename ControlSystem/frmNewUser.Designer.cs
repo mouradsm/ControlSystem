@@ -81,7 +81,7 @@
             // 
             this.txtLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLogin.Location = new System.Drawing.Point(131, 115);
-            this.txtLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLogin.Margin = new System.Windows.Forms.Padding(4);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(266, 22);
             this.txtLogin.TabIndex = 1;
@@ -90,7 +90,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(131, 209);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(266, 22);
             this.txtEmail.TabIndex = 3;
@@ -121,7 +121,7 @@
             // 
             this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSenha.Location = new System.Drawing.Point(131, 256);
-            this.txtSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenha.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(107, 22);
@@ -131,7 +131,7 @@
             // 
             this.txtReSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReSenha.Location = new System.Drawing.Point(287, 256);
-            this.txtReSenha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReSenha.Margin = new System.Windows.Forms.Padding(4);
             this.txtReSenha.Name = "txtReSenha";
             this.txtReSenha.PasswordChar = '*';
             this.txtReSenha.Size = new System.Drawing.Size(110, 22);
@@ -150,6 +150,7 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalvar.Location = new System.Drawing.Point(221, 313);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(97, 33);
@@ -206,7 +207,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmNewUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

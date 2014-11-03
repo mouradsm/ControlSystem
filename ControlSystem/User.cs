@@ -10,7 +10,7 @@ namespace ControlSystem
     {
         public static string login { get; set; }
         public static string password { get; set; }
-        static cscEntities contexto;
+        static cscEntities db;
         
 
         public User(string usuario, string senha) {
@@ -24,9 +24,9 @@ namespace ControlSystem
 
         public static Boolean logar(string usuario, string senha){
            
-           contexto = new cscEntities();
+           db = new cscEntities();
 
-            string password = (from u in contexto.usuario
+            string password = (from u in db.usuario
                               where u.login == usuario
                               select u.password).First();
 
@@ -44,9 +44,9 @@ namespace ControlSystem
 
         public static Boolean checkUniqUser(string login) {
 
-            contexto = new cscEntities();
+            db = new cscEntities();
 
-            int countUser = (from u in contexto.usuario
+            int countUser = (from u in db.usuario
                              where u.login == login
                              select u).Count();
 
