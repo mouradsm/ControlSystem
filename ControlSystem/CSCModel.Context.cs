@@ -37,5 +37,6 @@ namespace ControlSystem
         public virtual DbSet<lote> lote { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<venda> venda { get; set; }
+        public virtual DbSet<estados> estados { get; set; }
     }
 }

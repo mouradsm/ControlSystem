@@ -12,9 +12,9 @@
     <Property Name="cep" Type="Int32" />
     <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-    <Property Name="cpf" Type="Int32" />
+    <Property Name="cpf" Type="String" />
     <Property Name="cnpj" Type="Int32" />
-    <Property Name="telefone" Type="Decimal" Nullable="false" />
+    <Property Name="telefone" Type="String" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="dataDeNascimento" Type="DateTime" />
     <Property Name="dataDeCadastramento" Type="DateTime" Nullable="false" />
@@ -241,5 +241,14 @@
       <End Role="funcionário" EntitySet="funcionário" />
       <End Role="venda" EntitySet="venda" />
     </AssociationSet>
+    <EntitySet Name="estados" EntityType="cscModel.estados" />
   </EntityContainer>
+  <EntityType Name="estados">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sigla" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

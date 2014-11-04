@@ -27,5 +27,9 @@ namespace ControlSystem
             novoEmpregadoForm.WindowState = FormWindowState.Maximized;
 
         }
+
+        private void mainContainer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
     }
 }

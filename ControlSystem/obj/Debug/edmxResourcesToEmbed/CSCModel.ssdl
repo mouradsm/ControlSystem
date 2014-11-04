@@ -12,9 +12,9 @@
     <Property Name="cep" Type="int" />
     <Property Name="cidade" Type="varchar" MaxLength="20" />
     <Property Name="uf" Type="char" MaxLength="2" />
-    <Property Name="cpf" Type="int" />
+    <Property Name="cpf" Type="varchar" MaxLength="15" />
     <Property Name="cnpj" Type="int" />
-    <Property Name="telefone" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="telefone" Type="varchar" MaxLength="14" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="dataDeNascimento" Type="date" />
     <Property Name="dataDeCadastramento" Type="date" Nullable="false" />
@@ -44,6 +44,14 @@
     <Property Name="quantidade" Type="int" Nullable="false" />
     <Property Name="retornaEstoque" Type="bool" Nullable="false" />
     <Property Name="motivo" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="estados">
+    <Key>
+      <PropertyRef Name="codigo" />
+    </Key>
+    <Property Name="codigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sigla" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="descricao" Type="varchar" MaxLength="30" Nullable="false" />
   </EntityType>
   <EntityType Name="estoque">
     <Key>
@@ -238,6 +246,7 @@ warning 6035: The relationship 'fk_Item Venda_Venda1' has columns that are not p
     <EntitySet Name="cliente" EntityType="Self.cliente" Schema="csc" store:Type="Tables" />
     <EntitySet Name="compra" EntityType="Self.compra" Schema="csc" store:Type="Tables" />
     <EntitySet Name="devolução" EntityType="Self.devolução" Schema="csc" store:Type="Tables" />
+    <EntitySet Name="estados" EntityType="Self.estados" Schema="csc" store:Type="Tables" />
     <EntitySet Name="estoque" EntityType="Self.estoque" Schema="csc" store:Type="Tables" />
     <EntitySet Name="fornecedor" EntityType="Self.fornecedor" Schema="csc" store:Type="Tables" />
     <EntitySet Name="fornecedor_produto" EntityType="Self.fornecedor_produto" Schema="csc" store:Type="Tables" />

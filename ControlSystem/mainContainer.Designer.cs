@@ -79,7 +79,7 @@
             this.MaximizeBox = false;
             this.Name = "mainContainer";
             this.Text = "mainContainer";
-            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainContainer_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

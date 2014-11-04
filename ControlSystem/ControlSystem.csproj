@@ -102,8 +102,14 @@
     <Compile Include="devolução.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="estados.cs">
+      <DependentUpon>CSCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="estoque.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="fornecedor.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
@@ -196,6 +202,7 @@
       <LastGenOutput>CSCModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\estados.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

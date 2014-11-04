@@ -27,9 +27,9 @@ namespace ControlSystem
         public Nullable<int> cep { get; set; }
         public string cidade { get; set; }
         public string uf { get; set; }
-        public Nullable<int> cpf { get; set; }
+        public string cpf { get; set; }
         public Nullable<int> cnpj { get; set; }
-        public decimal telefone { get; set; }
+        public string telefone { get; set; }
         public string email { get; set; }
         public Nullable<System.DateTime> dataDeNascimento { get; set; }
         public System.DateTime dataDeCadastramento { get; set; }
