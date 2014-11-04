@@ -41,7 +41,7 @@ namespace ControlSystem
                     ((System.Windows.Forms.RadioButton)ctrControl).Checked = false;
                 }
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.MaskedTextBox))) { 
-                    (()
+                    //(()
                 }
                 if (ctrControl.Controls.Count > 0)
                 {

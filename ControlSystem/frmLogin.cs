@@ -28,13 +28,13 @@ namespace ControlSystem
             try
             {
                 User.logar(txtUser.Text, txtPass.Text);
+                LogInfo.userID = txtUser.Text;
                 this.Hide();
                 
 
                 mainContainer container = new mainContainer();
                 container.Show();
 
-                //this.Dispose();
 
             }
             catch (Exception ex)

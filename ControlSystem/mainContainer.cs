@@ -19,17 +19,36 @@ namespace ControlSystem
 
         private void novoFuncionárioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewEmployee novoEmpregadoForm = new frmNewEmployee();
-            novoEmpregadoForm.MdiParent = this;
+            frmNewCous novoClienteForm = new frmNewCous();
+            novoClienteForm.MdiParent = this;
 
-            novoEmpregadoForm.Show();
+            novoClienteForm.Show();
             
-            novoEmpregadoForm.WindowState = FormWindowState.Maximized;
+            novoClienteForm.WindowState = FormWindowState.Maximized;
 
         }
 
         private void mainContainer_FormClosing(object sender, FormClosingEventArgs e)
         {
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mainContainer_Load(object sender, EventArgs e)
+        {
+            stUsuario.Text = "Usuario: " + LogInfo.userID + " (PERFIL DE ACESSO)";
+        }
+
+        private void novoFuncionárioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmNewEmployee novoFuncionarioForm = new frmNewEmployee();
+            novoFuncionarioForm.MdiParent = this;
+            novoFuncionarioForm.Show();
+
+            novoFuncionarioForm.WindowState = FormWindowState.Maximized;
         }
     }
 }

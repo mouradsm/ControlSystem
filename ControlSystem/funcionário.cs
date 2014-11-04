@@ -27,7 +27,7 @@ namespace ControlSystem
         public int cep { get; set; }
         public string cidade { get; set; }
         public string uf { get; set; }
-        public decimal telefone { get; set; }
+        public string telefone { get; set; }
         public string email { get; set; }
         public System.DateTime dataDeAdmissao { get; set; }
         public System.DateTime dataDeDemissao { get; set; }
