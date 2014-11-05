@@ -419,7 +419,7 @@
             this.Controls.Add(this.txtMatricula);
             this.Controls.Add(this.label1);
             this.Name = "frmNewEmployee";
-            this.Text = "frmNewEmployee";
+            this.Text = "Cadastro de Funcionário";
             this.Load += new System.EventHandler(this.frmNewEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource1)).EndInit();

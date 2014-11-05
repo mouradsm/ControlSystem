@@ -117,7 +117,7 @@
             this.MaximizeBox = false;
             this.Name = "mainContainer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "mainContainer";
+            this.Text = "Control System for Confectionery";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainContainer_FormClosing);
             this.Load += new System.EventHandler(this.mainContainer_Load);
             this.menuStrip1.ResumeLayout(false);
