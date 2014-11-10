@@ -50,5 +50,23 @@ namespace ControlSystem
 
             novoFuncionarioForm.WindowState = FormWindowState.Maximized;
         }
+
+        private void cadastroDoEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewStock novoEstoqueForm = new frmNewStock();
+            novoEstoqueForm.MdiParent = this;
+            novoEstoqueForm.Show();
+
+            novoEstoqueForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void cadastroDeFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewSupplier novoFornecedorForm = new frmNewSupplier();
+            novoFornecedorForm.MdiParent = this;
+            novoFornecedorForm.Show();
+
+            novoFornecedorForm.WindowState = FormWindowState.Maximized;
+        }
     }
 }

@@ -135,11 +135,29 @@
     <Compile Include="frmNewEmployee.Designer.cs">
       <DependentUpon>frmNewEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewStock.Designer.cs">
+      <DependentUpon>frmNewStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewSupplier.Designer.cs">
+      <DependentUpon>frmNewSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmNewUser.Designer.cs">
       <DependentUpon>frmNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPurchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurchase.Designer.cs">
+      <DependentUpon>frmPurchase.cs</DependentUpon>
     </Compile>
     <Compile Include="funcionário.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
@@ -178,8 +196,17 @@
     <EmbeddedResource Include="frmNewEmployee.resx">
       <DependentUpon>frmNewEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNewStock.resx">
+      <DependentUpon>frmNewStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewSupplier.resx">
+      <DependentUpon>frmNewSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNewUser.resx">
       <DependentUpon>frmNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurchase.resx">
+      <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainContainer.resx">
       <DependentUpon>mainContainer.cs</DependentUpon>
@@ -212,7 +239,10 @@
       <LastGenOutput>CSCModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\compra.datasource" />
     <None Include="Properties\DataSources\estados.datasource" />
+    <None Include="Properties\DataSources\fornecedor.datasource" />
+    <None Include="Properties\DataSources\item_compra.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

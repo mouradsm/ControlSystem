@@ -17,3 +17,6 @@ c:\users\diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.mainContainer.resources
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmNewCous.resources
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmNewEmployee.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmNewStock.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmPurchase.resources
+C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmNewSupplier.resources
