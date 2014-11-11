@@ -68,5 +68,14 @@ namespace ControlSystem
 
             novoFornecedorForm.WindowState = FormWindowState.Maximized;
         }
+
+        private void cadastroDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPurchase novaCompraForm = new frmPurchase();
+            novaCompraForm.MdiParent = this;
+            novaCompraForm.Show();
+
+            novaCompraForm.WindowState = FormWindowState.Maximized;
+        }
     }
 }

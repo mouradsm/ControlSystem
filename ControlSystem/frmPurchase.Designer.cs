@@ -43,10 +43,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.itemcompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.codProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtdCadaProdutoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorItemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.itemcompraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -152,48 +148,14 @@
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 11;
             // 
-            // itemcompraBindingSource
-            // 
-            this.itemcompraBindingSource.DataSource = typeof(ControlSystem.item_compra);
-            // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codProdutoDataGridViewTextBoxColumn,
-            this.numCompraDataGridViewTextBoxColumn,
-            this.qtdCadaProdutoDataGridViewTextBoxColumn,
-            this.valorItemDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.itemcompraBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(135, 159);
+            this.dataGridView1.Location = new System.Drawing.Point(135, 175);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(535, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(444, 128);
             this.dataGridView1.TabIndex = 12;
-            // 
-            // codProdutoDataGridViewTextBoxColumn
-            // 
-            this.codProdutoDataGridViewTextBoxColumn.DataPropertyName = "codProduto";
-            this.codProdutoDataGridViewTextBoxColumn.HeaderText = "codProduto";
-            this.codProdutoDataGridViewTextBoxColumn.Name = "codProdutoDataGridViewTextBoxColumn";
-            // 
-            // numCompraDataGridViewTextBoxColumn
-            // 
-            this.numCompraDataGridViewTextBoxColumn.DataPropertyName = "numCompra";
-            this.numCompraDataGridViewTextBoxColumn.HeaderText = "numCompra";
-            this.numCompraDataGridViewTextBoxColumn.Name = "numCompraDataGridViewTextBoxColumn";
-            // 
-            // qtdCadaProdutoDataGridViewTextBoxColumn
-            // 
-            this.qtdCadaProdutoDataGridViewTextBoxColumn.DataPropertyName = "qtdCadaProduto";
-            this.qtdCadaProdutoDataGridViewTextBoxColumn.HeaderText = "qtdCadaProduto";
-            this.qtdCadaProdutoDataGridViewTextBoxColumn.Name = "qtdCadaProdutoDataGridViewTextBoxColumn";
-            // 
-            // valorItemDataGridViewTextBoxColumn
-            // 
-            this.valorItemDataGridViewTextBoxColumn.DataPropertyName = "valorItem";
-            this.valorItemDataGridViewTextBoxColumn.HeaderText = "valorItem";
-            this.valorItemDataGridViewTextBoxColumn.Name = "valorItemDataGridViewTextBoxColumn";
             // 
             // frmPurchase
             // 
@@ -214,7 +176,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "frmPurchase";
-            this.Text = "frmPurchase";
+            this.Text = "Nova Compra";
             ((System.ComponentModel.ISupportInitialize)(this.itemcompraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -238,9 +200,5 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.BindingSource itemcompraBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codProdutoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtdCadaProdutoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorItemDataGridViewTextBoxColumn;
     }
 }

@@ -12,11 +12,20 @@ namespace ControlSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class item_compra
+    public partial class produto
     {
-        public int codProduto { get; set; }
-        public int numCompra { get; set; }
-        public string qtdCadaProduto { get; set; }
-        public int valorItem { get; set; }
+        public produto()
+        {
+            this.lote = new HashSet<lote>();
+            this.fornecedor_produto = new HashSet<fornecedor_produto>();
+        }
+    
+        public int id { get; set; }
+        public string desc { get; set; }
+        public float valorUnitario { get; set; }
+        public int status { get; set; }
+    
+        public virtual ICollection<lote> lote { get; set; }
+        public virtual ICollection<fornecedor_produto> fornecedor_produto { get; set; }
     }
 }

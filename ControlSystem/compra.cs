@@ -14,9 +14,17 @@ namespace ControlSystem
     
     public partial class compra
     {
-        public int numCompra { get; set; }
-        public int FORNECEDOR_cnpj { get; set; }
+        public compra()
+        {
+            this.compra_produto = new HashSet<compra_produto>();
+        }
+    
+        public int id { get; set; }
+        public int fornecedor_id { get; set; }
         public System.DateTime dataDeEntrega { get; set; }
-        public int valorTotalDaCompra { get; set; }
+        public float valorTotal { get; set; }
+    
+        public virtual fornecedor fornecedor { get; set; }
+        public virtual ICollection<compra_produto> compra_produto { get; set; }
     }
 }

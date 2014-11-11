@@ -4,51 +4,65 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="cscModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="controlsystemModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cliente">
           <Key>
-            <PropertyRef Name="idCliente" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="endereco" Type="varchar" MaxLength="50" />
-          <Property Name="complemento" Type="varchar" MaxLength="15" />
-          <Property Name="bairro" Type="varchar" MaxLength="20" />
-          <Property Name="cep" Type="int" />
-          <Property Name="cidade" Type="varchar" MaxLength="20" />
-          <Property Name="uf" Type="char" MaxLength="2" />
           <Property Name="cpf" Type="varchar" MaxLength="15" />
-          <Property Name="cnpj" Type="int" />
+          <Property Name="cnpj" Type="varchar" MaxLength="15" />
           <Property Name="telefone" Type="varchar" MaxLength="14" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="50" />
-          <Property Name="dataDeNascimento" Type="date" />
-          <Property Name="dataDeCadastramento" Type="date" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dataDeNascimento" Type="date" Nullable="false" />
+          <Property Name="dateDeCadastramento" Type="date" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="endereco_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="compra">
           <Key>
-            <PropertyRef Name="numCompra" />
-            <PropertyRef Name="FORNECEDOR_cnpj" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="numCompra" Type="int" Nullable="false" />
-          <Property Name="FORNECEDOR_cnpj" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fornecedor_id" Type="int" Nullable="false" />
           <Property Name="dataDeEntrega" Type="date" Nullable="false" />
-          <Property Name="valorTotalDaCompra" Type="int" Nullable="false" />
+          <Property Name="valorTotal" Type="float" Nullable="false" />
         </EntityType>
-        <EntityType Name="devolução">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.controlsystem.compra_produto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="compra_produto">
           <Key>
-            <PropertyRef Name="idDevolução" />
-            <PropertyRef Name="Item Venda_notaFiscalVenda" />
-            <PropertyRef Name="Estoque_codProduto" />
+            <PropertyRef Name="compra_id" />
+            <PropertyRef Name="lote_id" />
+            <PropertyRef Name="quantidade" />
+            <PropertyRef Name="valorUnitario" />
           </Key>
-          <Property Name="idDevolução" Type="int" Nullable="false" />
-          <Property Name="Item Venda_notaFiscalVenda" Type="int" Nullable="false" />
-          <Property Name="Estoque_codProduto" Type="int" Nullable="false" />
-          <Property Name="lote" Type="int" Nullable="false" />
+          <Property Name="compra_id" Type="int" Nullable="false" />
+          <Property Name="lote_id" Type="int" Nullable="false" />
           <Property Name="quantidade" Type="int" Nullable="false" />
+          <Property Name="valorUnitario" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="devolucao">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="retornaEstoque" Type="bool" Nullable="false" />
           <Property Name="motivo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="venda_produto_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="endereco">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="endereco" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="complemento" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="bairro" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="cep" Type="int" Nullable="false" />
+          <Property Name="cidade" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="UF" Type="char" MaxLength="2" Nullable="false" />
         </EntityType>
         <EntityType Name="estados">
           <Key>
@@ -60,466 +74,877 @@
         </EntityType>
         <EntityType Name="estoque">
           <Key>
-            <PropertyRef Name="codProduto" />
-            <PropertyRef Name="codLoja" />
-            <PropertyRef Name="Lote_Lote" />
-            <PropertyRef Name="Lote_codProduto" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="codProduto" Type="int" Nullable="false" />
-          <Property Name="codLoja" Type="int" Nullable="false" />
-          <Property Name="Lote_Lote" Type="int" Nullable="false" />
-          <Property Name="Lote_codProduto" Type="int" Nullable="false" />
-          <Property Name="precoUnitVenda" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" Nullable="false" />
           <Property Name="quantidade" Type="int" Nullable="false" />
-          <Property Name="tipoProduto" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="estoqueMaximo" Type="int" Nullable="false" />
           <Property Name="estoqueMinimo" Type="int" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="lote_id" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="fornecedor">
           <Key>
-            <PropertyRef Name="cnpj" />
-            <PropertyRef Name="Compra_numCompra" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="cnpj" Type="int" Nullable="false" />
-          <Property Name="Compra_numCompra" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cnpj" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="razaoSocial" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="nomeFantasia" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="endereco" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="complemento" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="bairro" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="cep" Type="int" Nullable="false" />
-          <Property Name="cidade" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="uf" Type="char" MaxLength="2" Nullable="false" />
-          <Property Name="telefone" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="telefone" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dataDeCadastramento" Type="date" Nullable="false" />
           <Property Name="contato" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="telefoneContato" Type="decimal" Precision="10" Scale="0" Nullable="false" />
-          <Property Name="emailContato" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="telefoneContato" Type="varchar" MaxLength="14" />
+          <Property Name="emailContato" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="int" />
+          <Property Name="endereco_id" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.controlsystem.fornecedor_produto' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="fornecedor_produto">
           <Key>
-            <PropertyRef Name="cnpj" />
-            <PropertyRef Name="Estoque_codProduto" />
+            <PropertyRef Name="fornecedor_id" />
+            <PropertyRef Name="produto_id" />
+            <PropertyRef Name="preco" />
+            <PropertyRef Name="dataCotacao" />
+            <PropertyRef Name="status" />
           </Key>
-          <Property Name="cnpj" Type="int" Nullable="false" />
-          <Property Name="Estoque_codProduto" Type="int" Nullable="false" />
-          <Property Name="preco" Type="int" Nullable="false" />
+          <Property Name="fornecedor_id" Type="int" Nullable="false" />
+          <Property Name="produto_id" Type="int" Nullable="false" />
+          <Property Name="preco" Type="float" Nullable="false" />
           <Property Name="dataCotacao" Type="date" Nullable="false" />
-          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="funcionário">
+        <EntityType Name="funcionario">
           <Key>
-            <PropertyRef Name="matriculaFuncionário" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="matriculaFuncionário" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="endereco" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="complemento" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="bairro" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="cep" Type="int" Nullable="false" />
-          <Property Name="cidade" Type="varchar" MaxLength="20" />
-          <Property Name="uf" Type="char" MaxLength="2" />
           <Property Name="telefone" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="dataDeAdmissao" Type="date" Nullable="false" />
           <Property Name="dataDeDemissao" Type="date" />
-          <Property Name="perfilDeAcesso" Type="varchar" MaxLength="20" />
           <Property Name="cargo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
-        </EntityType>
-        <EntityType Name="item compra">
-          <Key>
-            <PropertyRef Name="codProduto" />
-            <PropertyRef Name="numCompra" />
-          </Key>
-          <Property Name="codProduto" Type="int" Nullable="false" />
-          <Property Name="numCompra" Type="int" Nullable="false" />
-          <Property Name="qtdCadaProduto" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="valorItem" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="item venda">
-          <Key>
-            <PropertyRef Name="codProduto" />
-            <PropertyRef Name="Venda_notaFiscalVenda" />
-          </Key>
-          <Property Name="codProduto" Type="int" Nullable="false" />
-          <Property Name="Venda_notaFiscalVenda" Type="int" Nullable="false" />
-          <Property Name="quantidade" Type="int" Nullable="false" />
-          <Property Name="valorItem" Type="int" Nullable="false" />
+          <Property Name="cpf" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="endereco_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="lote">
           <Key>
-            <PropertyRef Name="Lote" />
-            <PropertyRef Name="codProduto" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Lote" Type="int" Nullable="false" />
-          <Property Name="codProduto" Type="int" Nullable="false" />
-          <Property Name="dataDeValidade" Type="date" Nullable="false" />
-          <Property Name="dataDeFabricacao" Type="date" Nullable="false" />
-          <Property Name="quantidade" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataValidade" Type="date" Nullable="false" />
+          <Property Name="dataFabricacao" Type="date" Nullable="false" />
+          <Property Name="identificador" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="produto_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desc" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="valorUnitario" Type="float" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idFuncionario" Type="int" Nullable="false" />
           <Property Name="login" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="lastlogin" Type="timestamp" Precision="0" />
+          <Property Name="lastLogin" Type="date" />
+          <Property Name="perfil" Type="int" Nullable="false" />
+          <Property Name="funcionario_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="venda">
           <Key>
-            <PropertyRef Name="notaFiscalVenda" />
-            <PropertyRef Name="Cliente_idCliente" />
-            <PropertyRef Name="Funcionário_matriculaFuncionário" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="notaFiscalVenda" Type="int" Nullable="false" />
-          <Property Name="Cliente_idCliente" Type="int" Nullable="false" />
-          <Property Name="Funcionário_matriculaFuncionário" Type="int" Nullable="false" />
-          <Property Name="dataVenda" Type="date" Nullable="false" />
-          <Property Name="valorTotal" Type="decimal" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="desconto" Type="char" MaxLength="4" />
-          <Property Name="valorTotalComDesconto" Type="decimal" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="notaFiscal" Type="int" Nullable="false" />
+          <Property Name="dataDaVenda" Type="date" Nullable="false" />
+          <Property Name="valorTotal" Type="float" Nullable="false" />
+          <Property Name="desconto" Type="float" />
+          <Property Name="valorTotalComDesconto" Type="float" Nullable="false" />
+          <Property Name="funcionario_id" Type="int" Nullable="false" />
+          <Property Name="cliente_id" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Devolução_Estoque1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Devolução_Estoque1" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Devolução_Ítem Venda1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Devolução_Ítem Venda1" />-->
-        <Association Name="fk_Estoque_Lote1">
+        <EntityType Name="venda_produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="quantidade" Type="int" Nullable="false" />
+          <Property Name="valorUnitario" Type="int" Nullable="false" />
+          <Property Name="venda_id" Type="int" Nullable="false" />
+          <Property Name="lote_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_cliente_endereco1">
+          <End Role="endereco" Type="Self.endereco" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="endereco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="endereco_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_compra_fornecedor1">
+          <End Role="fornecedor" Type="Self.fornecedor" Multiplicity="1" />
+          <End Role="compra" Type="Self.compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fornecedor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="fornecedor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_compra_produto_compra1">
+          <End Role="compra" Type="Self.compra" Multiplicity="1" />
+          <End Role="compra_produto" Type="Self.compra_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="compra">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="compra_produto">
+              <PropertyRef Name="compra_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_compra_produto_lote1">
+          <End Role="lote" Type="Self.lote" Multiplicity="1" />
+          <End Role="compra_produto" Type="Self.compra_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lote">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="compra_produto">
+              <PropertyRef Name="lote_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_devolucao_venda_produto1">
+          <End Role="venda_produto" Type="Self.venda_produto" Multiplicity="1" />
+          <End Role="devolucao" Type="Self.devolucao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venda_produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="devolucao">
+              <PropertyRef Name="venda_produto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estoque_lote1">
           <End Role="lote" Type="Self.lote" Multiplicity="1" />
           <End Role="estoque" Type="Self.estoque" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="lote">
-              <PropertyRef Name="Lote" />
-              <PropertyRef Name="codProduto" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="estoque">
-              <PropertyRef Name="Lote_Lote" />
-              <PropertyRef Name="Lote_codProduto" />
+              <PropertyRef Name="lote_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Fornecedor_Compra1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Fornecedor_Compra1" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Fornecedor_Produto_Estoque1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Fornecedor_Produto_Estoque1" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Fornecedor_Produto_Fornecedor1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Fornecedor_Produto_Fornecedor1" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Ítem Compra_Compra1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Ítem Compra_Compra1" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Ítem Compra_Estoque1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Ítem Compra_Estoque1" />-->
-        <!--Errors Found During Generation:
-warning 6035: The relationship 'fk_Item Venda_Venda1' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
-        <Association Name="fk_Item Venda_Venda1" />-->
-        <Association Name="fk_Venda_Cliente">
+        <Association Name="fk_fornecedor_endereco1">
+          <End Role="endereco" Type="Self.endereco" Multiplicity="1" />
+          <End Role="fornecedor" Type="Self.fornecedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="endereco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fornecedor">
+              <PropertyRef Name="endereco_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fornecedor_produto_fornecedor1">
+          <End Role="fornecedor" Type="Self.fornecedor" Multiplicity="1" />
+          <End Role="fornecedor_produto" Type="Self.fornecedor_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fornecedor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fornecedor_produto">
+              <PropertyRef Name="fornecedor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fornecedor_produto_produto1">
+          <End Role="produto" Type="Self.produto" Multiplicity="1" />
+          <End Role="fornecedor_produto" Type="Self.fornecedor_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fornecedor_produto">
+              <PropertyRef Name="produto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_funcionario_endereco">
+          <End Role="endereco" Type="Self.endereco" Multiplicity="1" />
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="endereco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="funcionario">
+              <PropertyRef Name="endereco_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lote_produto1">
+          <End Role="produto" Type="Self.produto" Multiplicity="1" />
+          <End Role="lote" Type="Self.lote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lote">
+              <PropertyRef Name="produto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_funcionario1">
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="funcionario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="funcionario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_cliente1">
           <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
           <End Role="venda" Type="Self.venda" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cliente">
-              <PropertyRef Name="idCliente" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="venda">
-              <PropertyRef Name="Cliente_idCliente" />
+              <PropertyRef Name="cliente_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Venda_Funcionário1">
-          <End Role="funcionário" Type="Self.funcionário" Multiplicity="1" />
+        <Association Name="fk_venda_funcionario1">
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="1" />
           <End Role="venda" Type="Self.venda" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="funcionário">
-              <PropertyRef Name="matriculaFuncionário" />
+            <Principal Role="funcionario">
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="venda">
-              <PropertyRef Name="Funcionário_matriculaFuncionário" />
+              <PropertyRef Name="funcionario_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="cscModelStoreContainer">
-          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="compra" EntityType="Self.compra" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="devolução" EntityType="Self.devolução" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="estados" EntityType="Self.estados" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="estoque" EntityType="Self.estoque" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="fornecedor" EntityType="Self.fornecedor" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="fornecedor_produto" EntityType="Self.fornecedor_produto" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="funcionário" EntityType="Self.funcionário" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="item compra" EntityType="Self.item compra" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="item venda" EntityType="Self.item venda" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="lote" EntityType="Self.lote" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="csc" store:Type="Tables" />
-          <EntitySet Name="venda" EntityType="Self.venda" Schema="csc" store:Type="Tables" />
-          <AssociationSet Name="fk_Estoque_Lote1" Association="Self.fk_Estoque_Lote1">
+        <Association Name="fk_venda_produto_lote1">
+          <End Role="lote" Type="Self.lote" Multiplicity="1" />
+          <End Role="venda_produto" Type="Self.venda_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lote">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="venda_produto">
+              <PropertyRef Name="lote_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_produto_venda1">
+          <End Role="venda" Type="Self.venda" Multiplicity="1" />
+          <End Role="venda_produto" Type="Self.venda_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venda">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="venda_produto">
+              <PropertyRef Name="venda_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="controlsystemModelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="compra" EntityType="Self.compra" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="devolucao" EntityType="Self.devolucao" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="endereco" EntityType="Self.endereco" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="estados" EntityType="Self.estados" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="estoque" EntityType="Self.estoque" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="fornecedor" EntityType="Self.fornecedor" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="lote" EntityType="Self.lote" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="produto" EntityType="Self.produto" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="venda" EntityType="Self.venda" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="venda_produto" EntityType="Self.venda_produto" Schema="controlsystem" store:Type="Tables" />
+          <EntitySet Name="compra_produto" EntityType="Self.compra_produto" store:Type="Tables" store:Schema="controlsystem">
+            <DefiningQuery>SELECT
+`compra_produto`.`compra_id`, 
+`compra_produto`.`lote_id`, 
+`compra_produto`.`quantidade`, 
+`compra_produto`.`valorUnitario`
+FROM `compra_produto` AS `compra_produto`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="fornecedor_produto" EntityType="Self.fornecedor_produto" store:Type="Tables" store:Schema="controlsystem">
+            <DefiningQuery>SELECT
+`fornecedor_produto`.`fornecedor_id`, 
+`fornecedor_produto`.`produto_id`, 
+`fornecedor_produto`.`preco`, 
+`fornecedor_produto`.`dataCotacao`, 
+`fornecedor_produto`.`status`
+FROM `fornecedor_produto` AS `fornecedor_produto`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_cliente_endereco1" Association="Self.fk_cliente_endereco1">
+            <End Role="endereco" EntitySet="endereco" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_compra_fornecedor1" Association="Self.fk_compra_fornecedor1">
+            <End Role="fornecedor" EntitySet="fornecedor" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_compra_produto_compra1" Association="Self.fk_compra_produto_compra1">
+            <End Role="compra" EntitySet="compra" />
+            <End Role="compra_produto" EntitySet="compra_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_compra_produto_lote1" Association="Self.fk_compra_produto_lote1">
+            <End Role="lote" EntitySet="lote" />
+            <End Role="compra_produto" EntitySet="compra_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_devolucao_venda_produto1" Association="Self.fk_devolucao_venda_produto1">
+            <End Role="venda_produto" EntitySet="venda_produto" />
+            <End Role="devolucao" EntitySet="devolucao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estoque_lote1" Association="Self.fk_estoque_lote1">
             <End Role="lote" EntitySet="lote" />
             <End Role="estoque" EntitySet="estoque" />
           </AssociationSet>
-          <AssociationSet Name="fk_Venda_Cliente" Association="Self.fk_Venda_Cliente">
+          <AssociationSet Name="fk_fornecedor_endereco1" Association="Self.fk_fornecedor_endereco1">
+            <End Role="endereco" EntitySet="endereco" />
+            <End Role="fornecedor" EntitySet="fornecedor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fornecedor_produto_fornecedor1" Association="Self.fk_fornecedor_produto_fornecedor1">
+            <End Role="fornecedor" EntitySet="fornecedor" />
+            <End Role="fornecedor_produto" EntitySet="fornecedor_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fornecedor_produto_produto1" Association="Self.fk_fornecedor_produto_produto1">
+            <End Role="produto" EntitySet="produto" />
+            <End Role="fornecedor_produto" EntitySet="fornecedor_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_funcionario_endereco" Association="Self.fk_funcionario_endereco">
+            <End Role="endereco" EntitySet="endereco" />
+            <End Role="funcionario" EntitySet="funcionario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lote_produto1" Association="Self.fk_lote_produto1">
+            <End Role="produto" EntitySet="produto" />
+            <End Role="lote" EntitySet="lote" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_funcionario1" Association="Self.fk_usuario_funcionario1">
+            <End Role="funcionario" EntitySet="funcionario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_cliente1" Association="Self.fk_venda_cliente1">
             <End Role="cliente" EntitySet="cliente" />
             <End Role="venda" EntitySet="venda" />
           </AssociationSet>
-          <AssociationSet Name="fk_Venda_Funcionário1" Association="Self.fk_Venda_Funcionário1">
-            <End Role="funcionário" EntitySet="funcionário" />
+          <AssociationSet Name="fk_venda_funcionario1" Association="Self.fk_venda_funcionario1">
+            <End Role="funcionario" EntitySet="funcionario" />
             <End Role="venda" EntitySet="venda" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_produto_lote1" Association="Self.fk_venda_produto_lote1">
+            <End Role="lote" EntitySet="lote" />
+            <End Role="venda_produto" EntitySet="venda_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_produto_venda1" Association="Self.fk_venda_produto_venda1">
+            <End Role="venda" EntitySet="venda" />
+            <End Role="venda_produto" EntitySet="venda_produto" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="cscModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="controlsystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="cliente">
           <Key>
-            <PropertyRef Name="idCliente" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="complemento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="cep" Type="Int32" />
-          <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="cpf" Type="String" />
-          <Property Name="cnpj" Type="Int32" />
-          <Property Name="telefone" Type="String" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="dataDeNascimento" Type="DateTime" />
-          <Property Name="dataDeCadastramento" Type="DateTime" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tipo" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="venda" Relationship="Self.fk_Venda_Cliente" FromRole="cliente" ToRole="venda" />
+          <Property Name="cpf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="cnpj" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dataDeNascimento" Type="DateTime" Nullable="false" />
+          <Property Name="dateDeCadastramento" Type="DateTime" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="endereco_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="endereco" Relationship="Self.fk_cliente_endereco1" FromRole="cliente" ToRole="endereco" />
+          <NavigationProperty Name="venda" Relationship="Self.fk_venda_cliente1" FromRole="cliente" ToRole="venda" />
         </EntityType>
         <EntityType Name="compra">
           <Key>
-            <PropertyRef Name="numCompra" />
-            <PropertyRef Name="FORNECEDOR_cnpj" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="numCompra" Type="Int32" Nullable="false" />
-          <Property Name="FORNECEDOR_cnpj" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fornecedor_id" Type="Int32" Nullable="false" />
           <Property Name="dataDeEntrega" Type="DateTime" Nullable="false" />
-          <Property Name="valorTotalDaCompra" Type="Int32" Nullable="false" />
+          <Property Name="valorTotal" Type="Single" Nullable="false" />
+          <NavigationProperty Name="fornecedor" Relationship="Self.fk_compra_fornecedor1" FromRole="compra" ToRole="fornecedor" />
+          <NavigationProperty Name="compra_produto" Relationship="Self.fk_compra_produto_compra1" FromRole="compra" ToRole="compra_produto" />
         </EntityType>
-        <EntityType Name="devolução">
+        <EntityType Name="devolucao">
           <Key>
-            <PropertyRef Name="idDevolução" />
-            <PropertyRef Name="Item_Venda_notaFiscalVenda" />
-            <PropertyRef Name="Estoque_codProduto" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="idDevolução" Type="Int32" Nullable="false" />
-          <Property Name="Item_Venda_notaFiscalVenda" Type="Int32" Nullable="false" />
-          <Property Name="Estoque_codProduto" Type="Int32" Nullable="false" />
-          <Property Name="lote" Type="Int32" Nullable="false" />
-          <Property Name="quantidade" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="retornaEstoque" Type="Boolean" Nullable="false" />
           <Property Name="motivo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="venda_produto_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="venda_produto" Relationship="Self.fk_devolucao_venda_produto1" FromRole="devolucao" ToRole="venda_produto" />
         </EntityType>
-        <EntityType Name="estoque">
+        <EntityType Name="endereco">
           <Key>
-            <PropertyRef Name="codProduto" />
-            <PropertyRef Name="codLoja" />
-            <PropertyRef Name="Lote_Lote" />
-            <PropertyRef Name="Lote_codProduto" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="codProduto" Type="Int32" Nullable="false" />
-          <Property Name="codLoja" Type="Int32" Nullable="false" />
-          <Property Name="Lote_Lote" Type="Int32" Nullable="false" />
-          <Property Name="Lote_codProduto" Type="Int32" Nullable="false" />
-          <Property Name="precoUnitVenda" Type="Int32" Nullable="false" />
-          <Property Name="quantidade" Type="Int32" Nullable="false" />
-          <Property Name="tipoProduto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="estoqueMaximo" Type="Int32" Nullable="false" />
-          <Property Name="estoqueMinimo" Type="Int32" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="lote" Relationship="Self.fk_Estoque_Lote1" FromRole="estoque" ToRole="lote" />
-        </EntityType>
-        <EntityType Name="fornecedor">
-          <Key>
-            <PropertyRef Name="cnpj" />
-            <PropertyRef Name="Compra_numCompra" />
-          </Key>
-          <Property Name="cnpj" Type="Int32" Nullable="false" />
-          <Property Name="Compra_numCompra" Type="Int32" Nullable="false" />
-          <Property Name="razaoSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nomeFantasia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="endereco1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="complemento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cep" Type="Int32" Nullable="false" />
           <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefone" Type="Decimal" Nullable="false" />
+          <Property Name="UF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_cliente_endereco1" FromRole="endereco" ToRole="cliente" />
+          <NavigationProperty Name="fornecedor" Relationship="Self.fk_fornecedor_endereco1" FromRole="endereco" ToRole="fornecedor" />
+          <NavigationProperty Name="funcionario" Relationship="Self.fk_funcionario_endereco" FromRole="endereco" ToRole="funcionario" />
+        </EntityType>
+        <EntityType Name="estoque">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="quantidade" Type="Int32" Nullable="false" />
+          <Property Name="estoqueMaximo" Type="Int32" Nullable="false" />
+          <Property Name="estoqueMinimo" Type="Int32" Nullable="false" />
+          <Property Name="lote_id" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lote" Relationship="Self.fk_estoque_lote1" FromRole="estoque" ToRole="lote" />
+        </EntityType>
+        <EntityType Name="fornecedor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cnpj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="razaoSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dataDeCadastramento" Type="DateTime" Nullable="false" />
           <Property Name="contato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefoneContato" Type="Decimal" Nullable="false" />
-          <Property Name="emailContato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefoneContato" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="emailContato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="endereco_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="compra" Relationship="Self.fk_compra_fornecedor1" FromRole="fornecedor" ToRole="compra" />
+          <NavigationProperty Name="endereco" Relationship="Self.fk_fornecedor_endereco1" FromRole="fornecedor" ToRole="endereco" />
+          <NavigationProperty Name="fornecedor_produto" Relationship="Self.fk_fornecedor_produto_fornecedor1" FromRole="fornecedor" ToRole="fornecedor_produto" />
         </EntityType>
-        <EntityType Name="fornecedor_produto">
+        <EntityType Name="funcionario">
           <Key>
-            <PropertyRef Name="cnpj" />
-            <PropertyRef Name="Estoque_codProduto" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="cnpj" Type="Int32" Nullable="false" />
-          <Property Name="Estoque_codProduto" Type="Int32" Nullable="false" />
-          <Property Name="preco" Type="Int32" Nullable="false" />
-          <Property Name="dataCotacao" Type="DateTime" Nullable="false" />
-          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-        </EntityType>
-        <EntityType Name="funcionário">
-          <Key>
-            <PropertyRef Name="matriculaFuncionário" />
-          </Key>
-          <Property Name="matriculaFuncionário" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="endereco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="complemento" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="cep" Type="Int32" Nullable="false" />
-          <Property Name="cidade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="telefone" Type="String" Nullable="false" />
+          <Property Name="telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="dataDeAdmissao" Type="DateTime" Nullable="false" />
-          <Property Name="dataDeDemissao" Type="DateTime" Nullable="false" />
-          <Property Name="perfilDeAcesso" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dataDeDemissao" Type="DateTime" />
           <Property Name="cargo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="venda" Relationship="Self.fk_Venda_Funcionário1" FromRole="funcionário" ToRole="venda" />
-        </EntityType>
-        <EntityType Name="item_compra">
-          <Key>
-            <PropertyRef Name="codProduto" />
-            <PropertyRef Name="numCompra" />
-          </Key>
-          <Property Name="codProduto" Type="Int32" Nullable="false" />
-          <Property Name="numCompra" Type="Int32" Nullable="false" />
-          <Property Name="qtdCadaProduto" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="valorItem" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="item_venda">
-          <Key>
-            <PropertyRef Name="codProduto" />
-            <PropertyRef Name="Venda_notaFiscalVenda" />
-          </Key>
-          <Property Name="codProduto" Type="Int32" Nullable="false" />
-          <Property Name="Venda_notaFiscalVenda" Type="Int32" Nullable="false" />
-          <Property Name="quantidade" Type="Int32" Nullable="false" />
-          <Property Name="valorItem" Type="Int32" Nullable="false" />
+          <Property Name="cpf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="endereco_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="endereco" Relationship="Self.fk_funcionario_endereco" FromRole="funcionario" ToRole="endereco" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_usuario_funcionario1" FromRole="funcionario" ToRole="usuario" />
+          <NavigationProperty Name="venda" Relationship="Self.fk_venda_funcionario1" FromRole="funcionario" ToRole="venda" />
         </EntityType>
         <EntityType Name="lote">
           <Key>
-            <PropertyRef Name="Lote1" />
-            <PropertyRef Name="codProduto" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Lote1" Type="Int32" Nullable="false" />
-          <Property Name="codProduto" Type="Int32" Nullable="false" />
-          <Property Name="dataDeValidade" Type="DateTime" Nullable="false" />
-          <Property Name="dataDeFabricacao" Type="DateTime" Nullable="false" />
-          <Property Name="quantidade" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="estoque" Relationship="Self.fk_Estoque_Lote1" FromRole="lote" ToRole="estoque" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataValidade" Type="DateTime" Nullable="false" />
+          <Property Name="dataFabricacao" Type="DateTime" Nullable="false" />
+          <Property Name="identificador" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="produto_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estoque" Relationship="Self.fk_estoque_lote1" FromRole="lote" ToRole="estoque" />
+          <NavigationProperty Name="compra_produto" Relationship="Self.fk_compra_produto_lote1" FromRole="lote" ToRole="compra_produto" />
+          <NavigationProperty Name="produto" Relationship="Self.fk_lote_produto1" FromRole="lote" ToRole="produto" />
+          <NavigationProperty Name="venda_produto" Relationship="Self.fk_venda_produto_lote1" FromRole="lote" ToRole="venda_produto" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="valorUnitario" Type="Single" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="lote" Relationship="Self.fk_lote_produto1" FromRole="produto" ToRole="lote" />
+          <NavigationProperty Name="fornecedor_produto" Relationship="Self.fk_fornecedor_produto_produto1" FromRole="produto" ToRole="fornecedor_produto" />
         </EntityType>
         <EntityType Name="usuario">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idFuncionario" Type="Int32" Nullable="false" />
           <Property Name="login" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="lastlogin" Type="DateTime" />
+          <Property Name="lastLogin" Type="DateTime" />
+          <Property Name="perfil" Type="Int32" Nullable="false" />
+          <Property Name="funcionario_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="funcionario" Relationship="Self.fk_usuario_funcionario1" FromRole="usuario" ToRole="funcionario" />
         </EntityType>
         <EntityType Name="venda">
           <Key>
-            <PropertyRef Name="notaFiscalVenda" />
-            <PropertyRef Name="Cliente_idCliente" />
-            <PropertyRef Name="Funcionário_matriculaFuncionário" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="notaFiscalVenda" Type="Int32" Nullable="false" />
-          <Property Name="Cliente_idCliente" Type="Int32" Nullable="false" />
-          <Property Name="Funcionário_matriculaFuncionário" Type="Int32" Nullable="false" />
-          <Property Name="dataVenda" Type="DateTime" Nullable="false" />
-          <Property Name="valorTotal" Type="Decimal" Nullable="false" />
-          <Property Name="desconto" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
-          <Property Name="valorTotalComDesconto" Type="Decimal" Nullable="false" />
-          <NavigationProperty Name="cliente" Relationship="Self.fk_Venda_Cliente" FromRole="venda" ToRole="cliente" />
-          <NavigationProperty Name="funcionário" Relationship="Self.fk_Venda_Funcionário1" FromRole="venda" ToRole="funcionário" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="notaFiscal" Type="Int32" Nullable="false" />
+          <Property Name="dataDaVenda" Type="DateTime" Nullable="false" />
+          <Property Name="valorTotal" Type="Single" Nullable="false" />
+          <Property Name="desconto" Type="Single" />
+          <Property Name="valorTotalComDesconto" Type="Single" Nullable="false" />
+          <Property Name="funcionario_id" Type="Int32" Nullable="false" />
+          <Property Name="cliente_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_venda_cliente1" FromRole="venda" ToRole="cliente" />
+          <NavigationProperty Name="funcionario" Relationship="Self.fk_venda_funcionario1" FromRole="venda" ToRole="funcionario" />
+          <NavigationProperty Name="venda_produto" Relationship="Self.fk_venda_produto_venda1" FromRole="venda" ToRole="venda_produto" />
         </EntityType>
-        <Association Name="fk_Venda_Cliente">
+        <EntityType Name="venda_produto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="quantidade" Type="Int32" Nullable="false" />
+          <Property Name="valorUnitario" Type="Int32" Nullable="false" />
+          <Property Name="venda_id" Type="Int32" Nullable="false" />
+          <Property Name="lote_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="devolucao" Relationship="Self.fk_devolucao_venda_produto1" FromRole="venda_produto" ToRole="devolucao" />
+          <NavigationProperty Name="lote" Relationship="Self.fk_venda_produto_lote1" FromRole="venda_produto" ToRole="lote" />
+          <NavigationProperty Name="venda" Relationship="Self.fk_venda_produto_venda1" FromRole="venda_produto" ToRole="venda" />
+        </EntityType>
+        <EntityType Name="compra_produto">
+          <Key>
+            <PropertyRef Name="compra_id" />
+            <PropertyRef Name="lote_id" />
+            <PropertyRef Name="quantidade" />
+            <PropertyRef Name="valorUnitario" />
+          </Key>
+          <Property Name="compra_id" Type="Int32" Nullable="false" />
+          <Property Name="lote_id" Type="Int32" Nullable="false" />
+          <Property Name="quantidade" Type="Int32" Nullable="false" />
+          <Property Name="valorUnitario" Type="Single" Nullable="false" />
+          <NavigationProperty Name="compra" Relationship="Self.fk_compra_produto_compra1" FromRole="compra_produto" ToRole="compra" />
+          <NavigationProperty Name="lote" Relationship="Self.fk_compra_produto_lote1" FromRole="compra_produto" ToRole="lote" />
+        </EntityType>
+        <EntityType Name="fornecedor_produto">
+          <Key>
+            <PropertyRef Name="fornecedor_id" />
+            <PropertyRef Name="produto_id" />
+            <PropertyRef Name="preco" />
+            <PropertyRef Name="dataCotacao" />
+            <PropertyRef Name="status" />
+          </Key>
+          <Property Name="fornecedor_id" Type="Int32" Nullable="false" />
+          <Property Name="produto_id" Type="Int32" Nullable="false" />
+          <Property Name="preco" Type="Single" Nullable="false" />
+          <Property Name="dataCotacao" Type="DateTime" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fornecedor" Relationship="Self.fk_fornecedor_produto_fornecedor1" FromRole="fornecedor_produto" ToRole="fornecedor" />
+          <NavigationProperty Name="produto" Relationship="Self.fk_fornecedor_produto_produto1" FromRole="fornecedor_produto" ToRole="produto" />
+        </EntityType>
+        <Association Name="fk_cliente_endereco1">
+          <End Role="endereco" Type="Self.endereco" Multiplicity="1" />
+          <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="endereco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="cliente">
+              <PropertyRef Name="endereco_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_cliente1">
           <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
           <End Role="venda" Type="Self.venda" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cliente">
-              <PropertyRef Name="idCliente" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="venda">
-              <PropertyRef Name="Cliente_idCliente" />
+              <PropertyRef Name="cliente_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Estoque_Lote1">
+        <Association Name="fk_compra_fornecedor1">
+          <End Role="fornecedor" Type="Self.fornecedor" Multiplicity="1" />
+          <End Role="compra" Type="Self.compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fornecedor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="compra">
+              <PropertyRef Name="fornecedor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_compra_produto_compra1">
+          <End Role="compra" Type="Self.compra" Multiplicity="1" />
+          <End Role="compra_produto" Type="Self.compra_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="compra">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="compra_produto">
+              <PropertyRef Name="compra_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_devolucao_venda_produto1">
+          <End Role="venda_produto" Type="Self.venda_produto" Multiplicity="1" />
+          <End Role="devolucao" Type="Self.devolucao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venda_produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="devolucao">
+              <PropertyRef Name="venda_produto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fornecedor_endereco1">
+          <End Role="endereco" Type="Self.endereco" Multiplicity="1" />
+          <End Role="fornecedor" Type="Self.fornecedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="endereco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fornecedor">
+              <PropertyRef Name="endereco_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_funcionario_endereco">
+          <End Role="endereco" Type="Self.endereco" Multiplicity="1" />
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="endereco">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="funcionario">
+              <PropertyRef Name="endereco_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_estoque_lote1">
           <End Role="lote" Type="Self.lote" Multiplicity="1" />
           <End Role="estoque" Type="Self.estoque" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="lote">
-              <PropertyRef Name="Lote1" />
-              <PropertyRef Name="codProduto" />
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="estoque">
-              <PropertyRef Name="Lote_Lote" />
-              <PropertyRef Name="Lote_codProduto" />
+              <PropertyRef Name="lote_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="fk_Venda_Funcionário1">
-          <End Role="funcionário" Type="Self.funcionário" Multiplicity="1" />
+        <Association Name="fk_fornecedor_produto_fornecedor1">
+          <End Role="fornecedor" Type="Self.fornecedor" Multiplicity="1" />
+          <End Role="fornecedor_produto" Type="Self.fornecedor_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fornecedor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fornecedor_produto">
+              <PropertyRef Name="fornecedor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usuario_funcionario1">
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="1" />
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="funcionario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="funcionario_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_funcionario1">
+          <End Role="funcionario" Type="Self.funcionario" Multiplicity="1" />
           <End Role="venda" Type="Self.venda" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="funcionário">
-              <PropertyRef Name="matriculaFuncionário" />
+            <Principal Role="funcionario">
+              <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="venda">
-              <PropertyRef Name="Funcionário_matriculaFuncionário" />
+              <PropertyRef Name="funcionario_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="cscEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="fk_compra_produto_lote1">
+          <End Role="lote" Type="Self.lote" Multiplicity="1" />
+          <End Role="compra_produto" Type="Self.compra_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lote">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="compra_produto">
+              <PropertyRef Name="lote_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lote_produto1">
+          <End Role="produto" Type="Self.produto" Multiplicity="1" />
+          <End Role="lote" Type="Self.lote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="lote">
+              <PropertyRef Name="produto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_produto_lote1">
+          <End Role="lote" Type="Self.lote" Multiplicity="1" />
+          <End Role="venda_produto" Type="Self.venda_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lote">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="venda_produto">
+              <PropertyRef Name="lote_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_fornecedor_produto_produto1">
+          <End Role="produto" Type="Self.produto" Multiplicity="1" />
+          <End Role="fornecedor_produto" Type="Self.fornecedor_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="produto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="fornecedor_produto">
+              <PropertyRef Name="produto_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_venda_produto_venda1">
+          <End Role="venda" Type="Self.venda" Multiplicity="1" />
+          <End Role="venda_produto" Type="Self.venda_produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="venda">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="venda_produto">
+              <PropertyRef Name="venda_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="controlsystemEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="cliente" EntityType="Self.cliente" />
           <EntitySet Name="compra" EntityType="Self.compra" />
-          <EntitySet Name="devolução" EntityType="Self.devolução" />
+          <EntitySet Name="devolucao" EntityType="Self.devolucao" />
+          <EntitySet Name="endereco" EntityType="Self.endereco" />
           <EntitySet Name="estoque" EntityType="Self.estoque" />
           <EntitySet Name="fornecedor" EntityType="Self.fornecedor" />
-          <EntitySet Name="fornecedor_produto" EntityType="Self.fornecedor_produto" />
-          <EntitySet Name="funcionário" EntityType="Self.funcionário" />
-          <EntitySet Name="item_compra" EntityType="Self.item_compra" />
-          <EntitySet Name="item_venda" EntityType="Self.item_venda" />
+          <EntitySet Name="funcionario" EntityType="Self.funcionario" />
           <EntitySet Name="lote" EntityType="Self.lote" />
+          <EntitySet Name="produto" EntityType="Self.produto" />
           <EntitySet Name="usuario" EntityType="Self.usuario" />
           <EntitySet Name="venda" EntityType="Self.venda" />
-          <AssociationSet Name="fk_Venda_Cliente" Association="Self.fk_Venda_Cliente">
+          <EntitySet Name="venda_produto" EntityType="Self.venda_produto" />
+          <EntitySet Name="compra_produto" EntityType="Self.compra_produto" />
+          <EntitySet Name="fornecedor_produto" EntityType="Self.fornecedor_produto" />
+          <AssociationSet Name="fk_cliente_endereco1" Association="Self.fk_cliente_endereco1">
+            <End Role="endereco" EntitySet="endereco" />
+            <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_cliente1" Association="Self.fk_venda_cliente1">
             <End Role="cliente" EntitySet="cliente" />
             <End Role="venda" EntitySet="venda" />
           </AssociationSet>
-          <AssociationSet Name="fk_Estoque_Lote1" Association="Self.fk_Estoque_Lote1">
+          <AssociationSet Name="fk_compra_fornecedor1" Association="Self.fk_compra_fornecedor1">
+            <End Role="fornecedor" EntitySet="fornecedor" />
+            <End Role="compra" EntitySet="compra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_compra_produto_compra1" Association="Self.fk_compra_produto_compra1">
+            <End Role="compra" EntitySet="compra" />
+            <End Role="compra_produto" EntitySet="compra_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_devolucao_venda_produto1" Association="Self.fk_devolucao_venda_produto1">
+            <End Role="venda_produto" EntitySet="venda_produto" />
+            <End Role="devolucao" EntitySet="devolucao" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fornecedor_endereco1" Association="Self.fk_fornecedor_endereco1">
+            <End Role="endereco" EntitySet="endereco" />
+            <End Role="fornecedor" EntitySet="fornecedor" />
+          </AssociationSet>
+          <AssociationSet Name="fk_funcionario_endereco" Association="Self.fk_funcionario_endereco">
+            <End Role="endereco" EntitySet="endereco" />
+            <End Role="funcionario" EntitySet="funcionario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_estoque_lote1" Association="Self.fk_estoque_lote1">
             <End Role="lote" EntitySet="lote" />
             <End Role="estoque" EntitySet="estoque" />
           </AssociationSet>
-          <AssociationSet Name="fk_Venda_Funcionário1" Association="Self.fk_Venda_Funcionário1">
-            <End Role="funcionário" EntitySet="funcionário" />
+          <AssociationSet Name="fk_fornecedor_produto_fornecedor1" Association="Self.fk_fornecedor_produto_fornecedor1">
+            <End Role="fornecedor" EntitySet="fornecedor" />
+            <End Role="fornecedor_produto" EntitySet="fornecedor_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usuario_funcionario1" Association="Self.fk_usuario_funcionario1">
+            <End Role="funcionario" EntitySet="funcionario" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_funcionario1" Association="Self.fk_venda_funcionario1">
+            <End Role="funcionario" EntitySet="funcionario" />
             <End Role="venda" EntitySet="venda" />
           </AssociationSet>
-          <EntitySet Name="estados" EntityType="cscModel.estados" />
+          <AssociationSet Name="fk_compra_produto_lote1" Association="Self.fk_compra_produto_lote1">
+            <End Role="lote" EntitySet="lote" />
+            <End Role="compra_produto" EntitySet="compra_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lote_produto1" Association="Self.fk_lote_produto1">
+            <End Role="produto" EntitySet="produto" />
+            <End Role="lote" EntitySet="lote" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_produto_lote1" Association="Self.fk_venda_produto_lote1">
+            <End Role="lote" EntitySet="lote" />
+            <End Role="venda_produto" EntitySet="venda_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_fornecedor_produto_produto1" Association="Self.fk_fornecedor_produto_produto1">
+            <End Role="produto" EntitySet="produto" />
+            <End Role="fornecedor_produto" EntitySet="fornecedor_produto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_venda_produto_venda1" Association="Self.fk_venda_produto_venda1">
+            <End Role="venda" EntitySet="venda" />
+            <End Role="venda_produto" EntitySet="venda_produto" />
+          </AssociationSet>
+          <EntitySet Name="estados" EntityType="controlsystemModel.estados" />
         </EntityContainer>
         <EntityType Name="estados">
           <Key>
@@ -534,81 +959,74 @@ warning 6035: The relationship 'fk_Item Venda_Venda1' has columns that are not p
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="cscModelStoreContainer" CdmEntityContainer="cscEntities">
+        <EntityContainerMapping StorageEntityContainer="controlsystemModelStoreContainer" CdmEntityContainer="controlsystemEntities">
           <EntitySetMapping Name="cliente">
-            <EntityTypeMapping TypeName="cscModel.cliente">
+            <EntityTypeMapping TypeName="controlsystemModel.cliente">
               <MappingFragment StoreEntitySet="cliente">
-                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="endereco" ColumnName="endereco" />
-                <ScalarProperty Name="complemento" ColumnName="complemento" />
-                <ScalarProperty Name="bairro" ColumnName="bairro" />
-                <ScalarProperty Name="cep" ColumnName="cep" />
-                <ScalarProperty Name="cidade" ColumnName="cidade" />
-                <ScalarProperty Name="uf" ColumnName="uf" />
                 <ScalarProperty Name="cpf" ColumnName="cpf" />
                 <ScalarProperty Name="cnpj" ColumnName="cnpj" />
                 <ScalarProperty Name="telefone" ColumnName="telefone" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="dataDeNascimento" ColumnName="dataDeNascimento" />
-                <ScalarProperty Name="dataDeCadastramento" ColumnName="dataDeCadastramento" />
+                <ScalarProperty Name="dateDeCadastramento" ColumnName="dateDeCadastramento" />
                 <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="endereco_id" ColumnName="endereco_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="compra">
-            <EntityTypeMapping TypeName="cscModel.compra">
+            <EntityTypeMapping TypeName="controlsystemModel.compra">
               <MappingFragment StoreEntitySet="compra">
-                <ScalarProperty Name="numCompra" ColumnName="numCompra" />
-                <ScalarProperty Name="FORNECEDOR_cnpj" ColumnName="FORNECEDOR_cnpj" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fornecedor_id" ColumnName="fornecedor_id" />
                 <ScalarProperty Name="dataDeEntrega" ColumnName="dataDeEntrega" />
-                <ScalarProperty Name="valorTotalDaCompra" ColumnName="valorTotalDaCompra" />
+                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="devolução">
-            <EntityTypeMapping TypeName="cscModel.devolução">
-              <MappingFragment StoreEntitySet="devolução">
-                <ScalarProperty Name="idDevolução" ColumnName="idDevolução" />
-                <ScalarProperty Name="Item_Venda_notaFiscalVenda" ColumnName="Item Venda_notaFiscalVenda" />
-                <ScalarProperty Name="Estoque_codProduto" ColumnName="Estoque_codProduto" />
-                <ScalarProperty Name="lote" ColumnName="lote" />
-                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <EntitySetMapping Name="devolucao">
+            <EntityTypeMapping TypeName="controlsystemModel.devolucao">
+              <MappingFragment StoreEntitySet="devolucao">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="retornaEstoque" ColumnName="retornaEstoque" />
                 <ScalarProperty Name="motivo" ColumnName="motivo" />
+                <ScalarProperty Name="venda_produto_id" ColumnName="venda_produto_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="endereco">
+            <EntityTypeMapping TypeName="controlsystemModel.endereco">
+              <MappingFragment StoreEntitySet="endereco">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="endereco1" ColumnName="endereco" />
+                <ScalarProperty Name="complemento" ColumnName="complemento" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="UF" ColumnName="UF" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="estoque">
-            <EntityTypeMapping TypeName="cscModel.estoque">
+            <EntityTypeMapping TypeName="controlsystemModel.estoque">
               <MappingFragment StoreEntitySet="estoque">
-                <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-                <ScalarProperty Name="codLoja" ColumnName="codLoja" />
-                <ScalarProperty Name="Lote_Lote" ColumnName="Lote_Lote" />
-                <ScalarProperty Name="Lote_codProduto" ColumnName="Lote_codProduto" />
-                <ScalarProperty Name="precoUnitVenda" ColumnName="precoUnitVenda" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="quantidade" ColumnName="quantidade" />
-                <ScalarProperty Name="tipoProduto" ColumnName="tipoProduto" />
                 <ScalarProperty Name="estoqueMaximo" ColumnName="estoqueMaximo" />
                 <ScalarProperty Name="estoqueMinimo" ColumnName="estoqueMinimo" />
+                <ScalarProperty Name="lote_id" ColumnName="lote_id" />
                 <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="fornecedor">
-            <EntityTypeMapping TypeName="cscModel.fornecedor">
+            <EntityTypeMapping TypeName="controlsystemModel.fornecedor">
               <MappingFragment StoreEntitySet="fornecedor">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cnpj" ColumnName="cnpj" />
-                <ScalarProperty Name="Compra_numCompra" ColumnName="Compra_numCompra" />
                 <ScalarProperty Name="razaoSocial" ColumnName="razaoSocial" />
-                <ScalarProperty Name="nomeFantasia" ColumnName="nomeFantasia" />
-                <ScalarProperty Name="endereco" ColumnName="endereco" />
-                <ScalarProperty Name="complemento" ColumnName="complemento" />
-                <ScalarProperty Name="bairro" ColumnName="bairro" />
-                <ScalarProperty Name="cep" ColumnName="cep" />
-                <ScalarProperty Name="cidade" ColumnName="cidade" />
-                <ScalarProperty Name="uf" ColumnName="uf" />
                 <ScalarProperty Name="telefone" ColumnName="telefone" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="dataDeCadastramento" ColumnName="dataDeCadastramento" />
@@ -616,98 +1034,107 @@ warning 6035: The relationship 'fk_Item Venda_Venda1' has columns that are not p
                 <ScalarProperty Name="telefoneContato" ColumnName="telefoneContato" />
                 <ScalarProperty Name="emailContato" ColumnName="emailContato" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="endereco_id" ColumnName="endereco_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="funcionario">
+            <EntityTypeMapping TypeName="controlsystemModel.funcionario">
+              <MappingFragment StoreEntitySet="funcionario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dataDeAdmissao" ColumnName="dataDeAdmissao" />
+                <ScalarProperty Name="dataDeDemissao" ColumnName="dataDeDemissao" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="endereco_id" ColumnName="endereco_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lote">
+            <EntityTypeMapping TypeName="controlsystemModel.lote">
+              <MappingFragment StoreEntitySet="lote">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dataValidade" ColumnName="dataValidade" />
+                <ScalarProperty Name="dataFabricacao" ColumnName="dataFabricacao" />
+                <ScalarProperty Name="identificador" ColumnName="identificador" />
+                <ScalarProperty Name="produto_id" ColumnName="produto_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produto">
+            <EntityTypeMapping TypeName="controlsystemModel.produto">
+              <MappingFragment StoreEntitySet="produto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="desc" ColumnName="desc" />
+                <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="controlsystemModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+                <ScalarProperty Name="perfil" ColumnName="perfil" />
+                <ScalarProperty Name="funcionario_id" ColumnName="funcionario_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venda">
+            <EntityTypeMapping TypeName="controlsystemModel.venda">
+              <MappingFragment StoreEntitySet="venda">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="notaFiscal" ColumnName="notaFiscal" />
+                <ScalarProperty Name="dataDaVenda" ColumnName="dataDaVenda" />
+                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
+                <ScalarProperty Name="desconto" ColumnName="desconto" />
+                <ScalarProperty Name="valorTotalComDesconto" ColumnName="valorTotalComDesconto" />
+                <ScalarProperty Name="funcionario_id" ColumnName="funcionario_id" />
+                <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venda_produto">
+            <EntityTypeMapping TypeName="controlsystemModel.venda_produto">
+              <MappingFragment StoreEntitySet="venda_produto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+                <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+                <ScalarProperty Name="venda_id" ColumnName="venda_id" />
+                <ScalarProperty Name="lote_id" ColumnName="lote_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="compra_produto">
+            <EntityTypeMapping TypeName="controlsystemModel.compra_produto">
+              <MappingFragment StoreEntitySet="compra_produto">
+                <ScalarProperty Name="compra_id" ColumnName="compra_id" />
+                <ScalarProperty Name="lote_id" ColumnName="lote_id" />
+                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+                <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="fornecedor_produto">
-            <EntityTypeMapping TypeName="cscModel.fornecedor_produto">
+            <EntityTypeMapping TypeName="controlsystemModel.fornecedor_produto">
               <MappingFragment StoreEntitySet="fornecedor_produto">
-                <ScalarProperty Name="cnpj" ColumnName="cnpj" />
-                <ScalarProperty Name="Estoque_codProduto" ColumnName="Estoque_codProduto" />
+                <ScalarProperty Name="fornecedor_id" ColumnName="fornecedor_id" />
+                <ScalarProperty Name="produto_id" ColumnName="produto_id" />
                 <ScalarProperty Name="preco" ColumnName="preco" />
                 <ScalarProperty Name="dataCotacao" ColumnName="dataCotacao" />
                 <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="funcionário">
-            <EntityTypeMapping TypeName="cscModel.funcionário">
-              <MappingFragment StoreEntitySet="funcionário">
-                <ScalarProperty Name="matriculaFuncionário" ColumnName="matriculaFuncionário" />
-                <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="endereco" ColumnName="endereco" />
-                <ScalarProperty Name="complemento" ColumnName="complemento" />
-                <ScalarProperty Name="bairro" ColumnName="bairro" />
-                <ScalarProperty Name="cep" ColumnName="cep" />
-                <ScalarProperty Name="cidade" ColumnName="cidade" />
-                <ScalarProperty Name="uf" ColumnName="uf" />
-                <ScalarProperty Name="telefone" ColumnName="telefone" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="dataDeAdmissao" ColumnName="dataDeAdmissao" />
-                <ScalarProperty Name="dataDeDemissao" ColumnName="dataDeDemissao" />
-                <ScalarProperty Name="perfilDeAcesso" ColumnName="perfilDeAcesso" />
-                <ScalarProperty Name="cargo" ColumnName="cargo" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="item_compra">
-            <EntityTypeMapping TypeName="cscModel.item_compra">
-              <MappingFragment StoreEntitySet="item compra">
-                <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-                <ScalarProperty Name="numCompra" ColumnName="numCompra" />
-                <ScalarProperty Name="qtdCadaProduto" ColumnName="qtdCadaProduto" />
-                <ScalarProperty Name="valorItem" ColumnName="valorItem" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="item_venda">
-            <EntityTypeMapping TypeName="cscModel.item_venda">
-              <MappingFragment StoreEntitySet="item venda">
-                <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-                <ScalarProperty Name="Venda_notaFiscalVenda" ColumnName="Venda_notaFiscalVenda" />
-                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
-                <ScalarProperty Name="valorItem" ColumnName="valorItem" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="lote">
-            <EntityTypeMapping TypeName="cscModel.lote">
-              <MappingFragment StoreEntitySet="lote">
-                <ScalarProperty Name="Lote1" ColumnName="Lote" />
-                <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-                <ScalarProperty Name="dataDeValidade" ColumnName="dataDeValidade" />
-                <ScalarProperty Name="dataDeFabricacao" ColumnName="dataDeFabricacao" />
-                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="usuario">
-            <EntityTypeMapping TypeName="cscModel.usuario">
-              <MappingFragment StoreEntitySet="usuario">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
-                <ScalarProperty Name="login" ColumnName="login" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="lastlogin" ColumnName="lastlogin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="venda">
-            <EntityTypeMapping TypeName="cscModel.venda">
-              <MappingFragment StoreEntitySet="venda">
-                <ScalarProperty Name="notaFiscalVenda" ColumnName="notaFiscalVenda" />
-                <ScalarProperty Name="Cliente_idCliente" ColumnName="Cliente_idCliente" />
-                <ScalarProperty Name="Funcionário_matriculaFuncionário" ColumnName="Funcionário_matriculaFuncionário" />
-                <ScalarProperty Name="dataVenda" ColumnName="dataVenda" />
-                <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
-                <ScalarProperty Name="desconto" ColumnName="desconto" />
-                <ScalarProperty Name="valorTotalComDesconto" ColumnName="valorTotalComDesconto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="estados">
-            <EntityTypeMapping TypeName="cscModel.estados">
+            <EntityTypeMapping TypeName="controlsystemModel.estados">
               <MappingFragment StoreEntitySet="estados">
                 <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="sigla" ColumnName="sigla" />

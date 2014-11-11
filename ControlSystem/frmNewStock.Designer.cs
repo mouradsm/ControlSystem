@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label10 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.txtPrecoUnitario = new System.Windows.Forms.TextBox();
@@ -45,11 +46,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtFornecedor = new System.Windows.Forms.TextBox();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
-            this.txtCodigoProduto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.bntSalvar = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.loteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.loteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -191,13 +194,6 @@
             this.txtQuantidade.Size = new System.Drawing.Size(66, 20);
             this.txtQuantidade.TabIndex = 3;
             // 
-            // txtCodigoProduto
-            // 
-            this.txtCodigoProduto.Location = new System.Drawing.Point(202, 49);
-            this.txtCodigoProduto.Name = "txtCodigoProduto";
-            this.txtCodigoProduto.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoProduto.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -237,12 +233,25 @@
             this.bntSalvar.UseVisualStyleBackColor = true;
             this.bntSalvar.Click += new System.EventHandler(this.bntSalvar_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(202, 49);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // loteBindingSource
+            // 
+            this.loteBindingSource.DataSource = typeof(ControlSystem.lote);
+            // 
             // frmNewStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 295);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.bntSalvar);
             this.Controls.Add(this.label10);
@@ -262,12 +271,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtFornecedor);
             this.Controls.Add(this.txtQuantidade);
-            this.Controls.Add(this.txtCodigoProduto);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmNewStock";
             this.Text = "Cadastro do Estoque";
             this.Load += new System.EventHandler(this.frmNewStock_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.loteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,7 +286,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCodigoProduto;
         private System.Windows.Forms.TextBox txtQuantidade;
         private System.Windows.Forms.TextBox txtFornecedor;
         private System.Windows.Forms.Label label3;
@@ -297,5 +305,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button bntSalvar;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.BindingSource loteBindingSource;
     }
 }

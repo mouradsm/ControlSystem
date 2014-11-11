@@ -4,23 +4,38 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8ec1f2c775d1458199a652f9b1ccb910" Name="Diagram1">
-        <EntityTypeShape EntityType="cscModel.cliente" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.compra" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.devolução" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.estoque" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.fornecedor" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.fornecedor_produto" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.funcionário" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.item_compra" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.item_venda" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.lote" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.usuario" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="cscModel.venda" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="cscModel.fk_Venda_Cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="cscModel.fk_Estoque_Lote1" ManuallyRouted="false" />
-        <AssociationConnector Association="cscModel.fk_Venda_Funcionário1" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="cscModel.estados" Width="1.5" PointX="5.375" PointY="10.75" />
+      <Diagram DiagramId="a7803c1563304ceebd55c54eb2ba702b" Name="Diagram1">
+        <EntityTypeShape EntityType="controlsystemModel.cliente" Width="1.5" PointX="3.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.compra" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.devolucao" Width="1.5" PointX="10.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.endereco" Width="1.5" PointX="1.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.estoque" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.fornecedor" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.funcionario" Width="1.5" PointX="3.75" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.lote" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.produto" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.usuario" Width="1.5" PointX="6" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.venda" Width="1.5" PointX="6" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.venda_produto" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.compra_produto" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="controlsystemModel.fornecedor_produto" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="controlsystemModel.fk_cliente_endereco1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_venda_cliente1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_compra_fornecedor1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_compra_produto_compra1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_devolucao_venda_produto1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_fornecedor_endereco1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_funcionario_endereco" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_estoque_lote1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_fornecedor_produto_fornecedor1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_usuario_funcionario1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_venda_funcionario1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_compra_produto_lote1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_lote_produto1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_venda_produto_lote1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_fornecedor_produto_produto1" ManuallyRouted="false" />
+        <AssociationConnector Association="controlsystemModel.fk_venda_produto_venda1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="controlsystemModel.estados" Width="1.5" PointX="5.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

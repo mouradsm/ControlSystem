@@ -102,6 +102,7 @@
             this.cboTipo.Size = new System.Drawing.Size(240, 21);
             this.cboTipo.TabIndex = 1;
             this.cboTipo.Text = "Selecione o Tipo";
+            this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -301,8 +302,8 @@
             // 
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
+            "0 - INATIVO",
+            "1 - ATIVO"});
             this.cboStatus.Location = new System.Drawing.Point(139, 266);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(240, 21);
@@ -334,7 +335,7 @@
             // 
             this.estadosBindingSource1.DataSource = typeof(ControlSystem.estados);
             // 
-            // frmNewEmployee
+            // frmNewCous
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -369,7 +370,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "frmNewEmployee";
+            this.Name = "frmNewCous";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cliente";
             this.Load += new System.EventHandler(this.frmNewEmployee_Load);

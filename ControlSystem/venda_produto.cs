@@ -12,11 +12,21 @@ namespace ControlSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class item_venda
+    public partial class venda_produto
     {
-        public int codProduto { get; set; }
-        public int Venda_notaFiscalVenda { get; set; }
+        public venda_produto()
+        {
+            this.devolucao = new HashSet<devolucao>();
+        }
+    
+        public int id { get; set; }
         public int quantidade { get; set; }
-        public int valorItem { get; set; }
+        public int valorUnitario { get; set; }
+        public int venda_id { get; set; }
+        public int lote_id { get; set; }
+    
+        public virtual ICollection<devolucao> devolucao { get; set; }
+        public virtual lote lote { get; set; }
+        public virtual venda venda { get; set; }
     }
 }

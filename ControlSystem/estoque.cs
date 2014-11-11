@@ -14,16 +14,12 @@ namespace ControlSystem
     
     public partial class estoque
     {
-        public int codProduto { get; set; }
-        public int codLoja { get; set; }
-        public int Lote_Lote { get; set; }
-        public int Lote_codProduto { get; set; }
-        public int precoUnitVenda { get; set; }
+        public int id { get; set; }
         public int quantidade { get; set; }
-        public string tipoProduto { get; set; }
         public int estoqueMaximo { get; set; }
         public int estoqueMinimo { get; set; }
-        public string status { get; set; }
+        public int lote_id { get; set; }
+        public int status { get; set; }
     
         public virtual lote lote { get; set; }
     }

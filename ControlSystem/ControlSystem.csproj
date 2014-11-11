@@ -84,6 +84,9 @@
     <Compile Include="compra.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="compra_produto.cs">
+      <DependentUpon>CSCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="CSCModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -99,7 +102,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CSCModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="devolução.cs">
+    <Compile Include="devolucao.cs">
+      <DependentUpon>CSCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="endereco.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="estados.cs">
@@ -159,13 +165,7 @@
     <Compile Include="frmPurchase.Designer.cs">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </Compile>
-    <Compile Include="funcionário.cs">
-      <DependentUpon>CSCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="item_compra.cs">
-      <DependentUpon>CSCModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="item_venda.cs">
+    <Compile Include="funcionario.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LogInfo.cs" />
@@ -178,6 +178,10 @@
     <Compile Include="mainContainer.Designer.cs">
       <DependentUpon>mainContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="produto.cs">
+      <DependentUpon>CSCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produtos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
@@ -185,6 +189,9 @@
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
     <Compile Include="venda.cs">
+      <DependentUpon>CSCModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="venda_produto.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmLogin.resx">
@@ -243,6 +250,7 @@
     <None Include="Properties\DataSources\estados.datasource" />
     <None Include="Properties\DataSources\fornecedor.datasource" />
     <None Include="Properties\DataSources\item_compra.datasource" />
+    <None Include="Properties\DataSources\lote.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

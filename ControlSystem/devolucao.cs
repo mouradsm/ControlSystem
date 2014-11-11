@@ -12,15 +12,13 @@ namespace ControlSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class fornecedor_produto
+    public partial class devolucao
     {
-        public int fornecedor_id { get; set; }
-        public int produto_id { get; set; }
-        public float preco { get; set; }
-        public System.DateTime dataCotacao { get; set; }
-        public int status { get; set; }
+        public int id { get; set; }
+        public bool retornaEstoque { get; set; }
+        public string motivo { get; set; }
+        public int venda_produto_id { get; set; }
     
-        public virtual fornecedor fornecedor { get; set; }
-        public virtual produto produto { get; set; }
+        public virtual venda_produto venda_produto { get; set; }
     }
 }

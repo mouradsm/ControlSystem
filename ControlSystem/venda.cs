@@ -14,15 +14,22 @@ namespace ControlSystem
     
     public partial class venda
     {
-        public int notaFiscalVenda { get; set; }
-        public int Cliente_idCliente { get; set; }
-        public int Funcionário_matriculaFuncionário { get; set; }
-        public System.DateTime dataVenda { get; set; }
-        public decimal valorTotal { get; set; }
-        public string desconto { get; set; }
-        public decimal valorTotalComDesconto { get; set; }
+        public venda()
+        {
+            this.venda_produto = new HashSet<venda_produto>();
+        }
+    
+        public int id { get; set; }
+        public int notaFiscal { get; set; }
+        public System.DateTime dataDaVenda { get; set; }
+        public float valorTotal { get; set; }
+        public Nullable<float> desconto { get; set; }
+        public float valorTotalComDesconto { get; set; }
+        public int funcionario_id { get; set; }
+        public int cliente_id { get; set; }
     
         public virtual cliente cliente { get; set; }
-        public virtual funcionário funcionário { get; set; }
+        public virtual funcionario funcionario { get; set; }
+        public virtual ICollection<venda_produto> venda_produto { get; set; }
     }
 }

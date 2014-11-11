@@ -13,7 +13,7 @@ namespace ControlSystem
 {
     public partial class frmNewCous : Form
     {
-        cscEntities db;
+        controlsystemEntities db;
 
         public frmNewCous()
         {
@@ -22,7 +22,7 @@ namespace ControlSystem
 
         private void frmNewEmployee_Load(object sender, EventArgs e)
         {
-            db = new cscEntities();
+            db = new controlsystemEntities();
             cboUF.DataSource = db.estados.ToList();
             cboUF.DisplayMember = "sigla";
             cboUF.ValueMember = "sigla";
@@ -34,23 +34,27 @@ namespace ControlSystem
 
             try
             {
-                db = new cscEntities();
+                db = new controlsystemEntities();
                 cliente novoCliente = new cliente();
+                endereco novoEndereco = new endereco();
 
-                novoCliente.bairro = txtBairro.Text;
-                novoCliente.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
-                novoCliente.cidade = txtCidade.Text;
+                novoEndereco.endereco1 = txtEndereco.Text;
+                novoEndereco.bairro = txtBairro.Text;
+                novoEndereco.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
+                novoEndereco.cidade = txtCidade.Text;
+                novoEndereco.UF = cboUF.SelectedText;
+
+                novoCliente.endereco = novoEndereco;
                 novoCliente.cpf = txtCPF.Text;
-                novoCliente.dataDeCadastramento = DateTime.Now;
+                novoCliente.dateDeCadastramento = DateTime.Now;
                 novoCliente.dataDeNascimento = DateTime.Parse(txtNascimento.Text);
                 novoCliente.email = txtEmail.Text;
-                novoCliente.endereco = txtEndereco.Text;
+                
                 novoCliente.nome = txtNome.Text;
-                novoCliente.status = cboStatus.SelectedText;
+                novoCliente.status = cboStatus.SelectedIndex;
                 novoCliente.telefone = txtTelefone.Text;
-                novoCliente.tipo = cboTipo.SelectedText;
-                novoCliente.uf = cboUF.SelectedText;
 
+                db.endereco.Add(novoEndereco);
                 db.cliente.Add(novoCliente);
                 db.SaveChanges();
 
@@ -62,8 +66,16 @@ namespace ControlSystem
                 MessageBox.Show(ex.Message);
 
             }
+        }
 
-
+        private void cboTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cboTipo.SelectedIndex) { 
+                case 0:
+                    break;
+                case 1:
+                    break;
+            }
         }
     }
 }

@@ -12,14 +12,14 @@ namespace ControlSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class devolução
+    public partial class compra_produto
     {
-        public int idDevolução { get; set; }
-        public int Item_Venda_notaFiscalVenda { get; set; }
-        public int Estoque_codProduto { get; set; }
-        public int lote { get; set; }
+        public int compra_id { get; set; }
+        public int lote_id { get; set; }
         public int quantidade { get; set; }
-        public bool retornaEstoque { get; set; }
-        public string motivo { get; set; }
+        public float valorUnitario { get; set; }
+    
+        public virtual compra compra { get; set; }
+        public virtual lote lote { get; set; }
     }
 }

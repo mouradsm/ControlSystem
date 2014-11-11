@@ -8,9 +8,11 @@ namespace ControlSystem
 {
     class User
     {
+        
+
         public static string login { get; set; }
         public static string password { get; set; }
-        static cscEntities db;
+        static controlsystemEntities db;
         
 
         public User(string usuario, string senha) {
@@ -23,8 +25,8 @@ namespace ControlSystem
         }
 
         public static Boolean logar(string usuario, string senha){
-           
-           db = new cscEntities();
+
+            db = new controlsystemEntities();
 
             string password = (from u in db.usuario
                               where u.login == usuario
@@ -44,7 +46,7 @@ namespace ControlSystem
 
         public static Boolean checkUniqUser(string login) {
 
-            db = new cscEntities();
+            db = new controlsystemEntities();
 
             int countUser = (from u in db.usuario
                              where u.login == login

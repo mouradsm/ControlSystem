@@ -1,80 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="cscModelStoreContainer" CdmEntityContainer="cscEntities">
+  <EntityContainerMapping StorageEntityContainer="controlsystemModelStoreContainer" CdmEntityContainer="controlsystemEntities">
     <EntitySetMapping Name="cliente">
-      <EntityTypeMapping TypeName="cscModel.cliente">
+      <EntityTypeMapping TypeName="controlsystemModel.cliente">
         <MappingFragment StoreEntitySet="cliente">
-          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nome" ColumnName="nome" />
-          <ScalarProperty Name="endereco" ColumnName="endereco" />
-          <ScalarProperty Name="complemento" ColumnName="complemento" />
-          <ScalarProperty Name="bairro" ColumnName="bairro" />
-          <ScalarProperty Name="cep" ColumnName="cep" />
-          <ScalarProperty Name="cidade" ColumnName="cidade" />
-          <ScalarProperty Name="uf" ColumnName="uf" />
           <ScalarProperty Name="cpf" ColumnName="cpf" />
           <ScalarProperty Name="cnpj" ColumnName="cnpj" />
           <ScalarProperty Name="telefone" ColumnName="telefone" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="dataDeNascimento" ColumnName="dataDeNascimento" />
-          <ScalarProperty Name="dataDeCadastramento" ColumnName="dataDeCadastramento" />
+          <ScalarProperty Name="dateDeCadastramento" ColumnName="dateDeCadastramento" />
           <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="endereco_id" ColumnName="endereco_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="compra">
-      <EntityTypeMapping TypeName="cscModel.compra">
+      <EntityTypeMapping TypeName="controlsystemModel.compra">
         <MappingFragment StoreEntitySet="compra">
-          <ScalarProperty Name="numCompra" ColumnName="numCompra" />
-          <ScalarProperty Name="FORNECEDOR_cnpj" ColumnName="FORNECEDOR_cnpj" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fornecedor_id" ColumnName="fornecedor_id" />
           <ScalarProperty Name="dataDeEntrega" ColumnName="dataDeEntrega" />
-          <ScalarProperty Name="valorTotalDaCompra" ColumnName="valorTotalDaCompra" />
+          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="devolução">
-      <EntityTypeMapping TypeName="cscModel.devolução">
-        <MappingFragment StoreEntitySet="devolução">
-          <ScalarProperty Name="idDevolução" ColumnName="idDevolução" />
-          <ScalarProperty Name="Item_Venda_notaFiscalVenda" ColumnName="Item Venda_notaFiscalVenda" />
-          <ScalarProperty Name="Estoque_codProduto" ColumnName="Estoque_codProduto" />
-          <ScalarProperty Name="lote" ColumnName="lote" />
-          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+    <EntitySetMapping Name="devolucao">
+      <EntityTypeMapping TypeName="controlsystemModel.devolucao">
+        <MappingFragment StoreEntitySet="devolucao">
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="retornaEstoque" ColumnName="retornaEstoque" />
           <ScalarProperty Name="motivo" ColumnName="motivo" />
+          <ScalarProperty Name="venda_produto_id" ColumnName="venda_produto_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="endereco">
+      <EntityTypeMapping TypeName="controlsystemModel.endereco">
+        <MappingFragment StoreEntitySet="endereco">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="endereco1" ColumnName="endereco" />
+          <ScalarProperty Name="complemento" ColumnName="complemento" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="estoque">
-      <EntityTypeMapping TypeName="cscModel.estoque">
+      <EntityTypeMapping TypeName="controlsystemModel.estoque">
         <MappingFragment StoreEntitySet="estoque">
-          <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-          <ScalarProperty Name="codLoja" ColumnName="codLoja" />
-          <ScalarProperty Name="Lote_Lote" ColumnName="Lote_Lote" />
-          <ScalarProperty Name="Lote_codProduto" ColumnName="Lote_codProduto" />
-          <ScalarProperty Name="precoUnitVenda" ColumnName="precoUnitVenda" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="quantidade" ColumnName="quantidade" />
-          <ScalarProperty Name="tipoProduto" ColumnName="tipoProduto" />
           <ScalarProperty Name="estoqueMaximo" ColumnName="estoqueMaximo" />
           <ScalarProperty Name="estoqueMinimo" ColumnName="estoqueMinimo" />
+          <ScalarProperty Name="lote_id" ColumnName="lote_id" />
           <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="fornecedor">
-      <EntityTypeMapping TypeName="cscModel.fornecedor">
+      <EntityTypeMapping TypeName="controlsystemModel.fornecedor">
         <MappingFragment StoreEntitySet="fornecedor">
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="cnpj" ColumnName="cnpj" />
-          <ScalarProperty Name="Compra_numCompra" ColumnName="Compra_numCompra" />
           <ScalarProperty Name="razaoSocial" ColumnName="razaoSocial" />
-          <ScalarProperty Name="nomeFantasia" ColumnName="nomeFantasia" />
-          <ScalarProperty Name="endereco" ColumnName="endereco" />
-          <ScalarProperty Name="complemento" ColumnName="complemento" />
-          <ScalarProperty Name="bairro" ColumnName="bairro" />
-          <ScalarProperty Name="cep" ColumnName="cep" />
-          <ScalarProperty Name="cidade" ColumnName="cidade" />
-          <ScalarProperty Name="uf" ColumnName="uf" />
           <ScalarProperty Name="telefone" ColumnName="telefone" />
           <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="dataDeCadastramento" ColumnName="dataDeCadastramento" />
@@ -82,98 +75,107 @@
           <ScalarProperty Name="telefoneContato" ColumnName="telefoneContato" />
           <ScalarProperty Name="emailContato" ColumnName="emailContato" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="endereco_id" ColumnName="endereco_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="controlsystemModel.funcionario">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dataDeAdmissao" ColumnName="dataDeAdmissao" />
+          <ScalarProperty Name="dataDeDemissao" ColumnName="dataDeDemissao" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="endereco_id" ColumnName="endereco_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="lote">
+      <EntityTypeMapping TypeName="controlsystemModel.lote">
+        <MappingFragment StoreEntitySet="lote">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dataValidade" ColumnName="dataValidade" />
+          <ScalarProperty Name="dataFabricacao" ColumnName="dataFabricacao" />
+          <ScalarProperty Name="identificador" ColumnName="identificador" />
+          <ScalarProperty Name="produto_id" ColumnName="produto_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produto">
+      <EntityTypeMapping TypeName="controlsystemModel.produto">
+        <MappingFragment StoreEntitySet="produto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="desc" ColumnName="desc" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="controlsystemModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="lastLogin" ColumnName="lastLogin" />
+          <ScalarProperty Name="perfil" ColumnName="perfil" />
+          <ScalarProperty Name="funcionario_id" ColumnName="funcionario_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="venda">
+      <EntityTypeMapping TypeName="controlsystemModel.venda">
+        <MappingFragment StoreEntitySet="venda">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="notaFiscal" ColumnName="notaFiscal" />
+          <ScalarProperty Name="dataDaVenda" ColumnName="dataDaVenda" />
+          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
+          <ScalarProperty Name="desconto" ColumnName="desconto" />
+          <ScalarProperty Name="valorTotalComDesconto" ColumnName="valorTotalComDesconto" />
+          <ScalarProperty Name="funcionario_id" ColumnName="funcionario_id" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="venda_produto">
+      <EntityTypeMapping TypeName="controlsystemModel.venda_produto">
+        <MappingFragment StoreEntitySet="venda_produto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
+          <ScalarProperty Name="venda_id" ColumnName="venda_id" />
+          <ScalarProperty Name="lote_id" ColumnName="lote_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="compra_produto">
+      <EntityTypeMapping TypeName="controlsystemModel.compra_produto">
+        <MappingFragment StoreEntitySet="compra_produto">
+          <ScalarProperty Name="compra_id" ColumnName="compra_id" />
+          <ScalarProperty Name="lote_id" ColumnName="lote_id" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="valorUnitario" ColumnName="valorUnitario" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="fornecedor_produto">
-      <EntityTypeMapping TypeName="cscModel.fornecedor_produto">
+      <EntityTypeMapping TypeName="controlsystemModel.fornecedor_produto">
         <MappingFragment StoreEntitySet="fornecedor_produto">
-          <ScalarProperty Name="cnpj" ColumnName="cnpj" />
-          <ScalarProperty Name="Estoque_codProduto" ColumnName="Estoque_codProduto" />
+          <ScalarProperty Name="fornecedor_id" ColumnName="fornecedor_id" />
+          <ScalarProperty Name="produto_id" ColumnName="produto_id" />
           <ScalarProperty Name="preco" ColumnName="preco" />
           <ScalarProperty Name="dataCotacao" ColumnName="dataCotacao" />
           <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="funcionário">
-      <EntityTypeMapping TypeName="cscModel.funcionário">
-        <MappingFragment StoreEntitySet="funcionário">
-          <ScalarProperty Name="matriculaFuncionário" ColumnName="matriculaFuncionário" />
-          <ScalarProperty Name="nome" ColumnName="nome" />
-          <ScalarProperty Name="endereco" ColumnName="endereco" />
-          <ScalarProperty Name="complemento" ColumnName="complemento" />
-          <ScalarProperty Name="bairro" ColumnName="bairro" />
-          <ScalarProperty Name="cep" ColumnName="cep" />
-          <ScalarProperty Name="cidade" ColumnName="cidade" />
-          <ScalarProperty Name="uf" ColumnName="uf" />
-          <ScalarProperty Name="telefone" ColumnName="telefone" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="dataDeAdmissao" ColumnName="dataDeAdmissao" />
-          <ScalarProperty Name="dataDeDemissao" ColumnName="dataDeDemissao" />
-          <ScalarProperty Name="perfilDeAcesso" ColumnName="perfilDeAcesso" />
-          <ScalarProperty Name="cargo" ColumnName="cargo" />
-          <ScalarProperty Name="status" ColumnName="status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="item_compra">
-      <EntityTypeMapping TypeName="cscModel.item_compra">
-        <MappingFragment StoreEntitySet="item compra">
-          <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-          <ScalarProperty Name="numCompra" ColumnName="numCompra" />
-          <ScalarProperty Name="qtdCadaProduto" ColumnName="qtdCadaProduto" />
-          <ScalarProperty Name="valorItem" ColumnName="valorItem" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="item_venda">
-      <EntityTypeMapping TypeName="cscModel.item_venda">
-        <MappingFragment StoreEntitySet="item venda">
-          <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-          <ScalarProperty Name="Venda_notaFiscalVenda" ColumnName="Venda_notaFiscalVenda" />
-          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
-          <ScalarProperty Name="valorItem" ColumnName="valorItem" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="lote">
-      <EntityTypeMapping TypeName="cscModel.lote">
-        <MappingFragment StoreEntitySet="lote">
-          <ScalarProperty Name="Lote1" ColumnName="Lote" />
-          <ScalarProperty Name="codProduto" ColumnName="codProduto" />
-          <ScalarProperty Name="dataDeValidade" ColumnName="dataDeValidade" />
-          <ScalarProperty Name="dataDeFabricacao" ColumnName="dataDeFabricacao" />
-          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="usuario">
-      <EntityTypeMapping TypeName="cscModel.usuario">
-        <MappingFragment StoreEntitySet="usuario">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idFuncionario" ColumnName="idFuncionario" />
-          <ScalarProperty Name="login" ColumnName="login" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="lastlogin" ColumnName="lastlogin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="venda">
-      <EntityTypeMapping TypeName="cscModel.venda">
-        <MappingFragment StoreEntitySet="venda">
-          <ScalarProperty Name="notaFiscalVenda" ColumnName="notaFiscalVenda" />
-          <ScalarProperty Name="Cliente_idCliente" ColumnName="Cliente_idCliente" />
-          <ScalarProperty Name="Funcionário_matriculaFuncionário" ColumnName="Funcionário_matriculaFuncionário" />
-          <ScalarProperty Name="dataVenda" ColumnName="dataVenda" />
-          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
-          <ScalarProperty Name="desconto" ColumnName="desconto" />
-          <ScalarProperty Name="valorTotalComDesconto" ColumnName="valorTotalComDesconto" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="estados">
-      <EntityTypeMapping TypeName="cscModel.estados">
+      <EntityTypeMapping TypeName="controlsystemModel.estados">
         <MappingFragment StoreEntitySet="estados">
           <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="sigla" ColumnName="sigla" />

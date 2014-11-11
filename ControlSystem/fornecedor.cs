@@ -14,22 +14,26 @@ namespace ControlSystem
     
     public partial class fornecedor
     {
-        public int cnpj { get; set; }
-        public int Compra_numCompra { get; set; }
+        public fornecedor()
+        {
+            this.compra = new HashSet<compra>();
+            this.fornecedor_produto = new HashSet<fornecedor_produto>();
+        }
+    
+        public int id { get; set; }
+        public string cnpj { get; set; }
         public string razaoSocial { get; set; }
-        public string nomeFantasia { get; set; }
-        public string endereco { get; set; }
-        public string complemento { get; set; }
-        public string bairro { get; set; }
-        public int cep { get; set; }
-        public string cidade { get; set; }
-        public string uf { get; set; }
-        public decimal telefone { get; set; }
+        public string telefone { get; set; }
         public string email { get; set; }
         public System.DateTime dataDeCadastramento { get; set; }
         public string contato { get; set; }
-        public decimal telefoneContato { get; set; }
+        public string telefoneContato { get; set; }
         public string emailContato { get; set; }
-        public string status { get; set; }
+        public Nullable<int> status { get; set; }
+        public int endereco_id { get; set; }
+    
+        public virtual ICollection<compra> compra { get; set; }
+        public virtual endereco endereco { get; set; }
+        public virtual ICollection<fornecedor_produto> fornecedor_produto { get; set; }
     }
 }

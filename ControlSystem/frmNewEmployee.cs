@@ -12,7 +12,7 @@ namespace ControlSystem
 {
     public partial class frmNewEmployee : Form
     {
-        cscEntities db;
+        controlsystemEntities db;
 
         public frmNewEmployee()
         {
@@ -33,22 +33,26 @@ namespace ControlSystem
         {
             try
             {
-                db = new cscEntities();
-                funcionário novoFuncionario = new funcionário();
+                db = new controlsystemEntities();
+                funcionario novoFuncionario = new funcionario();
+                endereco novoEndereco = new endereco();
 
-                novoFuncionario.bairro = txtBairro.Text;
-                novoFuncionario.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
-                novoFuncionario.cidade = txtCidade.Text;
-                //novoFuncionario.cpf = txtCPF.Text;
-                
+                novoEndereco.endereco1 = txtEndereco.Text;
+                novoEndereco.bairro = txtBairro.Text;
+                novoEndereco.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
+                novoEndereco.cidade = txtCidade.Text;
+                novoEndereco.UF = cboUF.SelectedText;
+
+                novoFuncionario.endereco = novoEndereco;
+                novoFuncionario.cpf = txtCPF.Text;                
                 novoFuncionario.email = txtEmail.Text;
-                novoFuncionario.endereco = txtEndereco.Text;
+
                 novoFuncionario.nome = txtNome.Text;
                 novoFuncionario.status = cboStatus.SelectedText;
                 novoFuncionario.telefone = txtTelefone.Text;
-                novoFuncionario.uf = cboUF.SelectedText;
 
-                db.funcionário.Add(novoFuncionario);
+                db.endereco.Add(novoEndereco);
+                db.funcionario.Add(novoFuncionario);
                 db.SaveChanges();
 
                 Form.ClearForm(this);

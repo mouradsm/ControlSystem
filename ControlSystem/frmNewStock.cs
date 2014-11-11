@@ -12,7 +12,8 @@ namespace ControlSystem
 {
     public partial class frmNewStock : Form
     {
-        cscEntities db;
+        
+        controlsystemEntities db;
 
         public frmNewStock()
         {
@@ -21,7 +22,13 @@ namespace ControlSystem
 
         private void frmNewStock_Load(object sender, EventArgs e)
         {
+            controlsystemEntities db = new controlsystemEntities();
 
+            var produtos = (from l in db.lote
+                           join p in db.produto on l.produto_id equals p.id
+                           select new Produtos() { id_produto = p.id, id_lote = l.id,identificador = l.identificador, descricao = p.desc}).ToList();
+
+            comboBox1.DataSource = produtos;            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -32,23 +39,25 @@ namespace ControlSystem
 
         private void bntSalvar_Click(object sender, EventArgs e)
         {
-
             try
             {
-                db = new cscEntities();
+                db = new controlsystemEntities();
                 estoque novoEstoque = new estoque();
 
-                novoEstoque.codProduto      = Int32.Parse(txtCodigoProduto.Text);
-                novoEstoque.codLoja         = Int32.Parse(txtCodigoLoja.Text);
+                //INSERIR LOTE    
+                //novoEstoque.codProduto      = Int32.Parse(txtCodigoProduto.Text);
+
+                //novoEstoque.codLoja         = Int32.Parse(txtCodigoLoja.Text);
                 novoEstoque.estoqueMaximo   = Int32.Parse(txtEstoqueMaximo.Text);
                 novoEstoque.estoqueMinimo   = Int32.Parse(txtEstoqueMinimo.Text);
-                novoEstoque.precoUnitVenda  = Int32.Parse(txtPrecoUnitario.Text);
                 novoEstoque.quantidade      = Int32.Parse(txtQuantidade.Text);
-                novoEstoque.status          = cboStatus.SelectedText;
-                novoEstoque.tipoProduto     = txtTipoProduto.Text;
+                novoEstoque.status          = cboStatus.SelectedIndex;
+                
 
                 db.estoque.Add(novoEstoque);
                 db.SaveChanges();
+
+                Form.ClearForm(this);
             }
             catch (Exception ex)
             {

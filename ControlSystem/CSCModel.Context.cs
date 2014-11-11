@@ -13,10 +13,10 @@ namespace ControlSystem
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class cscEntities : DbContext
+    public partial class controlsystemEntities : DbContext
     {
-        public cscEntities()
-            : base("name=cscEntities")
+        public controlsystemEntities()
+            : base("name=controlsystemEntities")
         {
         }
     
@@ -27,16 +27,18 @@ namespace ControlSystem
     
         public virtual DbSet<cliente> cliente { get; set; }
         public virtual DbSet<compra> compra { get; set; }
-        public virtual DbSet<devolução> devolução { get; set; }
+        public virtual DbSet<devolucao> devolucao { get; set; }
+        public virtual DbSet<endereco> endereco { get; set; }
         public virtual DbSet<estoque> estoque { get; set; }
         public virtual DbSet<fornecedor> fornecedor { get; set; }
-        public virtual DbSet<fornecedor_produto> fornecedor_produto { get; set; }
-        public virtual DbSet<funcionário> funcionário { get; set; }
-        public virtual DbSet<item_compra> item_compra { get; set; }
-        public virtual DbSet<item_venda> item_venda { get; set; }
+        public virtual DbSet<funcionario> funcionario { get; set; }
         public virtual DbSet<lote> lote { get; set; }
+        public virtual DbSet<produto> produto { get; set; }
         public virtual DbSet<usuario> usuario { get; set; }
         public virtual DbSet<venda> venda { get; set; }
+        public virtual DbSet<venda_produto> venda_produto { get; set; }
+        public virtual DbSet<compra_produto> compra_produto { get; set; }
+        public virtual DbSet<fornecedor_produto> fornecedor_produto { get; set; }
         public virtual DbSet<estados> estados { get; set; }
     }
 }

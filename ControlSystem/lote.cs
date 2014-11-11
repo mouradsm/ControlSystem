@@ -17,14 +17,19 @@ namespace ControlSystem
         public lote()
         {
             this.estoque = new HashSet<estoque>();
+            this.compra_produto = new HashSet<compra_produto>();
+            this.venda_produto = new HashSet<venda_produto>();
         }
     
-        public int Lote1 { get; set; }
-        public int codProduto { get; set; }
-        public System.DateTime dataDeValidade { get; set; }
-        public System.DateTime dataDeFabricacao { get; set; }
-        public int quantidade { get; set; }
+        public int id { get; set; }
+        public System.DateTime dataValidade { get; set; }
+        public System.DateTime dataFabricacao { get; set; }
+        public string identificador { get; set; }
+        public int produto_id { get; set; }
     
         public virtual ICollection<estoque> estoque { get; set; }
+        public virtual ICollection<compra_produto> compra_produto { get; set; }
+        public virtual produto produto { get; set; }
+        public virtual ICollection<venda_produto> venda_produto { get; set; }
     }
 }

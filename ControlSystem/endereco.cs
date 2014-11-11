@@ -12,29 +12,25 @@ namespace ControlSystem
     using System;
     using System.Collections.Generic;
     
-    public partial class funcionário
+    public partial class endereco
     {
-        public funcionário()
+        public endereco()
         {
-            this.venda = new HashSet<venda>();
+            this.cliente = new HashSet<cliente>();
+            this.fornecedor = new HashSet<fornecedor>();
+            this.funcionario = new HashSet<funcionario>();
         }
     
-        public int matriculaFuncionário { get; set; }
-        public string nome { get; set; }
-        public string endereco { get; set; }
+        public int id { get; set; }
+        public string endereco1 { get; set; }
         public string complemento { get; set; }
         public string bairro { get; set; }
         public int cep { get; set; }
         public string cidade { get; set; }
-        public string uf { get; set; }
-        public string telefone { get; set; }
-        public string email { get; set; }
-        public System.DateTime dataDeAdmissao { get; set; }
-        public System.DateTime dataDeDemissao { get; set; }
-        public string perfilDeAcesso { get; set; }
-        public string cargo { get; set; }
-        public string status { get; set; }
+        public string UF { get; set; }
     
-        public virtual ICollection<venda> venda { get; set; }
+        public virtual ICollection<cliente> cliente { get; set; }
+        public virtual ICollection<fornecedor> fornecedor { get; set; }
+        public virtual ICollection<funcionario> funcionario { get; set; }
     }
 }
