@@ -8,7 +8,7 @@
     <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cpf" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="cnpj" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Name="telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="dataDeNascimento" Type="DateTime" Nullable="false" />
     <Property Name="dateDeCadastramento" Type="DateTime" Nullable="false" />
@@ -72,11 +72,11 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="cnpj" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="razaoSocial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="dataDeCadastramento" Type="DateTime" Nullable="false" />
     <Property Name="contato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="telefoneContato" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="telefoneContato" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="emailContato" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="status" Type="Int32" />
     <Property Name="endereco_id" Type="Int32" Nullable="false" />
@@ -90,7 +90,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="telefone" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telefone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="dataDeAdmissao" Type="DateTime" Nullable="false" />
     <Property Name="dataDeDemissao" Type="DateTime" />

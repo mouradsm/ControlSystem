@@ -40,8 +40,9 @@ namespace ControlSystem
                     //Unselect all RadioButtons
                     ((System.Windows.Forms.RadioButton)ctrControl).Checked = false;
                 }
-                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.MaskedTextBox))) { 
-                    //(()
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.MaskedTextBox)))
+                {
+                    ((System.Windows.Forms.MaskedTextBox)ctrControl).Clear();
                 }
                 if (ctrControl.Controls.Count > 0)
                 {
@@ -49,6 +50,6 @@ namespace ControlSystem
                     ClearForm(ctrControl);
                 }
             }
-        } 
+        }
     }
 }

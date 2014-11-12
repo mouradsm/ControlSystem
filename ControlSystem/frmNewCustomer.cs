@@ -43,6 +43,7 @@ namespace ControlSystem
                 novoEndereco.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
                 novoEndereco.cidade = txtCidade.Text;
                 novoEndereco.UF = cboUF.SelectedText;
+                novoEndereco.complemento = txtComplemento.Text;
 
                 novoCliente.endereco = novoEndereco;
                 novoCliente.cpf = txtCPF.Text;
@@ -52,7 +53,7 @@ namespace ControlSystem
                 
                 novoCliente.nome = txtNome.Text;
                 novoCliente.status = cboStatus.SelectedIndex;
-                novoCliente.telefone = txtTelefone.Text;
+                novoCliente.telefone = txtTelefone.Text.Trim();
 
                 db.endereco.Add(novoEndereco);
                 db.cliente.Add(novoCliente);

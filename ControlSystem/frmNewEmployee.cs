@@ -42,11 +42,12 @@ namespace ControlSystem
                 novoEndereco.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
                 novoEndereco.cidade = txtCidade.Text;
                 novoEndereco.UF = cboUF.SelectedText;
+                novoEndereco.complemento = txtComplemento.Text;
 
                 novoFuncionario.endereco = novoEndereco;
                 novoFuncionario.cpf = txtCPF.Text;                
                 novoFuncionario.email = txtEmail.Text;
-
+                novoFuncionario.cargo = "";
                 novoFuncionario.nome = txtNome.Text;
                 novoFuncionario.status = cboStatus.SelectedText;
                 novoFuncionario.telefone = txtTelefone.Text;
