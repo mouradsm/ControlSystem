@@ -9,6 +9,7 @@ namespace ControlSystem
     public static class LogInfo
     {
         public static string userID { get; set; }
+        public static string perfil { get; set; }
 
        
     }

@@ -39,7 +39,7 @@ namespace ControlSystem
 
         private void mainContainer_Load(object sender, EventArgs e)
         {
-            stUsuario.Text = "Usuario: " + LogInfo.userID + " (PERFIL DE ACESSO)";
+            stUsuario.Text = "Usuario: " + LogInfo.userID + " ("+LogInfo.perfil+")";
         }
 
         private void novoFuncionárioToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -76,6 +76,20 @@ namespace ControlSystem
             novaCompraForm.Show();
 
             novaCompraForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void gerenciarFuncionáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMngEmployees gerenciarFuncionarioForm = new frmMngEmployees();
+            gerenciarFuncionarioForm.MdiParent = this;
+            gerenciarFuncionarioForm.Show();
+
+            gerenciarFuncionarioForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

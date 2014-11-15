@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,7 +48,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboUF = new System.Windows.Forms.ComboBox();
             this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -68,24 +66,10 @@
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Código";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(103, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
             // 
             // label2
             // 
@@ -96,12 +80,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "CNPJ";
             // 
-            // textBox2
+            // txt
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 49);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txt.Location = new System.Drawing.Point(103, 49);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(100, 20);
+            this.txt.TabIndex = 3;
+            this.txt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -240,16 +225,16 @@
             this.label11.TabIndex = 20;
             this.label11.Text = "UF";
             // 
-            // comboBox1
+            // cboUF
             // 
-            this.comboBox1.DataSource = this.estadosBindingSource;
-            this.comboBox1.DisplayMember = "sigla";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(402, 153);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(97, 21);
-            this.comboBox1.TabIndex = 21;
-            this.comboBox1.ValueMember = "sigla";
+            this.cboUF.DataSource = this.estadosBindingSource;
+            this.cboUF.DisplayMember = "sigla";
+            this.cboUF.FormattingEnabled = true;
+            this.cboUF.Location = new System.Drawing.Point(402, 153);
+            this.cboUF.Name = "cboUF";
+            this.cboUF.Size = new System.Drawing.Size(97, 21);
+            this.cboUF.TabIndex = 21;
+            this.cboUF.ValueMember = "sigla";
             // 
             // estadosBindingSource
             // 
@@ -396,6 +381,23 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Código";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(103, 23);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.TabIndex = 1;
+            // 
             // frmNewSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,7 +419,7 @@
             this.Controls.Add(this.label13);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboUF);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.label10);
@@ -435,9 +437,9 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label1);
             this.Name = "frmNewSupplier";
             this.Text = "Cadastro de Fornecedor";
@@ -450,10 +452,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
@@ -471,7 +471,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboUF;
         private System.Windows.Forms.BindingSource estadosBindingSource;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
@@ -489,5 +489,7 @@
         private System.Windows.Forms.ComboBox cboStatus;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCodigo;
     }
 }

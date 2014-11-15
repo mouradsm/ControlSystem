@@ -12,6 +12,7 @@ namespace ControlSystem
 {
     public partial class frmNewSupplier : Form
     {
+        controlsystemEntities db;
         public frmNewSupplier()
         {
             InitializeComponent();
@@ -19,10 +20,18 @@ namespace ControlSystem
 
         private void frmNewSupplier_Load(object sender, EventArgs e)
         {
-
+            db = new controlsystemEntities();
+            cboUF.DataSource = db.estados.ToList();
+            cboUF.DisplayMember = "sigla";
+            cboUF.ValueMember = "sigla";
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }

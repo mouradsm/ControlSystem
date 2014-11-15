@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.cboUF = new System.Windows.Forms.ComboBox();
+            this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
@@ -59,11 +60,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.estadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource1)).BeginInit();
@@ -77,6 +75,10 @@
             this.cboUF.Name = "cboUF";
             this.cboUF.Size = new System.Drawing.Size(240, 21);
             this.cboUF.TabIndex = 8;
+            // 
+            // estadosBindingSource
+            // 
+            this.estadosBindingSource.DataSource = typeof(ControlSystem.estados);
             // 
             // txtCPF
             // 
@@ -315,43 +317,23 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
-            this.comboBox1.Location = new System.Drawing.Point(155, 279);
+            "0 - INATIVO",
+            "1 - ATIVO"});
+            this.comboBox1.Location = new System.Drawing.Point(508, 255);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(240, 21);
             this.comboBox1.TabIndex = 16;
             this.comboBox1.Text = "Selecione o Status";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 282);
+            this.label2.Location = new System.Drawing.Point(419, 258);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 15);
             this.label2.TabIndex = 66;
             this.label2.Text = "Status";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
-            this.comboBox2.Location = new System.Drawing.Point(508, 255);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(240, 21);
-            this.comboBox2.TabIndex = 15;
-            this.comboBox2.Text = "Selecione o Status";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(431, 259);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(41, 15);
-            this.label15.TabIndex = 68;
-            this.label15.Text = "Status";
             // 
             // maskedTextBox1
             // 
@@ -371,10 +353,6 @@
             this.label16.TabIndex = 70;
             this.label16.Text = "Demissão";
             // 
-            // estadosBindingSource
-            // 
-            this.estadosBindingSource.DataSource = typeof(ControlSystem.estados);
-            // 
             // estadosBindingSource1
             // 
             this.estadosBindingSource1.DataSource = typeof(ControlSystem.estados);
@@ -386,8 +364,6 @@
             this.ClientSize = new System.Drawing.Size(787, 348);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.label15);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cboUF);
@@ -462,8 +438,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Label label16;
 

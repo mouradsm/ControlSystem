@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControlSystem
 {
-    class User
+    public class User
     {
         
 
@@ -24,23 +24,47 @@ namespace ControlSystem
 
         }
 
-        public static Boolean logar(string usuario, string senha){
+        public static Boolean logar(string user, string senha){
 
             db = new controlsystemEntities();
+            string perfil = "";
+            
+            //string password = (from u in db.usuario
+            //                  where u.login == user
+            //                  select u.password).First();
 
-            string password = (from u in db.usuario
-                              where u.login == usuario
-                              select u.password).First();
+            usuario logando = (from u in db.usuario
+                              where u.login == user
+                              select u).First();
 
             
-            byte[] data = Convert.FromBase64String(password);
+            logando.lastLogin = DateTime.Now;
+            db.SaveChanges();
+            
+            
+            byte[] data = Convert.FromBase64String(logando.password);
             string decodedString = Encoding.UTF8.GetString(data);
 
             if (decodedString != senha)
             {
                 throw new ApplicationException("Usuário ou senha inválidos!");
             }
-                
+
+            switch(logando.perfil){
+                case 0:
+                    perfil = "ADMINISTRAÇÃO";
+                    break;
+                case 1:
+                    perfil = "BALCÃO";
+                    break;
+                case 2:
+                    perfil = "GERENTE";
+                    break;
+            }
+
+            LogInfo.userID = user;
+            LogInfo.perfil = perfil;
+
             return true;
         }
 

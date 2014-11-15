@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace ControlSystem
 {
@@ -26,7 +27,10 @@ namespace ControlSystem
 
         private void frmNewEmployee_Load(object sender, EventArgs e)
         {
-
+            db = new controlsystemEntities();
+            cboUF.DataSource = db.estados.ToList();
+            cboUF.DisplayMember = "sigla";
+            cboUF.ValueMember = "sigla";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,6 +67,15 @@ namespace ControlSystem
             {
                 MessageBox.Show(ex.Message);
 
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (comboBox1.SelectedIndex) { 
+                case 0:
+                    string promptValue = Prompt.ShowDialog("Digite o Motivo da Inatividade", "Motivo da Inatividade");
+                    break;
             }
         }
     }

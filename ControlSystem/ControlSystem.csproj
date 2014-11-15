@@ -129,6 +129,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMngEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMngEmployees.Designer.cs">
+      <DependentUpon>frmMngEmployees.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     <Compile Include="funcionario.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LogInfo.cs" />
     <Compile Include="lote.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
@@ -183,6 +192,7 @@
     </Compile>
     <Compile Include="Produtos.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Prompt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
     <Compile Include="usuario.cs">
@@ -196,6 +206,9 @@
     </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMngEmployees.resx">
+      <DependentUpon>frmMngEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewCustomer.resx">
       <DependentUpon>frmNewCustomer.cs</DependentUpon>
