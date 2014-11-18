@@ -28,7 +28,9 @@ namespace ControlSystem
                            join p in db.produto on l.produto_id equals p.id
                            select new Produtos() { id_produto = p.id, id_lote = l.id,identificador = l.identificador, descricao = p.desc}).ToList();
 
-            comboBox1.DataSource = produtos;            
+            comboBox1.DataSource = produtos.ToList(); ;
+            comboBox1.DisplayMember = "fullName";
+            comboBox1.ValueMember = "id_lote";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -45,7 +47,7 @@ namespace ControlSystem
                 estoque novoEstoque = new estoque();
 
                 //INSERIR LOTE    
-                //novoEstoque.codProduto      = Int32.Parse(txtCodigoProduto.Text);
+                novoEstoque.lote_id = Convert.ToInt32(comboBox1.SelectedValue);
 
                 //novoEstoque.codLoja         = Int32.Parse(txtCodigoLoja.Text);
                 novoEstoque.estoqueMaximo   = Int32.Parse(txtEstoqueMaximo.Text);
@@ -58,6 +60,8 @@ namespace ControlSystem
                 db.SaveChanges();
 
                 Form.ClearForm(this);
+
+                MessageBox.Show("Salvo com sucesso!");
             }
             catch (Exception ex)
             {

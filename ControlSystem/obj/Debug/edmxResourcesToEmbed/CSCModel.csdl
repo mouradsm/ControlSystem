@@ -57,7 +57,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="quantidade" Type="Int32" Nullable="false" />
     <Property Name="estoqueMaximo" Type="Int32" Nullable="false" />
     <Property Name="estoqueMinimo" Type="Int32" Nullable="false" />

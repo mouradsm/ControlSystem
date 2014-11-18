@@ -76,7 +76,7 @@ warning 6002: The table/view 'def.controlsystem.compra_produto' does not have a 
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="quantidade" Type="int" Nullable="false" />
           <Property Name="estoqueMaximo" Type="int" Nullable="false" />
           <Property Name="estoqueMinimo" Type="int" Nullable="false" />
@@ -156,7 +156,7 @@ warning 6002: The table/view 'def.controlsystem.fornecedor_produto' does not hav
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="login" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="lastLogin" Type="date" />
+          <Property Name="lastLogin" Type="datetime" Precision="0" />
           <Property Name="perfil" Type="int" Nullable="false" />
           <Property Name="funcionario_id" Type="int" Nullable="false" />
         </EntityType>
@@ -532,7 +532,7 @@ FROM `fornecedor_produto` AS `fornecedor_produto`</DefiningQuery>
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="quantidade" Type="Int32" Nullable="false" />
           <Property Name="estoqueMaximo" Type="Int32" Nullable="false" />
           <Property Name="estoqueMinimo" Type="Int32" Nullable="false" />

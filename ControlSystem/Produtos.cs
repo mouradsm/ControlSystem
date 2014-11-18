@@ -12,6 +12,7 @@ namespace ControlSystem
         public int id_lote { get; set; }
         public string identificador { get; set; }
         public string descricao { get; set; }
+        public string fullName { get { return descricao + " - " + identificador; } }
 
     }
 }
