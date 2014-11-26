@@ -60,7 +60,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(679, 304);
+            this.btnCancelar.Location = new System.Drawing.Point(656, 304);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 16;
@@ -86,7 +86,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtQuantidade);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Location = new System.Drawing.Point(57, 194);
+            this.groupBox1.Location = new System.Drawing.Point(34, 194);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(697, 91);
             this.groupBox1.TabIndex = 14;
@@ -95,7 +95,7 @@
             // 
             // txtEstoqueMaximo
             // 
-            this.txtEstoqueMaximo.Location = new System.Drawing.Point(551, 39);
+            this.txtEstoqueMaximo.Location = new System.Drawing.Point(555, 39);
             this.txtEstoqueMaximo.Name = "txtEstoqueMaximo";
             this.txtEstoqueMaximo.Size = new System.Drawing.Size(101, 20);
             this.txtEstoqueMaximo.TabIndex = 10;
@@ -103,7 +103,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(448, 42);
+            this.label10.Location = new System.Drawing.Point(452, 42);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(100, 15);
             this.label10.TabIndex = 18;
@@ -111,7 +111,7 @@
             // 
             // txtEstoqueMinimo
             // 
-            this.txtEstoqueMinimo.Location = new System.Drawing.Point(331, 39);
+            this.txtEstoqueMinimo.Location = new System.Drawing.Point(335, 39);
             this.txtEstoqueMinimo.Name = "txtEstoqueMinimo";
             this.txtEstoqueMinimo.Size = new System.Drawing.Size(101, 20);
             this.txtEstoqueMinimo.TabIndex = 9;
@@ -119,7 +119,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(228, 42);
+            this.label9.Location = new System.Drawing.Point(232, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 15);
             this.label9.TabIndex = 16;
@@ -127,7 +127,7 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(105, 39);
+            this.txtQuantidade.Location = new System.Drawing.Point(109, 39);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(101, 20);
             this.txtQuantidade.TabIndex = 8;
@@ -135,7 +135,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 42);
+            this.label8.Location = new System.Drawing.Point(32, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(71, 15);
             this.label8.TabIndex = 14;
@@ -172,7 +172,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(515, 113);
+            this.label6.Location = new System.Drawing.Point(515, 110);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 15);
             this.label6.TabIndex = 10;
@@ -280,7 +280,7 @@
             // 
             // txtFabricacao
             // 
-            this.txtFabricacao.Location = new System.Drawing.Point(576, 155);
+            this.txtFabricacao.Location = new System.Drawing.Point(568, 155);
             this.txtFabricacao.Mask = "00/00/0000";
             this.txtFabricacao.Name = "txtFabricacao";
             this.txtFabricacao.Size = new System.Drawing.Size(100, 20);
@@ -290,7 +290,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(501, 158);
+            this.label12.Location = new System.Drawing.Point(500, 158);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(68, 15);
             this.label12.TabIndex = 19;

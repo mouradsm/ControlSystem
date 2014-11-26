@@ -35,17 +35,40 @@ namespace ControlSystem
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            db = new controlsystemEntities();
-            produto novoProduto = new produto();
-            novoProduto.desc = txtProduto.Text;
-            novoProduto.valorUnitario = float.Parse(txtValorUnitario.Text);
-            novoProduto.status = Int32.Parse(cboStatus.SelectedValue.ToString());
+            try
+            {
+                db = new controlsystemEntities();
+                produto novoProduto = new produto();
+                novoProduto.desc = txtProduto.Text;
+                novoProduto.valorUnitario = float.Parse(txtValorUnitario.Text);
+                novoProduto.status = Int32.Parse(cboStatus.SelectedValue.ToString());
 
-            lote novoLote = new lote();
-            novoLote.produto = novoProduto;
-            novoLote.identificador = txtLote.Text;
-            
+                lote novoLote = new lote();
+                novoLote.produto = novoProduto;
+                novoLote.identificador = txtLote.Text;
 
+                novoLote.dataValidade = DateTime.Parse(txtValidade.Text);
+                novoLote.dataFabricacao = DateTime.Parse(txtFabricacao.Text);
+
+                estoque novoEstoque = new estoque();
+
+                novoEstoque.quantidade = Int32.Parse(txtQuantidade.Text);
+
+                novoEstoque.estoqueMaximo = Int32.Parse(txtEstoqueMaximo.Text);
+                novoEstoque.estoqueMinimo = Int32.Parse(txtEstoqueMinimo.Text);
+
+                novoEstoque.lote = novoLote;
+                
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
 
         }
     }
