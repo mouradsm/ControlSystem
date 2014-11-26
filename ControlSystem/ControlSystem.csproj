@@ -147,6 +147,12 @@
     <Compile Include="frmNewEmployee.Designer.cs">
       <DependentUpon>frmNewEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewSale.Designer.cs">
+      <DependentUpon>frmNewSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,12 @@
     </Compile>
     <Compile Include="frmPurchase.Designer.cs">
       <DependentUpon>frmPurchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStockReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStockReport.Designer.cs">
+      <DependentUpon>frmStockReport.cs</DependentUpon>
     </Compile>
     <Compile Include="funcionario.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
@@ -204,6 +216,9 @@
     <Compile Include="venda_produto.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Form.resx">
+      <DependentUpon>Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewEmployee.resx">
       <DependentUpon>frmNewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewSale.resx">
+      <DependentUpon>frmNewSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewStock.resx">
       <DependentUpon>frmNewStock.cs</DependentUpon>
@@ -228,6 +246,9 @@
     <EmbeddedResource Include="frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmStockReport.resx">
+      <DependentUpon>frmStockReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="mainContainer.resx">
       <DependentUpon>mainContainer.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,7 +261,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="CSCModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CSCModel.Designer.cs</LastGenOutput>

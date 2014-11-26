@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,31 +54,38 @@ namespace ControlSystem
         private void button1_Click(object sender, EventArgs e)
         {
 
+            try
+            {
 
-            db = new controlsystemEntities();
-            int codigoProduto = Convert.ToInt32(cboProdutos.SelectedValue.ToString());
+                db = new controlsystemEntities();
+                int codigoProduto = Convert.ToInt32(cboProdutos.SelectedValue.ToString());
 
 
-            var lote = (from l in db.lote
-                        where l.id == codigoProduto
-                        select l).First();
+                var lote = (from l in db.lote
+                            where l.id == codigoProduto
+                            select l).First();
 
-            var itemToInsert = new ListViewItem(new[] { codigoProduto.ToString(), "01", txtQuantidade.Text,lote.produto.desc.ToString(),lote.produto.valorUnitario.ToString(),
+                var itemToInsert = new ListViewItem(new[] { codigoProduto.ToString(), "01", txtQuantidade.Text,lote.produto.desc.ToString(),lote.produto.valorUnitario.ToString(),
                 (Convert.ToInt32(txtQuantidade.Text) * lote.produto.valorUnitario).ToString()  });
 
-            listView1.Items.Add(itemToInsert);
+                listView1.Items.Add(itemToInsert);
 
-            int total = 0;
+                int total = 0;
 
-            foreach (ListViewItem item in listView1.Items)
-            {
-                total += Convert.ToInt32(item.SubItems[5].Text);
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    total += Convert.ToInt32(item.SubItems[5].Text);
+
+                }
+
+                txtTotal.Text = total.ToString();
 
             }
+            catch (Exception ex)
+            {
 
-            txtTotal.Text = total.ToString();
-
-
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -94,12 +102,13 @@ namespace ControlSystem
                 total -= Convert.ToInt32(item.SubItems[5].Text);
                 txtTotal.Text = total.ToString();
                 item.Remove();
-
             }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            if (listView1.Items.Count == 0) return;
+
             try
             {
                 int lote_id = Convert.ToInt32(cboProdutos.SelectedValue.ToString());
@@ -119,7 +128,7 @@ namespace ControlSystem
                     compra_produto novaCompraProduto = new compra_produto();
 
                     novaCompraProduto.compra = novaCompra;
-                    novaCompraProduto.lote = (from l in db.lote where l.id == lote_id select l).First();
+                    novaCompraProduto.lote_id = 1;
                     novaCompraProduto.valorUnitario = Convert.ToInt32(item.SubItems[5].Text);
                     novaCompraProduto.quantidade = Convert.ToInt32(item.SubItems[4].Text);
 
@@ -133,7 +142,6 @@ namespace ControlSystem
             }
             catch (Exception ex)
             {
-                
                 MessageBox.Show(ex.Message);
             }
         }
@@ -141,6 +149,35 @@ namespace ControlSystem
         private void button5_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+        }
+
+        private void cboFornecedor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtQuantidade_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtQuantidade.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtQuantidade, "Quantidade é obrigatório");
+                e.Cancel = true;
+                return;
+            }
+            else if (Regex.IsMatch(txtQuantidade.Text, "[^0-9]"))
+            {
+                errorProvider1.SetError(txtQuantidade, "Somente números são permitidos");
+                e.Cancel = true;
+                return;
+            }
+
+            // Name is Valid
+            errorProvider1.SetError(txtQuantidade, "");
+        }
+
+        private void txtQuantidade_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

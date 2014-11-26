@@ -42,6 +42,7 @@
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroDoEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.janelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.itensEmEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -143,7 +144,8 @@
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cadastroDoEstoqueToolStripMenuItem});
+            this.cadastroDoEstoqueToolStripMenuItem,
+            this.itensEmEstoqueToolStripMenuItem});
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(70, 23);
             this.estoqueToolStripMenuItem.Text = "&Estoque";
@@ -160,6 +162,13 @@
             this.janelaToolStripMenuItem.Name = "janelaToolStripMenuItem";
             this.janelaToolStripMenuItem.Size = new System.Drawing.Size(58, 23);
             this.janelaToolStripMenuItem.Text = "&Janela";
+            // 
+            // itensEmEstoqueToolStripMenuItem
+            // 
+            this.itensEmEstoqueToolStripMenuItem.Name = "itensEmEstoqueToolStripMenuItem";
+            this.itensEmEstoqueToolStripMenuItem.Size = new System.Drawing.Size(206, 24);
+            this.itensEmEstoqueToolStripMenuItem.Text = "Itens em Estoque";
+            this.itensEmEstoqueToolStripMenuItem.Click += new System.EventHandler(this.itensEmEstoqueToolStripMenuItem_Click);
             // 
             // mainContainer
             // 
@@ -203,5 +212,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroDeFornecedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroDeCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerenciarFuncionáriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itensEmEstoqueToolStripMenuItem;
     }
 }

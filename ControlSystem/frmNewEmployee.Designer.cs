@@ -70,6 +70,7 @@
             // cboUF
             // 
             this.cboUF.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.estadosBindingSource, "sigla", true));
+            this.cboUF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUF.FormattingEnabled = true;
             this.cboUF.Location = new System.Drawing.Point(508, 148);
             this.cboUF.Name = "cboUF";
@@ -90,6 +91,7 @@
             // 
             // cboStatus
             // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
             "ADMINISTRAÇÃO",
@@ -99,7 +101,6 @@
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(240, 21);
             this.cboStatus.TabIndex = 14;
-            this.cboStatus.Text = "Selecione o Perfil";
             // 
             // txtCEP
             // 
@@ -134,6 +135,7 @@
             this.button2.TabIndex = 60;
             this.button2.Text = "&Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -315,6 +317,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "0 - INATIVO",
@@ -323,7 +326,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(240, 21);
             this.comboBox1.TabIndex = 16;
-            this.comboBox1.Text = "Selecione o Status";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2

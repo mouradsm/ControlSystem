@@ -53,16 +53,18 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(134, 296);
+            this.btnCancelar.Location = new System.Drawing.Point(96, 296);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSalvar
             // 
@@ -76,21 +78,21 @@
             // 
             // cboPerfil
             // 
+            this.cboPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPerfil.FormattingEnabled = true;
             this.cboPerfil.Items.AddRange(new object[] {
             "0 - ADMINISTRAÇÃO",
             "1 - GERENTE",
             "2 - BALCÃO"});
-            this.cboPerfil.Location = new System.Drawing.Point(15, 220);
+            this.cboPerfil.Location = new System.Drawing.Point(15, 213);
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(121, 21);
             this.cboPerfil.TabIndex = 5;
-            this.cboPerfil.Text = "PERFIL";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 202);
+            this.label7.Location = new System.Drawing.Point(15, 195);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 15);
             this.label7.TabIndex = 16;
@@ -98,7 +100,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(15, 179);
+            this.txtEmail.Location = new System.Drawing.Point(15, 172);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(194, 20);
             this.txtEmail.TabIndex = 4;
@@ -106,7 +108,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 161);
+            this.label6.Location = new System.Drawing.Point(15, 154);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 15);
             this.label6.TabIndex = 14;
@@ -114,15 +116,15 @@
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(15, 138);
+            this.txtSenha.Location = new System.Drawing.Point(15, 131);
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(194, 20);
+            this.txtSenha.Size = new System.Drawing.Size(94, 20);
             this.txtSenha.TabIndex = 3;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 120);
+            this.label5.Location = new System.Drawing.Point(15, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 12;
@@ -130,15 +132,15 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(15, 97);
+            this.txtLogin.Location = new System.Drawing.Point(15, 90);
             this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(194, 20);
+            this.txtLogin.Size = new System.Drawing.Size(107, 20);
             this.txtLogin.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 79);
+            this.label4.Location = new System.Drawing.Point(15, 72);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 15);
             this.label4.TabIndex = 10;
@@ -146,7 +148,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(15, 58);
+            this.txtNome.Location = new System.Drawing.Point(15, 50);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(194, 20);
             this.txtNome.TabIndex = 1;
@@ -154,7 +156,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 39);
+            this.label3.Location = new System.Drawing.Point(15, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 15);
             this.label3.TabIndex = 8;
@@ -262,11 +264,22 @@
             this.columnHeader3.Text = "Email";
             this.columnHeader3.Width = 229;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(623, 180);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 27);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "E&xcluir Login";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // frmMngEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 337);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSalvar);
             this.Controls.Add(this.cboPerfil);
@@ -284,7 +297,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Name = "frmMngEmployees";
-            this.Text = "Gerenciar Funcionários";
+            this.Text = "LOGIN DE FUNCIONÁRIO";
             this.Load += new System.EventHandler(this.frmMngEmployees_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -318,6 +331,7 @@
         private System.Windows.Forms.ComboBox cboPerfil;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button button1;
 
 
 

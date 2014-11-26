@@ -68,6 +68,7 @@
             // cboUF
             // 
             this.cboUF.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.estadosBindingSource, "sigla", true));
+            this.cboUF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUF.FormattingEnabled = true;
             this.cboUF.Location = new System.Drawing.Point(492, 188);
             this.cboUF.Name = "cboUF";
@@ -88,6 +89,7 @@
             // 
             // cboStatus
             // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
             "0 - INATIVO",
@@ -96,7 +98,6 @@
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(240, 21);
             this.cboStatus.TabIndex = 14;
-            this.cboStatus.Text = "Selecione o Status";
             // 
             // txtCEP
             // 
@@ -131,6 +132,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "&Cancelar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -294,6 +296,7 @@
             // 
             // cboTipo
             // 
+            this.cboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Items.AddRange(new object[] {
             "Físico",
@@ -302,7 +305,6 @@
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(240, 21);
             this.cboTipo.TabIndex = 2;
-            this.cboTipo.Text = "Selecione o Tipo";
             this.cboTipo.SelectedIndexChanged += new System.EventHandler(this.cboTipo_SelectedIndexChanged);
             // 
             // label2

@@ -168,6 +168,7 @@
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "&Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtMatricula
             // 

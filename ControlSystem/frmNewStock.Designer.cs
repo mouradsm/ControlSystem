@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.btnCancel = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.loteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bntSalvar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.cboStatus = new System.Windows.Forms.ComboBox();
@@ -43,7 +44,6 @@
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.loteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.loteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,11 +61,16 @@
             // comboBox1
             // 
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.loteBindingSource, "id", true));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(356, 81);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(269, 21);
             this.comboBox1.TabIndex = 2;
+            // 
+            // loteBindingSource
+            // 
+            this.loteBindingSource.DataSource = typeof(ControlSystem.lote);
             // 
             // bntSalvar
             // 
@@ -88,6 +93,7 @@
             // 
             // cboStatus
             // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
             "0 - INATIVO",
@@ -96,7 +102,6 @@
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(83, 21);
             this.cboStatus.TabIndex = 17;
-            this.cboStatus.Text = "STATUS";
             // 
             // txtCodigoLoja
             // 
@@ -170,10 +175,6 @@
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Produto/Lote";
-            // 
-            // loteBindingSource
-            // 
-            this.loteBindingSource.DataSource = typeof(ControlSystem.lote);
             // 
             // frmNewStock
             // 

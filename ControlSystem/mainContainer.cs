@@ -91,5 +91,14 @@ namespace ControlSystem
         {
 
         }
+
+        private void itensEmEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStockReport itensEmEstoqueForm = new frmStockReport();
+            itensEmEstoqueForm.MdiParent = this;
+            itensEmEstoqueForm.Show();
+
+            itensEmEstoqueForm.WindowState = FormWindowState.Maximized;
+        }
     }
 }

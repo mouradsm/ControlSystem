@@ -35,5 +35,11 @@ namespace ControlSystem
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Dispose();
+        }
     }
 }

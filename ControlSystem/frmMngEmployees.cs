@@ -161,6 +161,46 @@ namespace ControlSystem
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Dispose();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (listView3.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecione ao menos um Login!");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Do You Want to delete?", "Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (result.Equals(DialogResult.OK))
+            {
+                try
+                {
+
+                
+                string login = listView1.SelectedItems[0].SubItems[4].ToString();
+
+                var loginToDelete = (from u in db.usuario
+                                    where u.login == login
+                                    select u).FirstOrDefault();
+
+                db.usuario.Remove(loginToDelete);
+                db.SaveChanges();
+
+                MessageBox.Show("Login removido com sucesso");
+                ListView.reloadListView(listView3, true);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }            
+        }
+
 
 
 
