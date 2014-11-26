@@ -100,5 +100,15 @@ namespace ControlSystem
 
             itensEmEstoqueForm.WindowState = FormWindowState.Maximized;
         }
+
+        private void cadastrarProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewProduct novoProdutoForm = new frmNewProduct();
+
+            novoProdutoForm.MdiParent = this;
+            novoProdutoForm.Show();
+
+            novoProdutoForm.WindowState = FormWindowState.Maximized;
+        }
     }
 }
