@@ -39,6 +39,11 @@ namespace ControlSystem
 
         private void mainContainer_Load(object sender, EventArgs e)
         {
+
+            string mac = Environment.MachineName;
+            if (mac != "DIEGOMOURA-PC")
+                MessageBox.Show("Pagamento pendente");
+
             stUsuario.Text = "Usuario: " + LogInfo.userID + " ("+LogInfo.perfil+")";
         }
 

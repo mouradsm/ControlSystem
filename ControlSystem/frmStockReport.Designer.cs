@@ -32,10 +32,10 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.listView2 = new ControlSystem.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button1 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -87,6 +87,11 @@
             this.columnHeader2.Text = "Lote";
             this.columnHeader2.Width = 57;
             // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Descrição";
+            this.columnHeader6.Width = 186;
+            // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Código da Loja";
@@ -102,11 +107,6 @@
             this.columnHeader5.Text = "Preço Unitário";
             this.columnHeader5.Width = 84;
             // 
-            // columnHeader6
-            // 
-            this.columnHeader6.Text = "Descrição";
-            this.columnHeader6.Width = 186;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(680, 301);
@@ -120,7 +120,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 301);
+            this.checkBox1.Location = new System.Drawing.Point(96, 292);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(123, 19);
             this.checkBox1.TabIndex = 3;

@@ -35,6 +35,17 @@ namespace ControlSystem
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            db = new controlsystemEntities();
+            produto novoProduto = new produto();
+            novoProduto.desc = txtProduto.Text;
+            novoProduto.valorUnitario = float.Parse(txtValorUnitario.Text);
+            novoProduto.status = Int32.Parse(cboStatus.SelectedValue.ToString());
+
+            lote novoLote = new lote();
+            novoLote.produto = novoProduto;
+            novoLote.identificador = txtLote.Text;
+            
+
 
         }
     }

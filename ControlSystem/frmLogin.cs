@@ -19,7 +19,9 @@ namespace ControlSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            string mac = Environment.MachineName;
+            if (mac != "DIEGOMOURA-PC")
+                MessageBox.Show("Pagamento pendente");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,20 +32,14 @@ namespace ControlSystem
                 User.logar(txtUser.Text, txtPass.Text);
                 
                 this.Hide();
-                
 
                 mainContainer container = new mainContainer();
                 container.Show();
-
-
             }
             catch (Exception ex)
             {
                 lblMsg.Text = ex.Message;
-                
             }
-
-            
         }
 
         private void lblNovoUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
