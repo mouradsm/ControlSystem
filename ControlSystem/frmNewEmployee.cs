@@ -72,7 +72,7 @@ namespace ControlSystem
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (comboBox1.SelectedIndex) { 
+            switch (cboStatus.SelectedIndex) { 
                 case 0:
                     string promptValue = Prompt.ShowDialog("Digite o Motivo da Inatividade", "Motivo da Inatividade");
                     break;
@@ -83,6 +83,11 @@ namespace ControlSystem
         {
             this.Hide();
             this.Dispose();
+        }
+
+        private void txtCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

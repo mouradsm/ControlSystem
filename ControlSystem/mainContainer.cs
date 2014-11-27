@@ -115,5 +115,30 @@ namespace ControlSystem
 
             novoProdutoForm.WindowState = FormWindowState.Maximized;
         }
+
+        private void fornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cadastrarVendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewSale novaVendaForm = new frmNewSale();
+
+            novaVendaForm.MdiParent = this;
+            novaVendaForm.Show();
+
+            novaVendaForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void reportarDevoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDevolution novaDevolucao = new frmDevolution();
+
+            novaDevolucao.MdiParent = this;
+            novaDevolucao.Show();
+
+            novaDevolucao.WindowState = FormWindowState.Maximized;
+        }
     }
 }
