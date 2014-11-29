@@ -64,6 +64,7 @@
     <Property Name="lote_id" Type="Int32" Nullable="false" />
     <Property Name="status" Type="Int32" Nullable="false" />
     <NavigationProperty Name="lote" Relationship="Self.fk_estoque_lote1" FromRole="estoque" ToRole="lote" />
+    <Property Name="codLoja" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="fornecedor">
     <Key>

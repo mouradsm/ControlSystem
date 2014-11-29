@@ -20,6 +20,7 @@ namespace ControlSystem
         public int estoqueMinimo { get; set; }
         public int lote_id { get; set; }
         public int status { get; set; }
+        public int codLoja { get; set; }
     
         public virtual lote lote { get; set; }
     }

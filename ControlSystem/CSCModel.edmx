@@ -12,7 +12,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="cpf" Type="varchar" MaxLength="15" />
-          <Property Name="cnpj" Type="varchar" MaxLength="15" />
+          <Property Name="cnpj" Type="varchar" MaxLength="18" />
           <Property Name="telefone" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="dataDeNascimento" Type="date" Nullable="false" />
@@ -82,6 +82,7 @@ warning 6002: The table/view 'def.controlsystem.compra_produto' does not have a 
           <Property Name="estoqueMinimo" Type="int" Nullable="false" />
           <Property Name="lote_id" Type="int" Nullable="false" />
           <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="codLoja" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="fornecedor">
           <Key>
@@ -539,6 +540,7 @@ FROM `fornecedor_produto` AS `fornecedor_produto`</DefiningQuery>
           <Property Name="lote_id" Type="Int32" Nullable="false" />
           <Property Name="status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="lote" Relationship="Self.fk_estoque_lote1" FromRole="estoque" ToRole="lote" />
+          <Property Name="codLoja" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="fornecedor">
           <Key>
@@ -1012,6 +1014,7 @@ FROM `fornecedor_produto` AS `fornecedor_produto`</DefiningQuery>
           <EntitySetMapping Name="estoque">
             <EntityTypeMapping TypeName="controlsystemModel.estoque">
               <MappingFragment StoreEntitySet="estoque">
+                <ScalarProperty Name="codLoja" ColumnName="codLoja" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="quantidade" ColumnName="quantidade" />
                 <ScalarProperty Name="estoqueMaximo" ColumnName="estoqueMaximo" />

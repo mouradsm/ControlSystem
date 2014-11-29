@@ -180,7 +180,7 @@
             // 
             // txtLote
             // 
-            this.txtLote.Location = new System.Drawing.Point(394, 110);
+            this.txtLote.Location = new System.Drawing.Point(393, 107);
             this.txtLote.Name = "txtLote";
             this.txtLote.Size = new System.Drawing.Size(101, 20);
             this.txtLote.TabIndex = 5;
@@ -188,7 +188,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(357, 110);
+            this.label5.Location = new System.Drawing.Point(350, 110);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 8;

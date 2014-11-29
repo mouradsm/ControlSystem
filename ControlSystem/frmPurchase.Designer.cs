@@ -124,6 +124,7 @@
             this.button3.TabIndex = 19;
             this.button3.Text = "Alterar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // label7
             // 
@@ -297,6 +298,7 @@
             // 
             // txtCompra
             // 
+            this.txtCompra.Enabled = false;
             this.txtCompra.Location = new System.Drawing.Point(135, 36);
             this.txtCompra.Name = "txtCompra";
             this.txtCompra.Size = new System.Drawing.Size(100, 20);

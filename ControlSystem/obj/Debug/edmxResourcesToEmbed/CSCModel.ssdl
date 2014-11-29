@@ -7,7 +7,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="cpf" Type="varchar" MaxLength="15" />
-    <Property Name="cnpj" Type="varchar" MaxLength="15" />
+    <Property Name="cnpj" Type="varchar" MaxLength="18" />
     <Property Name="telefone" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="dataDeNascimento" Type="date" Nullable="false" />
@@ -77,6 +77,7 @@ warning 6002: The table/view 'def.controlsystem.compra_produto' does not have a 
     <Property Name="estoqueMinimo" Type="int" Nullable="false" />
     <Property Name="lote_id" Type="int" Nullable="false" />
     <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="codLoja" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="fornecedor">
     <Key>

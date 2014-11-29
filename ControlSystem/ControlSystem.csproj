@@ -22,9 +22,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -49,6 +50,18 @@
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E3AF629AF1D614DADB0727A300E3C7A609EABA51</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ControlSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -102,6 +115,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CSCModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Desconto.cs" />
     <Compile Include="devolucao.cs">
       <DependentUpon>CSCModel.tt</DependentUpon>
     </Compile>
@@ -286,6 +300,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CSCModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ControlSystem_TemporaryKey.pfx" />
     <None Include="CSCModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CSCModel.edmx</DependentUpon>

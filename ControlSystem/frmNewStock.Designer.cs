@@ -121,7 +121,7 @@
             // 
             // txtEstoqueMinimo
             // 
-            this.txtEstoqueMinimo.Location = new System.Drawing.Point(559, 146);
+            this.txtEstoqueMinimo.Location = new System.Drawing.Point(356, 141);
             this.txtEstoqueMinimo.Name = "txtEstoqueMinimo";
             this.txtEstoqueMinimo.Size = new System.Drawing.Size(83, 20);
             this.txtEstoqueMinimo.TabIndex = 5;
@@ -129,7 +129,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(445, 149);
+            this.label7.Location = new System.Drawing.Point(213, 144);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 15);
             this.label7.TabIndex = 12;
@@ -137,7 +137,7 @@
             // 
             // txtEstoqueMaximo
             // 
-            this.txtEstoqueMaximo.Location = new System.Drawing.Point(356, 146);
+            this.txtEstoqueMaximo.Location = new System.Drawing.Point(551, 141);
             this.txtEstoqueMaximo.Name = "txtEstoqueMaximo";
             this.txtEstoqueMaximo.Size = new System.Drawing.Size(83, 20);
             this.txtEstoqueMaximo.TabIndex = 4;
@@ -145,7 +145,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 149);
+            this.label5.Location = new System.Drawing.Point(445, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 15);
             this.label5.TabIndex = 8;
@@ -161,7 +161,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 116);
+            this.label2.Location = new System.Drawing.Point(239, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 15);
             this.label2.TabIndex = 1;

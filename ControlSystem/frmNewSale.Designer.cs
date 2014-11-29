@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.itemcompraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTotalComDesconto = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDesconto = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,6 +58,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtNotaFiscal = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.listView1 = new ControlSystem.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -70,14 +72,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox2
+            // txtTotalComDesconto
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(594, 305);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox2.Size = new System.Drawing.Size(110, 20);
-            this.textBox2.TabIndex = 73;
+            this.txtTotalComDesconto.Enabled = false;
+            this.txtTotalComDesconto.Location = new System.Drawing.Point(594, 305);
+            this.txtTotalComDesconto.Name = "txtTotalComDesconto";
+            this.txtTotalComDesconto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalComDesconto.Size = new System.Drawing.Size(110, 20);
+            this.txtTotalComDesconto.TabIndex = 73;
             // 
             // label10
             // 
@@ -88,14 +90,16 @@
             this.label10.TabIndex = 72;
             this.label10.Text = "Total com Desconto";
             // 
-            // textBox1
+            // txtDesconto
             // 
-            this.textBox1.Location = new System.Drawing.Point(402, 305);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textBox1.Size = new System.Drawing.Size(60, 20);
-            this.textBox1.TabIndex = 71;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtDesconto.Enabled = false;
+            this.txtDesconto.Location = new System.Drawing.Point(402, 305);
+            this.txtDesconto.Name = "txtDesconto";
+            this.txtDesconto.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtDesconto.Size = new System.Drawing.Size(60, 20);
+            this.txtDesconto.TabIndex = 71;
+            this.txtDesconto.TextChanged += new System.EventHandler(this.txtDesconto_TextChanged);
+            this.txtDesconto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label9
             // 
@@ -118,7 +122,7 @@
             this.comboBox1.Location = new System.Drawing.Point(571, 66);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(134, 21);
-            this.comboBox1.TabIndex = 69;
+            this.comboBox1.TabIndex = 5;
             // 
             // label8
             // 
@@ -136,7 +140,7 @@
             this.cboCliente.Location = new System.Drawing.Point(494, 34);
             this.cboCliente.Name = "cboCliente";
             this.cboCliente.Size = new System.Drawing.Size(211, 21);
-            this.cboCliente.TabIndex = 67;
+            this.cboCliente.TabIndex = 2;
             this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.cboCliente_SelectedIndexChanged);
             // 
             // label2
@@ -154,18 +158,19 @@
             this.btnSalvar.Location = new System.Drawing.Point(594, 137);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(110, 23);
-            this.btnSalvar.TabIndex = 64;
+            this.btnSalvar.TabIndex = 13;
             this.btnSalvar.Text = "Salvar Venda";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // cboProdutos
             // 
             this.cboProdutos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProdutos.FormattingEnabled = true;
-            this.cboProdutos.Location = new System.Drawing.Point(296, 106);
+            this.cboProdutos.Location = new System.Drawing.Point(296, 94);
             this.cboProdutos.Name = "cboProdutos";
             this.cboProdutos.Size = new System.Drawing.Size(268, 21);
-            this.cboProdutos.TabIndex = 63;
+            this.cboProdutos.TabIndex = 7;
             // 
             // groupBox1
             // 
@@ -184,25 +189,27 @@
             this.btnExcluirTodos.Location = new System.Drawing.Point(9, 114);
             this.btnExcluirTodos.Name = "btnExcluirTodos";
             this.btnExcluirTodos.Size = new System.Drawing.Size(98, 23);
-            this.btnExcluirTodos.TabIndex = 18;
+            this.btnExcluirTodos.TabIndex = 12;
             this.btnExcluirTodos.Text = "Excluir Todos";
             this.btnExcluirTodos.UseVisualStyleBackColor = true;
+            this.btnExcluirTodos.Click += new System.EventHandler(this.btnExcluirTodos_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(19, 44);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 17;
+            this.btnExcluir.TabIndex = 11;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
             this.btnAlterar.Location = new System.Drawing.Point(19, 15);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 19;
+            this.btnAlterar.TabIndex = 10;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             // 
@@ -223,23 +230,25 @@
             this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotal.Size = new System.Drawing.Size(89, 20);
             this.txtTotal.TabIndex = 60;
+            this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // btnLimpar
             // 
             this.btnLimpar.CausesValidation = false;
-            this.btnLimpar.Location = new System.Drawing.Point(238, 137);
+            this.btnLimpar.Location = new System.Drawing.Point(710, 194);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 58;
+            this.btnLimpar.TabIndex = 9;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnAdcionar
             // 
-            this.btnAdcionar.Location = new System.Drawing.Point(157, 137);
+            this.btnAdcionar.Location = new System.Drawing.Point(710, 165);
             this.btnAdcionar.Name = "btnAdcionar";
             this.btnAdcionar.Size = new System.Drawing.Size(75, 23);
-            this.btnAdcionar.TabIndex = 57;
+            this.btnAdcionar.TabIndex = 8;
             this.btnAdcionar.Text = "Adicionar";
             this.btnAdcionar.UseVisualStyleBackColor = true;
             this.btnAdcionar.Click += new System.EventHandler(this.button1_Click);
@@ -251,19 +260,19 @@
             this.cboFuncionario.Location = new System.Drawing.Point(156, 37);
             this.cboFuncionario.Name = "cboFuncionario";
             this.cboFuncionario.Size = new System.Drawing.Size(265, 21);
-            this.cboFuncionario.TabIndex = 56;
+            this.cboFuncionario.TabIndex = 1;
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(156, 106);
+            this.txtQuantidade.Location = new System.Drawing.Point(156, 95);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(74, 20);
-            this.txtQuantidade.TabIndex = 55;
+            this.txtQuantidade.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(72, 109);
+            this.label6.Location = new System.Drawing.Point(73, 100);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 15);
             this.label6.TabIndex = 54;
@@ -272,7 +281,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(240, 109);
+            this.label5.Location = new System.Drawing.Point(236, 98);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 15);
             this.label5.TabIndex = 53;
@@ -284,7 +293,7 @@
             this.txtDataVenda.Mask = "00/00/0000";
             this.txtDataVenda.Name = "txtDataVenda";
             this.txtDataVenda.Size = new System.Drawing.Size(74, 20);
-            this.txtDataVenda.TabIndex = 52;
+            this.txtDataVenda.TabIndex = 3;
             this.txtDataVenda.ValidatingType = typeof(System.DateTime);
             // 
             // label4
@@ -302,7 +311,7 @@
             this.txtEmissao.Mask = "00/00/0000";
             this.txtEmissao.Name = "txtEmissao";
             this.txtEmissao.Size = new System.Drawing.Size(74, 20);
-            this.txtEmissao.TabIndex = 50;
+            this.txtEmissao.TabIndex = 4;
             this.txtEmissao.ValidatingType = typeof(System.DateTime);
             // 
             // label3
@@ -326,6 +335,22 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // txtNotaFiscal
+            // 
+            this.txtNotaFiscal.Location = new System.Drawing.Point(296, 122);
+            this.txtNotaFiscal.Name = "txtNotaFiscal";
+            this.txtNotaFiscal.Size = new System.Drawing.Size(205, 20);
+            this.txtNotaFiscal.TabIndex = 74;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(167, 125);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(123, 15);
+            this.label11.TabIndex = 75;
+            this.label11.Text = "Nota Fiscal de Venda";
             // 
             // listView1
             // 
@@ -379,10 +404,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 358);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(793, 358);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.txtNotaFiscal);
+            this.Controls.Add(this.txtTotalComDesconto);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDesconto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label8);
@@ -451,9 +478,11 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTotalComDesconto;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDesconto;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtNotaFiscal;
 
     }
 }

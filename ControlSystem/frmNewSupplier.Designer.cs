@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCNPJ = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtRazaoSocial = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,7 +41,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCEP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -67,6 +65,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtDataCadastroContato = new System.Windows.Forms.MaskedTextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
+            this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -74,19 +74,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(616, 56);
+            this.label2.Location = new System.Drawing.Point(613, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "CNPJ";
-            // 
-            // txtCNPJ
-            // 
-            this.txtCNPJ.Location = new System.Drawing.Point(616, 74);
-            this.txtCNPJ.Name = "txtCNPJ";
-            this.txtCNPJ.Size = new System.Drawing.Size(100, 20);
-            this.txtCNPJ.TabIndex = 3;
-            this.txtCNPJ.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label3
             // 
@@ -176,13 +168,6 @@
             this.label9.Size = new System.Drawing.Size(31, 15);
             this.label9.TabIndex = 16;
             this.label9.Text = "CEP";
-            // 
-            // txtCEP
-            // 
-            this.txtCEP.Location = new System.Drawing.Point(399, 115);
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(97, 20);
-            this.txtCEP.TabIndex = 17;
             // 
             // label10
             // 
@@ -365,7 +350,7 @@
             this.txtTelefoneContato.Location = new System.Drawing.Point(422, 41);
             this.txtTelefoneContato.Mask = "(99) 0000-0000";
             this.txtTelefoneContato.Name = "txtTelefoneContato";
-            this.txtTelefoneContato.Size = new System.Drawing.Size(100, 20);
+            this.txtTelefoneContato.Size = new System.Drawing.Size(85, 20);
             this.txtTelefoneContato.TabIndex = 54;
             // 
             // label16
@@ -391,7 +376,7 @@
             this.txtDataCadastroContato.Location = new System.Drawing.Point(540, 41);
             this.txtDataCadastroContato.Mask = "00/00/0000";
             this.txtDataCadastroContato.Name = "txtDataCadastroContato";
-            this.txtDataCadastroContato.Size = new System.Drawing.Size(100, 20);
+            this.txtDataCadastroContato.Size = new System.Drawing.Size(85, 20);
             this.txtDataCadastroContato.TabIndex = 51;
             this.txtDataCadastroContato.ValidatingType = typeof(System.DateTime);
             // 
@@ -404,11 +389,33 @@
             this.label14.TabIndex = 50;
             this.label14.Text = "Cadastro";
             // 
+            // txtCEP
+            // 
+            this.txtCEP.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txtCEP.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Insert;
+            this.txtCEP.Location = new System.Drawing.Point(399, 115);
+            this.txtCEP.Mask = "000000-000";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(76, 20);
+            this.txtCEP.TabIndex = 41;
+            // 
+            // txtCNPJ
+            // 
+            this.txtCNPJ.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.txtCNPJ.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Insert;
+            this.txtCNPJ.Location = new System.Drawing.Point(613, 74);
+            this.txtCNPJ.Mask = "00000000/0000-00";
+            this.txtCNPJ.Name = "txtCNPJ";
+            this.txtCNPJ.Size = new System.Drawing.Size(103, 20);
+            this.txtCNPJ.TabIndex = 42;
+            // 
             // frmNewSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 378);
+            this.Controls.Add(this.txtCNPJ);
+            this.Controls.Add(this.txtCEP);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -420,7 +427,6 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtCidade);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txtCEP);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtComplemento);
             this.Controls.Add(this.label8);
@@ -432,7 +438,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtRazaoSocial);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCNPJ);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label1);
@@ -450,7 +455,6 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCNPJ;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtRazaoSocial;
         private System.Windows.Forms.Label label5;
@@ -462,7 +466,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCEP;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label label11;
@@ -487,5 +490,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.MaskedTextBox txtDataCadastroContato;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.MaskedTextBox txtCEP;
+        private System.Windows.Forms.MaskedTextBox txtCNPJ;
     }
 }

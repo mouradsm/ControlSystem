@@ -53,6 +53,7 @@
     <EntitySetMapping Name="estoque">
       <EntityTypeMapping TypeName="controlsystemModel.estoque">
         <MappingFragment StoreEntitySet="estoque">
+          <ScalarProperty Name="codLoja" ColumnName="codLoja" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="quantidade" ColumnName="quantidade" />
           <ScalarProperty Name="estoqueMaximo" ColumnName="estoqueMaximo" />

@@ -49,13 +49,12 @@ namespace ControlSystem
                 //INSERIR LOTE    
                 novoEstoque.lote_id = Convert.ToInt32(comboBox1.SelectedValue);
 
-                //novoEstoque.codLoja         = Int32.Parse(txtCodigoLoja.Text);
+                novoEstoque.codLoja         = Int32.Parse(txtCodigoLoja.Text);
                 novoEstoque.estoqueMaximo   = Int32.Parse(txtEstoqueMaximo.Text);
                 novoEstoque.estoqueMinimo   = Int32.Parse(txtEstoqueMinimo.Text);
                 novoEstoque.quantidade      = Int32.Parse(txtQuantidade.Text);
                 novoEstoque.status          = cboStatus.SelectedIndex;
-                
-
+                                               
                 db.estoque.Add(novoEstoque);
                 db.SaveChanges();
 

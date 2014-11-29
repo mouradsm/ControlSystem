@@ -39,6 +39,8 @@ namespace ControlSystem
             cboProdutos.DataSource = produtos.ToList(); ;
             cboProdutos.DisplayMember = "fullName";
             cboProdutos.ValueMember = "id_lote";
+
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -51,11 +53,21 @@ namespace ControlSystem
 
         }
 
-        //BTN SALVAR
+        //BTN ADD
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                if (txtDesconto.Text == string.Empty)
+                {
+                    if (cboCliente.Items.Count > 0)
+                    {
+
+                        int id = Int32.Parse(cboCliente.SelectedValue.ToString());
+
+                        txtDesconto.Text = Desconto.getDesconto((from c in db.cliente where c.id == id select c).First()).ToString();
+                    }
+                }
 
                 db = new controlsystemEntities();
                 int codigoProduto = Convert.ToInt32(cboProdutos.SelectedValue.ToString());
@@ -90,10 +102,99 @@ namespace ControlSystem
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (e.KeyChar == (char)13)
-            //{
-            //    MessageBox.Show("a!");
-            //}
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            db = new controlsystemEntities();
+
+            var trans = db.Database.BeginTransaction();
+            try
+            {
+                
+
+                venda novaVenda = new venda();
+
+                novaVenda.cliente_id = Int32.Parse(cboCliente.SelectedValue.ToString());
+                novaVenda.dataDaVenda = DateTime.Parse(txtDataVenda.Text);
+                novaVenda.funcionario_id = Int32.Parse(cboFuncionario.SelectedValue.ToString());
+                novaVenda.notaFiscal = Int32.Parse(txtNotaFiscal.Text);
+                novaVenda.valorTotal = float.Parse(txtTotal.Text);
+                novaVenda.valorTotalComDesconto = float.Parse(txtTotalComDesconto.Text);
+
+                db.venda.Add(novaVenda);
+
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    venda_produto novaVendaProduto = new venda_produto();
+
+                    novaVendaProduto.venda = novaVenda;
+                    novaVendaProduto.lote_id = Convert.ToInt32(item.SubItems[0].Text);
+                    novaVendaProduto.quantidade = Convert.ToInt32(item.SubItems[2].Text);
+                    novaVendaProduto.valorUnitario = Convert.ToInt32(item.SubItems[4].Text);
+
+                    estoque estoque = (from es in db.estoque
+                                      where es.lote_id == novaVendaProduto.lote_id
+                                      select es).First();
+
+                    estoque.quantidade -= novaVendaProduto.quantidade;
+
+                    db.venda_produto.Add(novaVendaProduto);
+
+                    db.SaveChanges();                
+                }
+
+                trans.Commit();
+
+                Form.ClearForm(this);
+                listView1.Items.Clear();
+                MessageBox.Show("Venda Efetuada!");
+
+            }
+            catch (Exception ex)
+            {
+                trans.Rollback();                
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            Form.ClearForm(this);
+        }
+
+        private void btnExcluirTodos_Click(object sender, EventArgs e)
+        {
+            listView1.Items.Clear();
+            txtTotal.Clear();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int total = Convert.ToInt32(txtTotal.Text);
+
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                total -= Convert.ToInt32(item.SubItems[5].Text);
+                txtTotal.Text = total.ToString();
+                item.Remove();
+            }
+        }
+
+        private void txtDesconto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+            double percent = (float.Parse(txtDesconto.Text) / 100.0);
+            double valor = Double.Parse(txtTotal.Text);
+
+            double totalComDesconto = valor - (valor * percent);
+
+            txtTotalComDesconto.Text = totalComDesconto.ToString();
         }
     }
 }

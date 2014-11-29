@@ -27,7 +27,7 @@ namespace ControlSystem
 
             cboNotaFiscal.DataSource = db.venda.ToList();
             cboNotaFiscal.DisplayMember = "notaFiscal";
-            cboNotaFiscal.DisplayMember = "id";
+            cboNotaFiscal.ValueMember = "id";
         }
     }
 }
