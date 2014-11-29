@@ -41,7 +41,7 @@ namespace ControlSystem
                 produto novoProduto = new produto();
                 novoProduto.desc = txtProduto.Text;
                 novoProduto.valorUnitario = float.Parse(txtValorUnitario.Text);
-                novoProduto.status = Int32.Parse(cboStatus.SelectedValue.ToString());
+                novoProduto.status = cboStatus.SelectedIndex;
 
                 lote novoLote = new lote();
                 novoLote.produto = novoProduto;
@@ -60,6 +60,8 @@ namespace ControlSystem
                 novoEstoque.lote = novoLote;
                 
                 db.SaveChanges();
+
+                MessageBox.Show("Produto criado com sucesso!");
             }
             catch (Exception ex)
             {

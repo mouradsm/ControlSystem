@@ -25,3 +25,4 @@ C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.csproj.GenerateResource.Cache
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.exe
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.pdb
+C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.csprojResolveAssemblyReference.cache

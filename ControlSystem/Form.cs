@@ -50,6 +50,53 @@ namespace ControlSystem
                     ClearForm(ctrControl);
                 }
             }
+
+            
+        }
+
+        public static Boolean validarCampos(System.Windows.Forms.Control ctrControl)
+        {
+
+            bool validado = true;
+
+
+                //Loop through all controls 
+                if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.TextBox)))
+                {
+                    if (((System.Windows.Forms.TextBox)ctrControl).Text == string.Empty)
+                        validado = false;
+                    
+                }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.RichTextBox)))
+                {
+                    validado = true;
+                }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.ComboBox)))
+                {
+                    if (((System.Windows.Forms.ComboBox)ctrControl).SelectedIndex == null)
+                        validado = false;                   
+                }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.CheckBox)))
+                {
+                    if (((System.Windows.Forms.CheckBox)ctrControl).Checked == false)
+                        validado = false;
+                }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.RadioButton)))
+                {
+                    //Unselect all RadioButtons
+                    validado = true;
+                }
+                else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.MaskedTextBox)))
+                {
+                    //valida telefone
+                    if (((System.Windows.Forms.MaskedTextBox)ctrControl).Text == string.Empty)
+                        validado = false;
+                    if (((System.Windows.Forms.MaskedTextBox)ctrControl).Text == "  /  /")
+                        validado = false;
+                }
+
+
+                return validado;
         }
 
         private void InitializeComponent()
