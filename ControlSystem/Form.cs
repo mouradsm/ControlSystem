@@ -51,5 +51,23 @@ namespace ControlSystem
                 }
             }
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Form
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 258);
+            this.Name = "Form";
+            this.Load += new System.EventHandler(this.Form_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

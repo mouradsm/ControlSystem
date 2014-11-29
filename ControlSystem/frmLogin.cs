@@ -19,9 +19,7 @@ namespace ControlSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string mac = Environment.MachineName;
-            if (mac != "DIEGOMOURA-PC")
-                MessageBox.Show("Pagamento pendente");
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
