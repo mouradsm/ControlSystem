@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -72,6 +73,14 @@ namespace ControlSystem
                 db = new controlsystemEntities();
                 int codigoProduto = Convert.ToInt32(cboProdutos.SelectedValue.ToString());
 
+                //VERIFICA SE O ITEM JÁ EXISTE E SE POSITIVO SOMA A QUANTIDADE
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    if (item.SubItems[0].Text == codigoProduto.ToString()) {
+                        item.SubItems[2].Text = (Int32.Parse(txtQuantidade.Text) + Int32.Parse(item.SubItems[2].Text)).ToString() ;
+                        return;
+                    }
+                }
 
                 var lote = (from l in db.lote
                             where l.id == codigoProduto
@@ -111,8 +120,6 @@ namespace ControlSystem
             var trans = db.Database.BeginTransaction();
             try
             {
-                
-
                 venda novaVenda = new venda();
 
                 novaVenda.cliente_id = Int32.Parse(cboCliente.SelectedValue.ToString());
@@ -195,6 +202,30 @@ namespace ControlSystem
             double totalComDesconto = valor - (valor * percent);
 
             txtTotalComDesconto.Text = totalComDesconto.ToString();
+        }
+
+        private void txtQuantidade_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtQuantidade.Text.Trim() == "")
+            {
+                errorProvider1.SetError(txtQuantidade, "Quantidade é obrigatório");
+                e.Cancel = true;
+                return;
+            }
+            else if (Regex.IsMatch(txtQuantidade.Text, "[^0-9]"))
+            {
+                errorProvider1.SetError(txtQuantidade, "Somente números são permitidos");
+                e.Cancel = true;
+                return;
+            }
+
+            // Name is Valid
+            errorProvider1.SetError(txtQuantidade, "");
+        }
+
+        private void cboFuncionario_Validating(object sender, CancelEventArgs e)
+        {
+            
         }
     }
 }

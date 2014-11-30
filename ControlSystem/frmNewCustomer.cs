@@ -108,7 +108,7 @@ namespace ControlSystem
         private void txtNascimento_Validating(object sender, CancelEventArgs e)
         {
 
-                if (!Form.validarCampos((MaskedTextBox)sender))
+            if (!Form.validarCampos((MaskedTextBox)sender))
             {
                 errorProvider1.SetError(txtNascimento, "Nascimento é obrigatório");
                 e.Cancel = true;
@@ -126,6 +126,7 @@ namespace ControlSystem
                 }
 
             }
+            errorProvider1.SetError(txtNascimento, "");
 
         }
 
@@ -143,6 +144,8 @@ namespace ControlSystem
                 e.Cancel = true;
                 return;
             }
+
+            errorProvider1.SetError(txtEmail, "");
         }
     }
 }

@@ -60,6 +60,14 @@ namespace ControlSystem
                 db = new controlsystemEntities();
                 int codigoProduto = Convert.ToInt32(cboProdutos.SelectedValue.ToString());
 
+                foreach (ListViewItem item in listView1.Items)
+                {
+                    if (item.SubItems[0].Text == codigoProduto.ToString())
+                    {
+                        item.SubItems[2].Text = (Int32.Parse(txtQuantidade.Text) + Int32.Parse(item.SubItems[2].Text)).ToString();
+                        return;
+                    }
+                }
 
                 var lote = (from l in db.lote
                             where l.id == codigoProduto
@@ -91,6 +99,7 @@ namespace ControlSystem
         private void button2_Click(object sender, EventArgs e)
         {
             Form.ClearForm(this);
+
         }
 
         private void button4_Click(object sender, EventArgs e)

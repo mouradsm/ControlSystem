@@ -74,7 +74,7 @@
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 15;
-            this.btnSalvar.Text = "&Salvar";
+            this.btnSalvar.Text = "C&adastrar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -214,7 +214,7 @@
             // 
             // txtDescricao
             // 
-            this.txtDescricao.Location = new System.Drawing.Point(394, 63);
+            this.txtDescricao.Location = new System.Drawing.Point(393, 63);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(274, 20);
             this.txtDescricao.TabIndex = 3;

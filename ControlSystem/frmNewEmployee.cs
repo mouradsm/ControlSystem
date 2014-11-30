@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Text.RegularExpressions;
 
 namespace ControlSystem
 {
@@ -41,6 +42,13 @@ namespace ControlSystem
                 funcionario novoFuncionario = new funcionario();
                 endereco novoEndereco = new endereco();
 
+                var funcionario = from f in db.funcionario
+                              where f.cpf == txtCPF.Text
+                              select f;
+
+                if (funcionario.Count() > 0)
+                    throw new ApplicationException("CPF ou CNPJ já cadastrado!");
+
                 novoEndereco.endereco1 = txtEndereco.Text;
                 novoEndereco.bairro = txtBairro.Text;
                 novoEndereco.cep = Int32.Parse(txtCEP.Text.Replace("-", ""));
@@ -61,6 +69,8 @@ namespace ControlSystem
                 db.SaveChanges();
 
                 Form.ClearForm(this);
+
+                MessageBox.Show("Cadastro efetuado com sucesso!");
 
             }
             catch (Exception ex)
@@ -88,6 +98,31 @@ namespace ControlSystem
         private void txtCPF_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void txtNome_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(txtNome.Text, "^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"))
+            {
+                errorProvider1.SetError(txtNome, "Nome Inválido!");
+                e.Cancel = true;
+                return;
+            }
+
+            // Name is Valid
+            errorProvider1.SetError(txtNome, "");
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (!Regex.IsMatch(txtEmail.Text, "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$"))
+            {
+                errorProvider1.SetError(txtEmail, "Email Inválido!");
+                e.Cancel = true;
+                return;
+            }
+
+            errorProvider1.SetError(txtEmail, "");
         }
     }
 }

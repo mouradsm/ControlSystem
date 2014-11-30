@@ -56,19 +56,17 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNomeContato = new System.Windows.Forms.TextBox();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
             this.txtEmailContato = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtTelefoneContato = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtDataCadastroContato = new System.Windows.Forms.MaskedTextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -94,7 +92,7 @@
             this.txtRazaoSocial.Location = new System.Drawing.Point(28, 74);
             this.txtRazaoSocial.Name = "txtRazaoSocial";
             this.txtRazaoSocial.Size = new System.Drawing.Size(215, 20);
-            this.txtRazaoSocial.TabIndex = 5;
+            this.txtRazaoSocial.TabIndex = 2;
             // 
             // label5
             // 
@@ -110,7 +108,7 @@
             this.txtEndereco.Location = new System.Drawing.Point(28, 115);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(346, 20);
-            this.txtEndereco.TabIndex = 9;
+            this.txtEndereco.TabIndex = 5;
             // 
             // label6
             // 
@@ -126,7 +124,7 @@
             this.txtBairro.Location = new System.Drawing.Point(265, 156);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(141, 20);
-            this.txtBairro.TabIndex = 11;
+            this.txtBairro.TabIndex = 8;
             // 
             // label7
             // 
@@ -142,7 +140,8 @@
             this.txtNomeFantasia.Location = new System.Drawing.Point(283, 74);
             this.txtNomeFantasia.Name = "txtNomeFantasia";
             this.txtNomeFantasia.Size = new System.Drawing.Size(305, 20);
-            this.txtNomeFantasia.TabIndex = 13;
+            this.txtNomeFantasia.TabIndex = 3;
+            this.txtNomeFantasia.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomeFantasia_Validating);
             // 
             // label8
             // 
@@ -158,7 +157,7 @@
             this.txtComplemento.Location = new System.Drawing.Point(417, 156);
             this.txtComplemento.Name = "txtComplemento";
             this.txtComplemento.Size = new System.Drawing.Size(186, 20);
-            this.txtComplemento.TabIndex = 15;
+            this.txtComplemento.TabIndex = 9;
             // 
             // label9
             // 
@@ -183,7 +182,7 @@
             this.txtCidade.Location = new System.Drawing.Point(28, 156);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(215, 20);
-            this.txtCidade.TabIndex = 19;
+            this.txtCidade.TabIndex = 7;
             // 
             // label11
             // 
@@ -203,7 +202,7 @@
             this.cboUF.Location = new System.Drawing.Point(619, 156);
             this.cboUF.Name = "cboUF";
             this.cboUF.Size = new System.Drawing.Size(97, 21);
-            this.cboUF.TabIndex = 21;
+            this.cboUF.TabIndex = 10;
             this.cboUF.ValueMember = "sigla";
             // 
             // estadosBindingSource
@@ -227,7 +226,7 @@
             this.txtTelefone.Mask = "(99) 0000-0000";
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(100, 20);
-            this.txtTelefone.TabIndex = 23;
+            this.txtTelefone.TabIndex = 12;
             // 
             // label13
             // 
@@ -243,7 +242,8 @@
             this.txtEmail.Location = new System.Drawing.Point(28, 197);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(215, 20);
-            this.txtEmail.TabIndex = 25;
+            this.txtEmail.TabIndex = 11;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // button1
             // 
@@ -285,61 +285,39 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtNomeContato);
-            this.groupBox1.Controls.Add(this.cboStatus);
-            this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.txtEmailContato);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.txtTelefoneContato);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.txtDataCadastroContato);
-            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(12, 232);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(760, 83);
             this.groupBox1.TabIndex = 40;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do Contato";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtNomeContato
             // 
-            this.txtNomeContato.Location = new System.Drawing.Point(16, 41);
+            this.txtNomeContato.Location = new System.Drawing.Point(13, 46);
             this.txtNomeContato.Name = "txtNomeContato";
             this.txtNomeContato.Size = new System.Drawing.Size(186, 20);
-            this.txtNomeContato.TabIndex = 59;
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
-            this.cboStatus.Location = new System.Drawing.Point(663, 40);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(89, 21);
-            this.cboStatus.TabIndex = 58;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(660, 22);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(41, 15);
-            this.label18.TabIndex = 57;
-            this.label18.Text = "Status";
+            this.txtNomeContato.TabIndex = 13;
+            this.txtNomeContato.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomeContato_Validating);
             // 
             // txtEmailContato
             // 
-            this.txtEmailContato.Location = new System.Drawing.Point(225, 41);
+            this.txtEmailContato.Location = new System.Drawing.Point(222, 46);
             this.txtEmailContato.Name = "txtEmailContato";
             this.txtEmailContato.Size = new System.Drawing.Size(186, 20);
-            this.txtEmailContato.TabIndex = 56;
+            this.txtEmailContato.TabIndex = 14;
+            this.txtEmailContato.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmailContato_Validating);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(225, 23);
+            this.label17.Location = new System.Drawing.Point(222, 28);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(39, 15);
             this.label17.TabIndex = 55;
@@ -347,16 +325,16 @@
             // 
             // txtTelefoneContato
             // 
-            this.txtTelefoneContato.Location = new System.Drawing.Point(422, 41);
+            this.txtTelefoneContato.Location = new System.Drawing.Point(419, 46);
             this.txtTelefoneContato.Mask = "(99) 0000-0000";
             this.txtTelefoneContato.Name = "txtTelefoneContato";
             this.txtTelefoneContato.Size = new System.Drawing.Size(85, 20);
-            this.txtTelefoneContato.TabIndex = 54;
+            this.txtTelefoneContato.TabIndex = 15;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(422, 23);
+            this.label16.Location = new System.Drawing.Point(419, 28);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(55, 15);
             this.label16.TabIndex = 53;
@@ -365,29 +343,11 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 23);
+            this.label15.Location = new System.Drawing.Point(13, 28);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(41, 15);
             this.label15.TabIndex = 52;
             this.label15.Text = "Nome";
-            // 
-            // txtDataCadastroContato
-            // 
-            this.txtDataCadastroContato.Location = new System.Drawing.Point(540, 41);
-            this.txtDataCadastroContato.Mask = "00/00/0000";
-            this.txtDataCadastroContato.Name = "txtDataCadastroContato";
-            this.txtDataCadastroContato.Size = new System.Drawing.Size(85, 20);
-            this.txtDataCadastroContato.TabIndex = 51;
-            this.txtDataCadastroContato.ValidatingType = typeof(System.DateTime);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(540, 23);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 15);
-            this.label14.TabIndex = 50;
-            this.label14.Text = "Cadastro";
             // 
             // txtCEP
             // 
@@ -397,7 +357,7 @@
             this.txtCEP.Mask = "000000-000";
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(76, 20);
-            this.txtCEP.TabIndex = 41;
+            this.txtCEP.TabIndex = 6;
             // 
             // txtCNPJ
             // 
@@ -407,7 +367,11 @@
             this.txtCNPJ.Mask = "00000000/0000-00";
             this.txtCNPJ.Name = "txtCNPJ";
             this.txtCNPJ.Size = new System.Drawing.Size(103, 20);
-            this.txtCNPJ.TabIndex = 42;
+            this.txtCNPJ.TabIndex = 4;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmNewSupplier
             // 
@@ -447,6 +411,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,16 +446,13 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNomeContato;
-        private System.Windows.Forms.ComboBox cboStatus;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtEmailContato;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.MaskedTextBox txtTelefoneContato;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.MaskedTextBox txtDataCadastroContato;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.MaskedTextBox txtCEP;
         private System.Windows.Forms.MaskedTextBox txtCNPJ;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -54,8 +54,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtDataVenda = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtEmissao = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtNotaFiscal = new System.Windows.Forms.TextBox();
@@ -119,7 +117,7 @@
             "DINHEIRO",
             "DÉBITO",
             "CRÉDITO"});
-            this.comboBox1.Location = new System.Drawing.Point(571, 66);
+            this.comboBox1.Location = new System.Drawing.Point(293, 124);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(134, 21);
             this.comboBox1.TabIndex = 5;
@@ -127,7 +125,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(437, 69);
+            this.label8.Location = new System.Drawing.Point(159, 127);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 15);
             this.label8.TabIndex = 68;
@@ -158,7 +156,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(594, 137);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(110, 23);
-            this.btnSalvar.TabIndex = 13;
+            this.btnSalvar.TabIndex = 14;
             this.btnSalvar.Text = "Salvar Venda";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -189,7 +187,7 @@
             this.btnExcluirTodos.Location = new System.Drawing.Point(9, 114);
             this.btnExcluirTodos.Name = "btnExcluirTodos";
             this.btnExcluirTodos.Size = new System.Drawing.Size(98, 23);
-            this.btnExcluirTodos.TabIndex = 12;
+            this.btnExcluirTodos.TabIndex = 13;
             this.btnExcluirTodos.Text = "Excluir Todos";
             this.btnExcluirTodos.UseVisualStyleBackColor = true;
             this.btnExcluirTodos.Click += new System.EventHandler(this.btnExcluirTodos_Click);
@@ -199,7 +197,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(19, 44);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 11;
+            this.btnExcluir.TabIndex = 12;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
@@ -209,7 +207,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(19, 15);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 10;
+            this.btnAlterar.TabIndex = 11;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             // 
@@ -238,7 +236,7 @@
             this.btnLimpar.Location = new System.Drawing.Point(710, 194);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpar.TabIndex = 9;
+            this.btnLimpar.TabIndex = 10;
             this.btnLimpar.Text = "Limpar";
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
@@ -248,7 +246,7 @@
             this.btnAdcionar.Location = new System.Drawing.Point(710, 165);
             this.btnAdcionar.Name = "btnAdcionar";
             this.btnAdcionar.Size = new System.Drawing.Size(75, 23);
-            this.btnAdcionar.TabIndex = 8;
+            this.btnAdcionar.TabIndex = 9;
             this.btnAdcionar.Text = "Adicionar";
             this.btnAdcionar.UseVisualStyleBackColor = true;
             this.btnAdcionar.Click += new System.EventHandler(this.button1_Click);
@@ -261,6 +259,7 @@
             this.cboFuncionario.Name = "cboFuncionario";
             this.cboFuncionario.Size = new System.Drawing.Size(265, 21);
             this.cboFuncionario.TabIndex = 1;
+            this.cboFuncionario.Validating += new System.ComponentModel.CancelEventHandler(this.cboFuncionario_Validating);
             // 
             // txtQuantidade
             // 
@@ -268,6 +267,7 @@
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(74, 20);
             this.txtQuantidade.TabIndex = 6;
+            this.txtQuantidade.Validating += new System.ComponentModel.CancelEventHandler(this.txtQuantidade_Validating);
             // 
             // label6
             // 
@@ -305,24 +305,6 @@
             this.label4.TabIndex = 51;
             this.label4.Text = "Data de Venda";
             // 
-            // txtEmissao
-            // 
-            this.txtEmissao.Location = new System.Drawing.Point(347, 69);
-            this.txtEmissao.Mask = "00/00/0000";
-            this.txtEmissao.Name = "txtEmissao";
-            this.txtEmissao.Size = new System.Drawing.Size(74, 20);
-            this.txtEmissao.TabIndex = 4;
-            this.txtEmissao.ValidatingType = typeof(System.DateTime);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(240, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 15);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "Data de Emissão";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -338,15 +320,15 @@
             // 
             // txtNotaFiscal
             // 
-            this.txtNotaFiscal.Location = new System.Drawing.Point(296, 122);
+            this.txtNotaFiscal.Location = new System.Drawing.Point(365, 66);
             this.txtNotaFiscal.Name = "txtNotaFiscal";
             this.txtNotaFiscal.Size = new System.Drawing.Size(205, 20);
-            this.txtNotaFiscal.TabIndex = 74;
+            this.txtNotaFiscal.TabIndex = 8;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(167, 125);
+            this.label11.Location = new System.Drawing.Point(236, 69);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(123, 15);
             this.label11.TabIndex = 75;
@@ -429,8 +411,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtDataVenda);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtEmissao);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "frmNewSale";
             this.Text = "Cadastro de Venda";
@@ -469,8 +449,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MaskedTextBox txtDataVenda;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox txtEmissao;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ComboBox cboCliente;

@@ -51,21 +51,22 @@ namespace ControlSystem
                 }
             }
 
-            
+
         }
 
-        public static Boolean validarCampos(System.Windows.Forms.Control ctrControl)
+        public static Boolean validarCampo(System.Windows.Forms.Control parent)
         {
 
             bool validado = true;
 
 
-                //Loop through all controls 
+            //Loop through all controls 
+            foreach (System.Windows.Forms.Control ctrControl in parent.Controls)
+            {
                 if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.TextBox)))
                 {
                     if (((System.Windows.Forms.TextBox)ctrControl).Text == string.Empty)
                         validado = false;
-                    
                 }
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.RichTextBox)))
                 {
@@ -74,7 +75,7 @@ namespace ControlSystem
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.ComboBox)))
                 {
                     if (((System.Windows.Forms.ComboBox)ctrControl).SelectedIndex == null)
-                        validado = false;                   
+                        validado = false;
                 }
                 else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.CheckBox)))
                 {
@@ -94,9 +95,51 @@ namespace ControlSystem
                     if (((System.Windows.Forms.MaskedTextBox)ctrControl).Text == "  /  /")
                         validado = false;
                 }
+            }
+            return validado;
+        }
+
+        public static Boolean validarCampos(System.Windows.Forms.Control ctrControl)
+        {
+
+            bool validado = true;
 
 
-                return validado;
+            //Loop through all controls 
+            if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.TextBox)))
+            {
+                if (((System.Windows.Forms.TextBox)ctrControl).Text == string.Empty)
+                    validado = false;
+            }
+            else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.RichTextBox)))
+            {
+                validado = true;
+            }
+            else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.ComboBox)))
+            {
+                if (((System.Windows.Forms.ComboBox)ctrControl).SelectedIndex == null)
+                    validado = false;
+            }
+            else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.CheckBox)))
+            {
+                if (((System.Windows.Forms.CheckBox)ctrControl).Checked == false)
+                    validado = false;
+            }
+            else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.RadioButton)))
+            {
+                //Unselect all RadioButtons
+                validado = true;
+            }
+            else if (object.ReferenceEquals(ctrControl.GetType(), typeof(System.Windows.Forms.MaskedTextBox)))
+            {
+                //valida telefone
+                if (((System.Windows.Forms.MaskedTextBox)ctrControl).Text == string.Empty)
+                    validado = false;
+                if (((System.Windows.Forms.MaskedTextBox)ctrControl).Text == "  /  /")
+                    validado = false;
+            }
+
+            return validado;
         }
 
         private void InitializeComponent()

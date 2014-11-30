@@ -33,10 +33,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.loteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bntSalvar = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.txtCodigoLoja = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtEstoqueMinimo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEstoqueMaximo = new System.Windows.Forms.TextBox();
@@ -63,7 +59,7 @@
             this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.loteBindingSource, "id", true));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(356, 81);
+            this.comboBox1.Location = new System.Drawing.Point(357, 75);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(269, 21);
             this.comboBox1.TabIndex = 2;
@@ -82,46 +78,9 @@
             this.bntSalvar.UseVisualStyleBackColor = true;
             this.bntSalvar.Click += new System.EventHandler(this.bntSalvar_Click);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(292, 178);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 15);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Status";
-            // 
-            // cboStatus
-            // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "0 - INATIVO",
-            "1 - ATIVO"});
-            this.cboStatus.Location = new System.Drawing.Point(356, 175);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(83, 21);
-            this.cboStatus.TabIndex = 17;
-            // 
-            // txtCodigoLoja
-            // 
-            this.txtCodigoLoja.Location = new System.Drawing.Point(356, 51);
-            this.txtCodigoLoja.Name = "txtCodigoLoja";
-            this.txtCodigoLoja.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoLoja.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(237, 54);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 15);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Código Loja";
-            // 
             // txtEstoqueMinimo
             // 
-            this.txtEstoqueMinimo.Location = new System.Drawing.Point(356, 141);
+            this.txtEstoqueMinimo.Location = new System.Drawing.Point(357, 135);
             this.txtEstoqueMinimo.Name = "txtEstoqueMinimo";
             this.txtEstoqueMinimo.Size = new System.Drawing.Size(83, 20);
             this.txtEstoqueMinimo.TabIndex = 5;
@@ -129,7 +88,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(213, 144);
+            this.label7.Location = new System.Drawing.Point(214, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 15);
             this.label7.TabIndex = 12;
@@ -137,7 +96,7 @@
             // 
             // txtEstoqueMaximo
             // 
-            this.txtEstoqueMaximo.Location = new System.Drawing.Point(551, 141);
+            this.txtEstoqueMaximo.Location = new System.Drawing.Point(552, 135);
             this.txtEstoqueMaximo.Name = "txtEstoqueMaximo";
             this.txtEstoqueMaximo.Size = new System.Drawing.Size(83, 20);
             this.txtEstoqueMaximo.TabIndex = 4;
@@ -145,7 +104,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(445, 144);
+            this.label5.Location = new System.Drawing.Point(446, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 15);
             this.label5.TabIndex = 8;
@@ -153,7 +112,7 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Location = new System.Drawing.Point(356, 113);
+            this.txtQuantidade.Location = new System.Drawing.Point(357, 107);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(66, 20);
             this.txtQuantidade.TabIndex = 3;
@@ -161,7 +120,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(239, 116);
+            this.label2.Location = new System.Drawing.Point(240, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 15);
             this.label2.TabIndex = 1;
@@ -170,7 +129,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(233, 84);
+            this.label1.Location = new System.Drawing.Point(234, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 15);
             this.label1.TabIndex = 0;
@@ -185,10 +144,6 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.bntSalvar);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.cboStatus);
-            this.Controls.Add(this.txtCodigoLoja);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtEstoqueMinimo);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEstoqueMaximo);
@@ -197,7 +152,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmNewStock";
-            this.Text = "Cadastro do Estoque";
+            this.Text = "Cadastrar Estoque";
             this.Load += new System.EventHandler(this.frmNewStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.loteBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -214,10 +169,6 @@
         private System.Windows.Forms.TextBox txtEstoqueMaximo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEstoqueMinimo;
-        private System.Windows.Forms.TextBox txtCodigoLoja;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cboStatus;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button bntSalvar;
         private System.Windows.Forms.ComboBox comboBox1;

@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cboUF = new System.Windows.Forms.ComboBox();
-            this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtCPF = new System.Windows.Forms.MaskedTextBox();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.txtNascimento = new System.Windows.Forms.MaskedTextBox();
@@ -56,12 +57,35 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.estadosBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Items.AddRange(new object[] {
+            "0 - INATIVO",
+            "1 - ATIVO"});
+            this.cboStatus.Location = new System.Drawing.Point(190, 219);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(138, 21);
+            this.cboStatus.TabIndex = 12;
+            this.cboStatus.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(190, 201);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 15);
+            this.label2.TabIndex = 66;
+            this.label2.Text = "Status";
             // 
             // cboUF
             // 
@@ -72,10 +96,6 @@
             this.cboUF.Name = "cboUF";
             this.cboUF.Size = new System.Drawing.Size(49, 21);
             this.cboUF.TabIndex = 8;
-            // 
-            // estadosBindingSource
-            // 
-            this.estadosBindingSource.DataSource = typeof(ControlSystem.estados);
             // 
             // txtCPF
             // 
@@ -137,6 +157,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(240, 20);
             this.txtEmail.TabIndex = 9;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // label14
             // 
@@ -263,6 +284,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(240, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.Validating += new System.ComponentModel.CancelEventHandler(this.txtNome_Validating);
             // 
             // label3
             // 
@@ -290,27 +312,13 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Matrícula";
             // 
-            // cboStatus
+            // errorProvider1
             // 
-            this.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Items.AddRange(new object[] {
-            "0 - INATIVO",
-            "1 - ATIVO"});
-            this.cboStatus.Location = new System.Drawing.Point(190, 219);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(138, 21);
-            this.cboStatus.TabIndex = 12;
-            this.cboStatus.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.errorProvider1.ContainerControl = this;
             // 
-            // label2
+            // estadosBindingSource
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(190, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 15);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "Status";
+            this.estadosBindingSource.DataSource = typeof(ControlSystem.estados);
             // 
             // estadosBindingSource1
             // 
@@ -352,6 +360,7 @@
             this.Name = "frmNewEmployee";
             this.Text = "Cadastro de Funcionário";
             this.Load += new System.EventHandler(this.frmNewEmployee_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -391,6 +400,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboStatus;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
 
     }
 }
