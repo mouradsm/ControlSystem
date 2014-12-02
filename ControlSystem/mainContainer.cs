@@ -136,5 +136,10 @@ namespace ControlSystem
             novaDevolucao.WindowState = FormWindowState.Maximized;
         }
 
+        private void gerenciarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
