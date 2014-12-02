@@ -141,5 +141,10 @@ namespace ControlSystem
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            stHora.Text = DateTime.Now.ToString();
+        }
+
     }
 }
