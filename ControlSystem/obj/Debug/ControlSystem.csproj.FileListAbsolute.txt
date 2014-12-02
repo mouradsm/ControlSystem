@@ -31,3 +31,4 @@ C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.application
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmNewBatch.resources
 C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.csprojResolveAssemblyReference.cache
+C:\Users\Diego\documents\visual studio 2012\Projects\ControlSystem\ControlSystem\obj\Debug\ControlSystem.frmReportCliente.resources

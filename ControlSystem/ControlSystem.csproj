@@ -209,6 +209,12 @@
     <Compile Include="frmPurchase.Designer.cs">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportCliente.Designer.cs">
+      <DependentUpon>frmReportCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStockReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     <EmbeddedResource Include="frmPurchase.resx">
       <DependentUpon>frmPurchase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportCliente.resx">
+      <DependentUpon>frmReportCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmStockReport.resx">
       <DependentUpon>frmStockReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,7 +333,9 @@
       <LastGenOutput>CSCModel.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\cliente.datasource" />
     <None Include="Properties\DataSources\compra.datasource" />
+    <None Include="Properties\DataSources\endereco.datasource" />
     <None Include="Properties\DataSources\estados.datasource" />
     <None Include="Properties\DataSources\fornecedor.datasource" />
     <None Include="Properties\DataSources\item_compra.datasource" />
