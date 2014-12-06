@@ -146,5 +146,15 @@ namespace ControlSystem
             stHora.Text = DateTime.Now.ToString();
         }
 
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportCliente relatorioCliente = new frmReportCliente();
+
+            relatorioCliente.MdiParent = this;
+            relatorioCliente.Show();
+
+            relatorioCliente.WindowState = FormWindowState.Maximized;
+        }
+
     }
 }

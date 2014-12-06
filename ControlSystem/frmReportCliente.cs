@@ -16,5 +16,10 @@ namespace ControlSystem
         {
             InitializeComponent();
         }
+
+        private void frmReportCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
