@@ -55,8 +55,6 @@ namespace ControlSystem
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             if (listView1.SelectedItems.Count == 0) return;
 
             toInsert = true;
@@ -88,8 +86,10 @@ namespace ControlSystem
             cboPerfil.SelectedIndex = Convert.ToInt32(item[3].Text);
 
             //LIMPA O INDICE PARA QUE SEJA POSSÍVEL SELECIONAR NOVAMENTE.   
-            listView3.SelectedIndices.Clear();
+            //listView3.SelectedIndices.Clear();
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -182,7 +182,7 @@ namespace ControlSystem
                 {
 
                 
-                string login = listView1.SelectedItems[0].SubItems[4].ToString();
+                string login = listView3.SelectedItems[0].SubItems[4].ToString();
 
                 var loginToDelete = (from u in db.usuario
                                     where u.login == login
